@@ -16,7 +16,7 @@
 	<h1></h1>
 	
 	<form method="POST" action="/demo/hver">
-		Hvað heitirðu
+		Hvað heitiru
 		<input name="nafn" type="text"> 
 		<input type="submit" value="í lagi">
 	</form>
