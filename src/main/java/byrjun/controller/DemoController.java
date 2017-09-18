@@ -33,7 +33,7 @@ public class DemoController {
     
     @RequestMapping("/spyrjaNotanda")
     public String spyrjaNotandi(){
-    	return "demo/hvadaNotandi";
+    	return "demo/skraningarform";
     }
     
     /*
@@ -45,7 +45,7 @@ public class DemoController {
     @RequestMapping(value="/hver", method=RequestMethod.POST)
     public String hver(@RequestParam(value="nafn", required=false) String nafn, ModelMap model){
     	model.addAttribute("nafn", nafn);
-    	return "demo/synaNotandi";
+    	return "demo/stadfesting";
     }
 
 }
