@@ -1,5 +1,7 @@
 package byrjun.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -23,6 +25,8 @@ import byrjun.services.ValidationService;
 @Controller
 @RequestMapping("/") // Request Mapping. The Path begins with / for every method calls. 
 public class DemoController {
+	
+	
 
 	//Connection to a service class for the shifter app. 
 	@Autowired
@@ -54,11 +58,11 @@ public class DemoController {
     @RequestMapping(value="/employeeInfo", method=RequestMethod.POST)
     public String employeeInfo(
     		@RequestParam(value="name", required=false) String name, 
-    		@RequestParam(value="date", required=false) Date date, 
+    		@RequestParam(value="date", required=false) String date, 
     		@RequestParam(value="email", required=false) String email, 
     		@RequestParam(value="employeeType", required=false) String employeeType, 
     		@RequestParam(value="size", required=false) String size, 
-    		ModelMap model){
+    		ModelMap model) throws ParseException{
     
     	if(validationService.nameOnCorrectForm(name) && validationService.emailOnCorrectForm(email)) {
     		Employee e = new Employee(name ,date, email, employeeType, size);

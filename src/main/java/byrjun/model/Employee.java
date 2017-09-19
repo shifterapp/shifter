@@ -1,6 +1,10 @@
 package byrjun.model;
 
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * The class holds information about an employee in the system.
@@ -13,11 +17,13 @@ public class Employee {
 	private String email;
 	private String type;
 	private String size;
-	private Date date;
+	private LocalDate date;
 	
-	public Employee(String name,Date date, String email, String type, String size) {
+	
+	public Employee(String name,String date, String email, String type, String size) throws ParseException {
 		this.name = name;
-		this.setDate(date);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
+		this.setDate(LocalDate.parse(date, formatter));
 		this.email = email;
 		this.type = type;
 		this.size = size;
@@ -31,14 +37,7 @@ public class Employee {
 		this.name = name;
 	}
 	
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
+	
 	
 	public String getEmail() {
 		return email;
@@ -63,6 +62,16 @@ public class Employee {
 	public void setSize(String size) {
 		this.size = size;
 	}
+
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+	
 
 
 }
