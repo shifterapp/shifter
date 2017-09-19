@@ -12,7 +12,7 @@ public class Employee {
 	private String type;
 	private String size;
 	
-	public Employee(String name, String email, String type, String size, int age) {
+	public Employee(String name, String email, String type, String size) {
 		this.name = name;
 		this.email = email;
 		this.type = type;
