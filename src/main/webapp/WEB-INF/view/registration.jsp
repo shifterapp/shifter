@@ -18,7 +18,7 @@
 	 <form action = "/employeeInfo" method = "POST" ">
          Nafn: <input type = "text" name = "name">
          <br />
-         Aldur: <input type = "date" name = "date">
+         Fæğingar ár: <input type="date" name = "date">
          <br />
          Email: <input type = "text" name = "email"/>
          <br />
