@@ -63,6 +63,14 @@ public class DemoController {
     		model.addAttribute("employee", e);
     		employeeRep.add(e);
     		return "/confirmation";
+    	} else if (!validationService.nameOnCorrectForm(name)) {
+    		String errorMessage = "Nafn á röngu formi.";
+    		model.addAttribute("errorMessage", errorMessage);
+    		return "/registration";
+    	} else if (!validationService.emailOnCorrectForm(email)) {
+    		String errorMessage = "Email á röngu formi.";
+    		model.addAttribute("errorMessage", errorMessage);
+    		return "/registration";
     	} else {
     		model.addAttribute("name", name);
     		return "/errorMessage";

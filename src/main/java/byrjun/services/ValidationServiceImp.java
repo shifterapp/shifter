@@ -17,10 +17,12 @@ public class ValidationServiceImp implements ValidationService {
 	
 	@Override
 	public boolean nameOnCorrectForm(String name) {
+		// TODO implementa þetta fall
 		return true;
 	}
 	@Override
 	public boolean emailOnCorrectForm(String name) {
+		// TODO implementa þetta fall
 		return true;
 	}
 	
