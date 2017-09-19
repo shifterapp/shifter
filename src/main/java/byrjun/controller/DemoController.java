@@ -64,7 +64,7 @@ public class DemoController {
     		employeeRep.add(e);
     		return "/confirmation";
     	} else if (!validationService.nameOnCorrectForm(name)) {
-    		String errorMessage = "Nafn á röngu formi.";
+    		String errorMessage = "Vinsamlegast tilgreindu fullt nafn.";
     		model.addAttribute("errorMessage", errorMessage);
     		return "/registration";
     	} else if (!validationService.emailOnCorrectForm(email)) {
