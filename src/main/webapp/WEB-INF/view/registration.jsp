@@ -14,6 +14,7 @@
 </head>
 <body>
 	<h1></h1>
+	<h2>${errorMessage}</h2>
 	 <form action = "/employeeInfo" method = "POST" ">
          Nafn: <input type = "text" name = "name">
          <br />
