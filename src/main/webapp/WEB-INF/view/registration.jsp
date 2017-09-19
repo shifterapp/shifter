@@ -15,21 +15,21 @@
 <body>
 	<h1></h1>
 	<h2>${errorMessage}</h2>
-	 <form action = "/employeeInfo" method = "POST" ">
-         Nafn: <input type = "text" name = "name">
+	 <form action = "/employeeInfo" method = "POST" >
+         Nafn: <input type = "text" name = "name" value = "${name}">
          <br />
-         Fæðingar ár: <input type="date" name = "date">
+         Fæðingar ár: <input type="date" name = "date" value = "${date}">
          <br />
-         Email: <input type = "text" name = "email"/>
-         <br />
-         Starfstitill: <select id="employeeType" name="employeeType">
+         Email: <input type = "text" name = "email" value= "${email}"/>
+         
+         Starfstitill: <select id="employeeType" name="employeeType" >
   		 <option value="Gæsla">Gæsla</option>
   		 <option value="Sjúkgragæsla">Sjúkragæsla</option>
   		 <option value="Barþjónn">Barþjónn</option>
   		 <option value="Miðasala">Miðasala</option>
 		</select>
 		<br/>
-		Bolastærð: <select id="size" name="size">
+		Bolastærð: <select id="size" name="size" >
   		 <option value="XS">Extra Small</option>
   		 <option value="S">Small</option>
   		 <option value="M">Medium</option>
