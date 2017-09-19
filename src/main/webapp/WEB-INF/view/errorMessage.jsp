@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<h1>góðan daginn ${nafn}</h1>
-
+	<h1>Skráning tókst ekki.</h1>
+	
 </body>
 </html>
