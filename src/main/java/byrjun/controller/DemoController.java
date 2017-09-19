@@ -18,7 +18,7 @@ import byrjun.services.ValidationService;
  * Byrjunarcontroller sem stýrir hvað er gert þegar notandi eða viðmót
  * setur inn skipun 
  */
-
+ 
 @Controller
 @RequestMapping("/") // Request Mapping. The Path begins with / for every method calls. 
 public class DemoController {
