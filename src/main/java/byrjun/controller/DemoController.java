@@ -1,6 +1,7 @@
 package byrjun.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,13 +54,14 @@ public class DemoController {
     @RequestMapping(value="/employeeInfo", method=RequestMethod.POST)
     public String employeeInfo(
     		@RequestParam(value="name", required=false) String name, 
+    		@RequestParam(value="date", required=false) Date date, 
     		@RequestParam(value="email", required=false) String email, 
     		@RequestParam(value="employeeType", required=false) String employeeType, 
     		@RequestParam(value="size", required=false) String size, 
     		ModelMap model){
     
     	if(validationService.nameOnCorrectForm(name) && validationService.emailOnCorrectForm(email)) {
-    		Employee e = new Employee(name , email, employeeType, size);
+    		Employee e = new Employee(name ,date, email, employeeType, size);
     		model.addAttribute("employee", e);
     		employeeRep.add(e);
     		return "/confirmation";
