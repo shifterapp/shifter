@@ -20,7 +20,7 @@
          <br />
          Fæðingar ár: <input type="date" name = "date">
          <br />
-         Email: <input type = "text" name = "email">
+         Email: <input type = "text" name = "email"/>
          <br />
          Starfstitill: <select id="employeeType" name="employeeType">
   		 <option value="Gæsla" ${paramValues.employeeType.stream().anyMatch(v->v == 'Gæsla').get() ? 'selected' : ''} >Gæsla</option>
