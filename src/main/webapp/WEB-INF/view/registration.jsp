@@ -16,11 +16,11 @@
 	<h1></h1>
 	<h2>${errorMessage}</h2>
 	 <form action = "/employeeInfo" method = "POST" >
-         Nafn: <input type = "text" name = "name" value = "${name}">
+         Nafn: <input type = "text" name = "name" value = "${param.name}">
          <br />
-         Fæðingar ár: <input type="date" name = "date" value = "${date}">
+         Fæðingar ár: <input type="date" name = "date" value = "${param.date}">
          <br />
-         Email: <input type = "text" name = "email" value ="${email}" />
+         Email: <input type = "text" name = "email" value ="${param.email}" />
          <br />
          Starfstitill: <select id="employeeType" name="employeeType">
   		 <option value="Gæsla" ${paramValues.employeeType.stream().anyMatch(v->v == 'Gæsla').get() ? 'selected' : ''} >Gæsla</option>
@@ -29,6 +29,7 @@
   		 <option value="Miðasala" ${paramValues.employeeType.stream().anyMatch(v->v == 'Miðasala').get() ? 'selected' : ''} >Miðasala</option>
 		</select>
 		<br/>
+		
 		Bolastærð: <select id="size" name="size">
   		 <option value="XS" ${paramValues.size.stream().anyMatch(v->v == 'XS').get() ? 'selected' : ''}>Extra Small</option>
   		 <option value="S" ${paramValues.size.stream().anyMatch(v->v == 'S').get() ? 'selected' : ''}>Small</option>

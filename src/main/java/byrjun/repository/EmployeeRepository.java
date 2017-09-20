@@ -2,10 +2,14 @@ package byrjun.repository;
 
 import java.util.List;
 
+
+
 /**
  * The class holds information about all employees in the app.
  * @author Hópur 2
  * @date September 2017
+ * HBV 501G Hugbúnaðarverkefni
+ * Háskóli Íslands
  */
 
 import byrjun.model.Employee;

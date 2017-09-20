@@ -8,11 +8,11 @@
 <html lang="is">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Góðan daginn</title>
+<title>Úps!</title>
 </head>
 <body>
 
-	<h1>Skráning tókst ekki.</h1>
+	<h1>404! Þessi síða er ekki til.</h1>
 	
 </body>
 </html>

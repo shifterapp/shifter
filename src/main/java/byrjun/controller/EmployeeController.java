@@ -18,16 +18,19 @@ import byrjun.repository.EmployeeRepository;
 import byrjun.services.ValidationService;
 
 /**
- * Byrjunarcontroller sem stýrir hvað er gert þegar notandi eða viðmót
- * setur inn skipun 
+ * Controller that controls what happens when user or the interface sends commands which concerns
+ * the user registration. 
+ * 
+ * @author Hópur 2: Arnar Már, Jón Ágúst, Markús Freyr og Sigrún Dís
+ * @date September 2017
+ * HBV 501G Hugbúnaðarverkefni
+ * Háskóli Íslands
  */
  
 @Controller
 @RequestMapping("/") // Request Mapping. The Path begins with / for every method calls. 
-public class DemoController {
+public class EmployeeController {
 	
-	
-
 	//Connection to a service class for the shifter app. 
 	@Autowired
 	ValidationService validationService;
@@ -38,22 +41,22 @@ public class DemoController {
 	
     /*
      * Asks for input values.
-     * @return
+     * @return /registration view.
      */
     @RequestMapping("/")
     public String requestInputValues() {
     	return "/registration";
     }
    
-    /*
+    /**
      * Takes in information about the employee and displays it.
      * @param name name of the employee
-     * @param email the employees email
-     * @param employeeType the type of the employee
-     * @param size the employees t shirt size
-     * @param model 
-     * @return returns confirmation page if the input values are on the correct form but error message
-     * otherwise.
+     * @param email the employee's email
+     * @param employeeType the role of the employee on the event.
+     * @param size the employee's t shirt size
+     * @param model model for "communication" to the view
+     * @return returns confirmation page if the input values are on the correct form but the registration page with
+     * error message otherwise.
      */
     @RequestMapping(value="/employeeInfo", method=RequestMethod.POST)
     public String employeeInfo(
@@ -69,33 +72,12 @@ public class DemoController {
     		model.addAttribute("employee", e);
     		employeeRep.add(e);
     		return "/confirmation";
-    	} else if (!validationService.nameOnCorrectForm(name)) {
-    		String errorMessage = "Vinsamlegast tilgreindu fullt nafn.";
+    	}  else {
+    		String errorMessage = validationService.getErrorMessage(name, email, date);
     		model.addAttribute("errorMessage", errorMessage); 
-    		model.addAttribute("name", name);
-    		model.addAttribute("email", email);
-    		model.addAttribute("date", date);
     		return "/registration";
-    	} else if (!validationService.emailOnCorrectForm(email)) {
-    		String errorMessage = "Email á röngu formi.";
-    		model.addAttribute("errorMessage", errorMessage);
-    		model.addAttribute("name", name);
-    		model.addAttribute("email", email);
-    		model.addAttribute("date", date);
-    		return "/registration";
-    	} else if (!validationService.dateNotEmpty(date)) {
-    		String errorMessage = "Vinsamlegast fylltu út fæðingardag.";
-    		model.addAttribute("errorMessage", errorMessage);
-    		model.addAttribute("name", name);
-    		model.addAttribute("email", email);
-    		model.addAttribute("date", date);
-    		return "/registration";
-    	} else {
-    		model.addAttribute("name", name);
-    		return "/errorMessage";
     	}
     }
-    
     
     /**
      * Displays list of employees

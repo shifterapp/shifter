@@ -10,10 +10,18 @@ import org.springframework.stereotype.Service;
 import byrjun.model.Employee;
 import byrjun.repository.EmployeeRepository;
 
+/**
+ * Implementation for the ValidationService class. 
+ * @author Hópur 2: Arnar Már, Jón Ágúst, Markús Freyr og Sigrún Dís
+ * @date September 2017
+ * HBV 501G Hugbúnaðarverkefni
+ * Háskóli Íslands
+ */
+
 @Service
 public class ValidationServiceImp implements ValidationService {
 	
-	private static final String emailPattern =
+	private static final String EMAIL_PATTERN =
 			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 	
@@ -30,9 +38,10 @@ public class ValidationServiceImp implements ValidationService {
 		else {
 			return true;}
 	}
+	
 	@Override
 	public boolean emailOnCorrectForm(String email) {
-		 Pattern p = Pattern.compile(emailPattern);
+		 Pattern p = Pattern.compile(EMAIL_PATTERN);
 	     Matcher m = p.matcher(email);
 	     if(!m.find()) {
 	    	 return false;
@@ -49,8 +58,23 @@ public class ValidationServiceImp implements ValidationService {
 		} else {
 			return true;
 		}
-		
 	}
+	
+	@Override 
+	public String getErrorMessage(String name,String email,String date) {
+	String errorMessage = "";
+	if(!nameOnCorrectForm(name)) {
+		errorMessage += "Vinsamlegast skráðu fullt nafn. <br/>";
+	}
+	if(!emailOnCorrectForm(email)) {
+		errorMessage += "Athugaðu að netfangið sé á réttu formi. <br/>";
+	}
+	if(!dateNotEmpty(date)) {
+		errorMessage += "Vinsamlegast fylltu inn fæðingardag. <br/>";
+	}
+	return errorMessage;
+	}
+	
 	
 	@Override
 	public void addEmployee (Employee e) {

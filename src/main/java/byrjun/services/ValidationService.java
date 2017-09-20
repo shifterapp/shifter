@@ -5,11 +5,13 @@ import java.util.List;
 import byrjun.model.Employee;
 
 /**
-*@author Hópur 2 
-*@date september 2017
-*HBV 501G Hugbúnaðarverkefni
-*Háskóli Íslands
-*/
+ * 
+ * Service class that includes methods that do validation checks.
+ * @author Hópur 2 
+ * @date september 2017
+ * HBV 501G Hugbúnaðarverkefni
+ * Háskóli Íslands
+ */
 
 public interface ValidationService {
 	
@@ -28,11 +30,18 @@ public interface ValidationService {
 	public boolean emailOnCorrectForm(String email);
 	
 	/**
-	 * Checks if the user doesn't add date of birth
+	 * Checks if the user does add date of birth
 	 * @param date
 	 * @retun
 	 */
 	public boolean dateNotEmpty(String date);
+	
+	/**
+	 * Returns error message depended on witch input values are on the
+	 * incorrect form.
+	 * @return Error message string.
+	 */
+	public String getErrorMessage(String name,String email,String date);
 	
 	/**
 	 * Adds employee to the employeeRepository.
