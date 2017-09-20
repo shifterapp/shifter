@@ -36,7 +36,10 @@ public class Employee {
 	public void setName(String name) {
 		this.name = name;
 	}
+<<<<<<< HEAD
 		
+=======
+>>>>>>> master
 	
 	public String getEmail() {
 		return email;
