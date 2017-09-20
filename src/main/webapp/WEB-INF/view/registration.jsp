@@ -20,23 +20,23 @@
          <br />
          Fæðingar ár: <input type="date" name = "date" value = "${date}">
          <br />
-         Email: <input type = "text" name = "email" value= "${email}"/>
-         
-         Starfstitill: <select id="employeeType" name="employeeType" >
-  		 <option value="Gæsla">Gæsla</option>
-  		 <option value="Sjúkgragæsla">Sjúkragæsla</option>
-  		 <option value="Barþjónn">Barþjónn</option>
-  		 <option value="Miðasala">Miðasala</option>
+         Email: <input type = "text" name = "email" value ="${email}" />
+         <br />
+         Starfstitill: <select id="employeeType" name="employeeType">
+  		 <option value="Gæsla" ${paramValues.employeeType.stream().anyMatch(v->v == 'Gæsla').get() ? 'selected' : ''} >Gæsla</option>
+  		 <option value="Sjúkgragæsla" ${paramValues.employeeType.stream().anyMatch(v->v == 'Sjúkgragæsla').get() ? 'selected' : ''} >Sjúkragæsla</option>
+  		 <option value="Barþjónn" ${paramValues.employeeType.stream().anyMatch(v->v == 'Barþjónn').get() ? 'selected' : ''} >Barþjónn</option>
+  		 <option value="Miðasala" ${paramValues.employeeType.stream().anyMatch(v->v == 'Miðasala').get() ? 'selected' : ''} >Miðasala</option>
 		</select>
 		<br/>
-		Bolastærð: <select id="size" name="size" >
-  		 <option value="XS">Extra Small</option>
-  		 <option value="S">Small</option>
-  		 <option value="M">Medium</option>
-  		 <option value="L">Large</option>
-  		 <option value="XL">Extra Large</option>
-  		 <option value="XXL">Extra Extra Large</option>
-  		 <option value="XXXL">Extra Extra Extra Large</option>
+		Bolastærð: <select id="size" name="size">
+  		 <option value="XS" ${paramValues.size.stream().anyMatch(v->v == 'XS').get() ? 'selected' : ''}>Extra Small</option>
+  		 <option value="S" ${paramValues.size.stream().anyMatch(v->v == 'S').get() ? 'selected' : ''}>Small</option>
+  		 <option value="M" ${paramValues.size.stream().anyMatch(v->v == 'M').get() ? 'selected' : ''}>Medium</option>
+  		 <option value="L" ${paramValues.size.stream().anyMatch(v->v == 'L').get() ? 'selected' : ''}>Large</option>
+  		 <option value="XL" ${paramValues.size.stream().anyMatch(v->v == 'XL').get() ? 'selected' : ''}>Extra Large</option>
+  		 <option value="XXL" ${paramValues.size.stream().anyMatch(v->v == 'XXL').get() ? 'selected' : ''}>Extra Extra Large</option>
+  		 <option value="XXXL" ${paramValues.size.stream().anyMatch(v->v == 'XXXL').get() ? 'selected' : ''}>Extra Extra Extra Large</option>
 		</select>
 		<br/>
          <input type = "submit" value = "Submit" />
