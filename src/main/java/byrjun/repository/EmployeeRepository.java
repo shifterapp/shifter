@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * The class holds information about all employees in the app.
- * @author Hópur 2
+ * @author Teymi 7: Arnar Már, Jón Ágúst, Markús Freyr og Sigrún Dís
  * @date September 2017
  * HBV 501G Hugbúnaðarverkefni
  * Háskóli Íslands
@@ -18,7 +18,7 @@ public interface EmployeeRepository {
 	
 	/**
 	 * Returns all employees in the app.
-	 * @return all employees.
+	 * @return list of all employees.
 	 */
 	List <Employee> getAll();
 	

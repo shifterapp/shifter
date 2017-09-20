@@ -12,7 +12,7 @@ import byrjun.repository.EmployeeRepository;
 
 /**
  * Implementation for the ValidationService class. 
- * @author Hópur 2: Arnar Már, Jón Ágúst, Markús Freyr og Sigrún Dís
+ * @author Teymi 7: Arnar Már, Jón Ágúst, Markús Freyr og Sigrún Dís
  * @date September 2017
  * HBV 501G Hugbúnaðarverkefni
  * Háskóli Íslands

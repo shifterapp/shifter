@@ -7,7 +7,7 @@ import byrjun.model.Employee;
 /**
  * 
  * Service class that includes methods that do validation checks.
- * @author Hópur 2 
+ * @author Teymi 7: Arnar Már, Jón Ágúst, Markús Freyr og Sigrún Dís
  * @date september 2017
  * HBV 501G Hugbúnaðarverkefni
  * Háskóli Íslands
@@ -32,7 +32,7 @@ public interface ValidationService {
 	/**
 	 * Checks if the user does add date of birth
 	 * @param date
-	 * @retun
+	 * @retun returns true if date is not empty.
 	 */
 	public boolean dateNotEmpty(String date);
 	
@@ -51,7 +51,7 @@ public interface ValidationService {
 	
 	/**
 	 * Returns all employees in the employeeRepository.
-	 * @returns all employees in the employeeRepository.
+	 * @returns list of employees in the employeeRepository.
 	 */
 	public List<Employee> allEmployees();
 
