@@ -27,5 +27,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Users/markusfreyr/Documents/Verkefni/email/javaee.jar"/>
+	<classpathentry kind="lib" path="/Users/markusfreyr/Documents/Verkefni/email/activation.jar"/>
+	<classpathentry kind="lib" path="/Users/markusfreyr/Documents/Verkefni/email/mail.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
