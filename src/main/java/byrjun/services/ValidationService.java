@@ -28,6 +28,13 @@ public interface ValidationService {
 	public boolean emailOnCorrectForm(String email);
 	
 	/**
+	 * Checks if the user doesn't add date of birth
+	 * @param date
+	 * @retun
+	 */
+	public boolean dateNotEmpty(String date);
+	
+	/**
 	 * Adds employee to the employeeRepository.
 	 * @param Employee
 	 */

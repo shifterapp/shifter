@@ -43,6 +43,16 @@ public class ValidationServiceImp implements ValidationService {
 	}
 	
 	@Override
+	public boolean dateNotEmpty(String date){
+		if(date.isEmpty()) {
+			return false;
+		} else {
+			return true;
+		}
+		
+	}
+	
+	@Override
 	public void addEmployee (Employee e) {
 		employeeRep.add(e);
 	}

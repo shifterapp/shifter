@@ -64,25 +64,38 @@ public class DemoController {
     		@RequestParam(value="size", required=false) String size, 
     		ModelMap model) throws ParseException{
     
-    	if(validationService.nameOnCorrectForm(name) && validationService.emailOnCorrectForm(email)) {
+    	if(validationService.nameOnCorrectForm(name) && validationService.emailOnCorrectForm(email) && validationService.dateNotEmpty(date)) {
     		Employee e = new Employee(name ,date, email, employeeType, size);
     		model.addAttribute("employee", e);
     		employeeRep.add(e);
     		return "/confirmation";
     	} else if (!validationService.nameOnCorrectForm(name)) {
     		String errorMessage = "Vinsamlegast tilgreindu fullt nafn.";
-    		model.addAttribute("errorMessage", errorMessage);
+    		model.addAttribute("errorMessage", errorMessage); 
+    		model.addAttribute("name", name);
+    		model.addAttribute("email", email);
+    		model.addAttribute("date", date);
     		return "/registration";
     	} else if (!validationService.emailOnCorrectForm(email)) {
     		String errorMessage = "Email á röngu formi.";
     		model.addAttribute("errorMessage", errorMessage);
+    		model.addAttribute("name", name);
+    		model.addAttribute("email", email);
+    		model.addAttribute("date", date);
+    		return "/registration";
+    	} else if (!validationService.dateNotEmpty(date)) {
+    		String errorMessage = "Vinsamlegast fylltu út fæðingardag.";
+    		model.addAttribute("errorMessage", errorMessage);
+    		model.addAttribute("name", name);
+    		model.addAttribute("email", email);
+    		model.addAttribute("date", date);
     		return "/registration";
     	} else {
     		model.addAttribute("name", name);
     		return "/errorMessage";
     	}
-    	
     }
+    
     
     /**
      * Displays list of employees

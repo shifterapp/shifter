@@ -15,7 +15,7 @@
 	<h1>Takk fyrir skráninguna ${employee.getName()}.</h1>
 	<h1>Skráðar upplýsingar</h1>
 	<h3>Nafn: ${employee.getName()}</h3>
-	<h3>Fæðingar ár: ${employee.getDate()}</h3>
+	<h3>Fæðingardagur: ${employee.getDate()}</h3>
 	<h3>Email: ${employee.getEmail()}</h3>
 	<h3>Starfstitill: ${employee.getType()}</h3>
 	<h3>Bolastærð: ${employee.getSize()}</h3>
