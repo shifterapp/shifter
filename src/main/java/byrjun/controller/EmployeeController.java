@@ -21,7 +21,7 @@ import byrjun.services.ValidationService;
  * Controller that controls what happens when user or the interface sends commands which concerns
  * the user registration. 
  * 
- * @author Hópur 2: Arnar Már, Jón Ágúst, Markús Freyr og Sigrún Dís
+ * @author Teymi 7: Arnar Már, Jón Ágúst, Markús Freyr og Sigrún Dís
  * @date September 2017
  * HBV 501G Hugbúnaðarverkefni
  * Háskóli Íslands
@@ -39,7 +39,7 @@ public class EmployeeController {
 	@Autowired
     EmployeeRepository employeeRep;
 	
-    /*
+    /**
      * Asks for input values.
      * @return /registration view.
      */
