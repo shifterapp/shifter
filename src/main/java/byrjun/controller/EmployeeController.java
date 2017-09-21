@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import byrjun.model.Employee;
-import byrjun.repository.EmployeeRepository;
 import byrjun.services.ValidationService;
 
 /**
@@ -34,10 +33,6 @@ public class EmployeeController {
 	//Connection to a service class for the shifter app. 
 	@Autowired
 	ValidationService validationService;
-	
-	//Connection to a collection of employees.
-	@Autowired
-    EmployeeRepository employeeRep;
 	
     /**
      * Asks for input values.
@@ -70,7 +65,7 @@ public class EmployeeController {
     	if(validationService.nameOnCorrectForm(name) && validationService.emailOnCorrectForm(email) && validationService.dateNotEmpty(date)) {
     		Employee e = new Employee(name ,date, email, employeeType, size);
     		model.addAttribute("employee", e);
-    		employeeRep.add(e);
+    		validationService.addEmployee(e);
     		return "/confirmation";
     	}  else {
     		String errorMessage = validationService.getErrorMessage(name, email, date);
@@ -87,7 +82,7 @@ public class EmployeeController {
     @RequestMapping(value = "/employeeList", method = RequestMethod.GET)
     public String employeeList(Model model) {
     	ArrayList<Employee> list;
-    	list = (ArrayList<Employee>) employeeRep.getAll();
+    	list = (ArrayList<Employee>) validationService.allEmployees();
     	model.addAttribute("employees", list);
     	return "/allEmployees";
     }
