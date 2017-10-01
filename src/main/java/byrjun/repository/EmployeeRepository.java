@@ -2,7 +2,7 @@ package byrjun.repository;
 
 import java.util.List;
 
-
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * The class holds information about all employees in the app.
@@ -14,18 +14,23 @@ import java.util.List;
 
 import byrjun.model.Employee;
 
-public interface EmployeeRepository {
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	
 	/**
 	 * Returns all employees in the app.
 	 * @return list of all employees.
 	 */
-	List <Employee> getAll();
+	List<Employee> findAll();
 	
 	/**
-	 * Adds an employee to the app.
-	 * @param employee
+	 * Adds an eployee to the database.
+	 * @param Employee
 	 */
-	void add(Employee employee);
+	Employee save (Employee employee);
+	
+	List<Employee> findByName(String nafn);
+	
+	@Override
+	Employee findOne(Long id);
 
 }
