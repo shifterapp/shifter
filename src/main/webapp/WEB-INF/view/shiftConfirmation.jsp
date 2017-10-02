@@ -18,7 +18,7 @@
 	<h3>Dagsetning: ${shift.getDate()}</h3>
 	<h3>Upphafstími: ${shift.getBeginTime()}</h3>
 	<h3>Lokatími: ${shift.getEndTime()}</h3>
-	<%-- <h3>Fjöldi starfsmanna: ${shift.getLimit()}</h3> --%>
+	<h3>Fjöldi starfsmanna: ${shift.getHowMany()}</h3>
 	<h3>Tegund vaktar: ${shift.getType()}</h3>
 </body>
 </html>

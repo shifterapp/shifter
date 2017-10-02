@@ -32,8 +32,7 @@ public class Shift {
 	private LocalDate date;
 	private String beginTime;
 	private String endTime;
-//	private String limit;
-	
+	private String howMany;
 	/**
 	 * The constructor
      * @param  title of the shift
@@ -44,14 +43,14 @@ public class Shift {
      * @param limit the max number of employees on the shift.
 	 * @throws ParseException
 	 */
-	public Shift(String title,String shiftType, String shiftDate, String beginTime, String endTime) throws ParseException {
+	public Shift(String title,String shiftType, String shiftDate, String beginTime, String endTime, String howMany) throws ParseException {
 		this.title = title;
 		this.type = shiftType;
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
 		this.date = LocalDate.parse(shiftDate, formatter);
 		this.beginTime = beginTime;
 		this.endTime = endTime;
-//		this.limit = limit;
+		this.howMany = howMany;
 	}
 	
 	//Getters og setters for Shift.
@@ -87,14 +86,6 @@ public class Shift {
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
-	
-//	public String getLimit() {
-//		return limit;
-//	}
-//	
-//	public void setLimit(String limit) {
-//		this.limit = limit;
-//	}
 
 	public LocalDate getDate() {
 		return date;
@@ -102,5 +93,13 @@ public class Shift {
 
 	public void setDate(LocalDate date) {
 		this.date = date;
+	}
+	
+	public String getHowMany() {
+		return howMany;
+	}
+
+	public void setHowMany(String howMany) {
+		this.howMany = howMany;
 	}
 }

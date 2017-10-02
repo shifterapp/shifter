@@ -62,12 +62,12 @@ public class ShiftController {
     		@RequestParam(value="shiftType", required=false) String shiftType,
     		@RequestParam(value="shiftDate", required=false) String shiftDate, 
     		@RequestParam(value="beginTime", required=false) String beginTime, 
-    		@RequestParam(value="endTime", required=false) String endTime, 
-//    		@RequestParam(value="limit", required=false) String limit, 
+    		@RequestParam(value="endTime", required=false) String endTime,
+    		@RequestParam(value="howMany", required=false) String howMany,
     		ModelMap model) throws ParseException{
     
     if(validationService.dateNotEmpty(shiftDate)) {
-    		Shift s = new Shift(title, shiftType, shiftDate, beginTime, endTime);
+    		Shift s = new Shift(title, shiftType, shiftDate, beginTime, endTime, howMany);
     		model.addAttribute("shift", s);
     		validationService.addShift(s);
     		return "/shiftConfirmation";

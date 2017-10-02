@@ -23,8 +23,8 @@
          Upphafstími: <input type="text" name = "beginTime" value = "${param.beginTime}">
          <br />
          Lokatími: <input type="text" name = "endTime" value = "${param.endTime}">
-         <%-- <br />
-         Fjöldi starfsmanna á vakt: <input type = "text" name = "limit" value = "${param.limit}"> --%>
+         <br />
+         Fjöldi starfsmanna: <input type="text" name = "howMany" value = "${param.howMany}">
          <br />
          Tegund vaktar: <select id="shiftType" name="shiftType">
   		 <option value="Gæsla" ${paramValues.employeeType.stream().anyMatch(v->v == 'Gæsla').get() ? 'selected' : ''} >Gæsla</option>
