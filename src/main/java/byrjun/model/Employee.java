@@ -45,6 +45,10 @@ public class Employee {
 	 * @param the employee's t-shirt size.
 	 * @throws ParseException
 	 */
+	public Employee() {
+		
+	}
+	
 	public Employee(String name,String date, String email, String type, String size) throws ParseException {
 		this.name = name;
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);

@@ -43,6 +43,10 @@ public class Shift {
      * @param limit the max number of employees on the shift.
 	 * @throws ParseException
 	 */
+	public Shift() {
+		
+	}
+	
 	public Shift(String title,String shiftType, String shiftDate, String beginTime, String endTime, String howMany) throws ParseException {
 		this.title = title;
 		this.type = shiftType;
