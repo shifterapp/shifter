@@ -1,3 +1,3 @@
 # shifter
 
-1. Create database named Shifter in Postgesql.
+1. Create database named Shifter in Postgresql.
