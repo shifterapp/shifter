@@ -78,12 +78,12 @@ public class ValidationServiceImp implements ValidationService {
 	
 	@Override
 	public void addEmployee (Employee e) {
-		employeeRep.add(e);
+		employeeRep.save(e);
 	}
 
 	@Override
 	public List<Employee> allEmployees() {
-		return employeeRep.getAll();
+		return employeeRep.findAll();
 	}
 	
 }

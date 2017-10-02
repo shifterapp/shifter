@@ -5,6 +5,13 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * The class holds information about an employee in the system.
  * @author Teymi 7: Arnar Már, Jón Ágúst, Markús Freyr og Sigrún Dís
@@ -13,10 +20,18 @@ import java.util.Locale;
  * Háskóli Íslands
  */
 
+@Entity
+@Table (name = "Employees")
 public class Employee {
+	
+	//@column kannski frekar?
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 	private String name;
 	private String email;
 	private String type;
+	@Column(name = "tshirt")
 	private String size;
 	private LocalDate date;
 	
