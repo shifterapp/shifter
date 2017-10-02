@@ -68,7 +68,7 @@ public class EmployeeController {
     		validationService.addEmployee(e);
     		return "/confirmation";
     	}  else {
-    		String errorMessage = validationService.getErrorMessage(name, email, date);
+    		String errorMessage = validationService.getEmployeeErrorMessage(name, email, date);
     		model.addAttribute("errorMessage", errorMessage); 
     		return "/registration";
     	}
