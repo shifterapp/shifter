@@ -3,6 +3,7 @@ package byrjun.services;
 import java.util.List;
 
 import byrjun.model.Employee;
+import byrjun.model.Shift;
 
 /**
  * 
@@ -41,7 +42,14 @@ public interface ValidationService {
 	 * incorrect form.
 	 * @return Error message string.
 	 */
-	public String getErrorMessage(String name,String email,String date);
+	public String getEmployeeErrorMessage(String name,String email,String date);
+	
+	/**
+	 * Returns error message depended on witch input values are on the
+	 * incorrect form.
+	 * @return Error message string.
+	 */
+	public String getShiftErrorMessage(String date);
 	
 	/**
 	 * Adds employee to the employeeRepository.
@@ -55,5 +63,17 @@ public interface ValidationService {
 	 * @returns list of employees in the employeeRepository.
 	 */
 	public List<Employee> allEmployees();
+	
+	/**
+	 * Adds shift to the shiftRepository.
+	 * @param Shift
+	 */
+	public void addShift(Shift s);
+	
+	/**
+	 * Returns all shifts in the shiftRepository.
+	 * @returns list of employees in the shiftRepository.
+	 */
+	public List<Shift> allShifts();
 
 }

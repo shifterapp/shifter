@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import byrjun.model.Employee;
+import byrjun.model.Shift;
 import byrjun.repository.EmployeeRepository;
+import byrjun.repository.ShiftRepository;
 
 /**
  * Implementation for the ValidationService class. 
@@ -28,6 +30,9 @@ public class ValidationServiceImp implements ValidationService {
 	// Connecton to the list of employees.
 	@Autowired
 	EmployeeRepository employeeRep;
+	// Connecton to the list of shifts
+	@Autowired
+	ShiftRepository shiftRep;
 	
 	@Override
 	public boolean nameOnCorrectForm(String name) {
@@ -61,7 +66,7 @@ public class ValidationServiceImp implements ValidationService {
 	}
 	
 	@Override 
-	public String getErrorMessage(String name,String email,String date) {
+	public String getEmployeeErrorMessage(String name,String email,String date) {
 	String errorMessage = "";
 	if(!nameOnCorrectForm(name)) {
 		errorMessage += "Vinsamlegast skráðu fullt nafn. <br/>";
@@ -75,6 +80,15 @@ public class ValidationServiceImp implements ValidationService {
 	return errorMessage;
 	}
 	
+	@Override 
+	public String getShiftErrorMessage(String date) {
+	String errorMessage = "";
+	if(!dateNotEmpty(date)) {
+		errorMessage += "Vinsamlegast fylltu inn dagsetningu vaktarinnar. <br/>";
+	}
+	return errorMessage;
+	}
+	
 	
 	@Override
 	public void addEmployee (Employee e) {
@@ -84,6 +98,17 @@ public class ValidationServiceImp implements ValidationService {
 	@Override
 	public List<Employee> allEmployees() {
 		return employeeRep.findAll();
+	}
+
+	@Override
+	public void addShift(Shift s) {
+		shiftRep.save(s);
+		
+	}
+
+	@Override
+	public List<Shift> allShifts() {
+		return shiftRep.findAll();
 	}
 	
 }

@@ -33,6 +33,7 @@ public class Employee {
 	private String type;
 	@Column(name = "tshirt")
 	private String size;
+	@Column(name = "birthdate")
 	private LocalDate date;
 	
 	/**
@@ -94,8 +95,5 @@ public class Employee {
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
-
-	
-
 
 }
