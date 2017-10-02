@@ -3,6 +3,7 @@ package byrjun.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -66,14 +67,14 @@ public class ShiftController {
     		@RequestParam(value="howMany", required=false) String howMany,
     		ModelMap model) throws ParseException{
     
-    if(validationService.dateNotEmpty(shiftDate)) {
+    if(validationService.dateNotEmpty(shiftDate)  && validationService.beginTimeNotEmpty(beginTime) && validationService.endTimeNotEmpty(endTime) && validationService.timeCorrect(beginTime,endTime) && validationService.shiftTitleNotEmpty(title) && validationService.howManyNotEmpty(howMany)) {
     		Shift s = new Shift(title, shiftType, shiftDate, beginTime, endTime, howMany);
     		model.addAttribute("shift", s);
     		validationService.addShift(s);
     		return "/shiftConfirmation";
     }
     else {
-    	String errorMessage = validationService.getShiftErrorMessage(shiftDate);
+    	String errorMessage = validationService.getShiftErrorMessage(shiftDate,beginTime,endTime,title,howMany);
 		model.addAttribute("errorMessage", errorMessage); 
 		return "/shiftRegistration";
     }
