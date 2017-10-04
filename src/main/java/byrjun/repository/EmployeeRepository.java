@@ -28,6 +28,11 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	 */
 	Employee save (Employee employee);
 	
+	/**
+	 * Finds employee by name and returns that employees.
+	 * @param nafn
+	 * @return list of employees with that name. 
+	 */
 	List<Employee> findByName(String nafn);
 	
 	@Override
