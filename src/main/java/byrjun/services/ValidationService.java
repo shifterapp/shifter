@@ -1,5 +1,6 @@
 package byrjun.services;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import byrjun.model.Employee;
@@ -49,14 +50,42 @@ public interface ValidationService {
 	 * incorrect form.
 	 * @return Error message string.
 	 */
-	public String getShiftErrorMessage(String date);
+	public String getShiftErrorMessage(String date,String beginTime,String endTime,String shiftTitle, String howMany);
 	
 	/**
 	 * Adds employee to the employeeRepository.
 	 * @param Employee
 	 */
+	public boolean timeCorrect(String beginTime, String endTime);
+	
+	/**
+	 * Checks if the shifts begins before it ends
+	 * @param e
+	 */
+	public boolean beginTimeNotEmpty(String beginTime);
+	
+	/**
+	 * Checks if the shift has a valid start time
+	 * @param e
+	 */
+	public boolean endTimeNotEmpty(String endTime);
+	
+	/**
+	 * Checks if the shift has a valid end time
+	 * @param e
+	 */
+	public boolean shiftTitleNotEmpty(String shiftTitle);
+	/**
+	 * Checks if the shift has a title
+	 * @param e
+	 */
+	
+	public boolean howManyNotEmpty(String howMany);
+	/**
+	 * Checks if the shift has a number of employees
+	 * @param e
+	 */
 	public void addEmployee(Employee e);
-
 	
 	/**
 	 * Returns all employees in the employeeRepository.

@@ -1,8 +1,13 @@
 package byrjun.model;
 
+import java.sql.Time;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Locale;
 
 import javax.persistence.Column;
@@ -30,8 +35,8 @@ public class Shift {
 	private String title;
 	private String type;
 	private LocalDate date;
-	private String beginTime;
-	private String endTime;
+	private LocalTime beginTime;
+	private LocalTime endTime;
 	private String howMany;
 	/**
 	 * The constructor
@@ -52,8 +57,9 @@ public class Shift {
 		this.type = shiftType;
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
 		this.date = LocalDate.parse(shiftDate, formatter);
-		this.beginTime = beginTime;
-		this.endTime = endTime;
+		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+		this.beginTime = LocalTime.parse(beginTime,timeFormatter);
+		this.endTime = LocalTime.parse(endTime,timeFormatter);
 		this.howMany = howMany;
 	}
 	
@@ -75,19 +81,19 @@ public class Shift {
 		this.type = type;
 	}
 	
-	public String getBeginTime() {
+	public LocalTime getBeginTime() {
 		return beginTime;
 	}
 	
-	public void setBeginTime(String beginTime) {
+	public void setBeginTime(LocalTime beginTime) {
 		this.beginTime = beginTime;
 	}
 	
-	public String getEndTime() {
+	public LocalTime getEndTime() {
 		return endTime;
 	}
 	
-	public void setEndTime(String endTime) {
+	public void setEndTime(LocalTime endTime) {
 		this.endTime = endTime;
 	}
 

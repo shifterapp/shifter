@@ -20,9 +20,9 @@
          <br />
          Dagsetning: <input type = "date" name = "shiftDate" value ="${param.shiftDate}" />
          <br />
-         Upphafstími: <input type="text" name = "beginTime" value = "${param.beginTime}">
+         Upphafstími: <input type="time" name = "beginTime" value = "${param.beginTime}">
          <br />
-         Lokatími: <input type="text" name = "endTime" value = "${param.endTime}">
+         Lokatími: <input type="time" name = "endTime" value = "${param.endTime}">
          <br />
          Fjöldi starfsmanna: <input type="text" name = "howMany" value = "${param.howMany}">
          <br />

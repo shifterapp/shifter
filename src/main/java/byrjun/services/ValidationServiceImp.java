@@ -1,5 +1,7 @@
 package byrjun.services;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -81,14 +83,74 @@ public class ValidationServiceImp implements ValidationService {
 	}
 	
 	@Override 
-	public String getShiftErrorMessage(String date) {
+	public String getShiftErrorMessage(String date,String beginTime,String endTime,String shiftTitle,String howMany) {
 	String errorMessage = "";
 	if(!dateNotEmpty(date)) {
 		errorMessage += "Vinsamlegast fylltu inn dagsetningu vaktarinnar. <br/>";
 	}
+	
+	if(!beginTimeNotEmpty(beginTime)){
+		errorMessage += "Vinsamlegast fylltu inn upphafstíma vaktarinnar. <br/>";
+	}
+	if(!endTimeNotEmpty(endTime)){
+		errorMessage += "Vinsamlegast fylltu inn endatíma vaktarinnar. <br/>";
+	}
+	if(beginTimeNotEmpty(beginTime) && endTimeNotEmpty(endTime)){
+		if(!timeCorrect(beginTime,endTime)){
+			errorMessage += "Athugaðu að vakt getur ekki endað áður en hún hefst. <br/>";
+		}
+	}
+	if(!shiftTitleNotEmpty(shiftTitle)){
+		errorMessage += "Vinsamlegast settu titil á vaktina. <br/>";
+		
+	}
+	if(!howManyNotEmpty(howMany)){
+		errorMessage += "Vinsamlegast settu fjölda starfsmanna á vaktina <br/>";
+	}
 	return errorMessage;
 	}
 	
+	@Override
+	public boolean timeCorrect(String beginTime, String endTime){
+		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+		LocalTime beginTimeObject = LocalTime.parse(beginTime,timeFormatter);
+		LocalTime endTimeObject = LocalTime.parse(endTime,timeFormatter);
+		if(beginTimeObject.isBefore(endTimeObject)){
+			return true;
+		}
+			return false;
+	}
+	
+	@Override
+	public boolean beginTimeNotEmpty(String beginTime){
+		if(beginTime== ""){
+			return false;
+		}
+		return true;
+	}
+	
+	@Override
+	public boolean endTimeNotEmpty(String endTime){
+		if(endTime == ""){
+			return false;
+		}
+		return true;
+	}
+	@Override
+	public boolean shiftTitleNotEmpty(String shiftTitle){
+		if(shiftTitle == ""){
+			return false;
+		}
+		return true;
+		
+	}
+	@Override
+	public boolean howManyNotEmpty(String howMany){
+		if(howMany ==""){
+			return false;
+		}
+		return true;
+	}
 	
 	@Override
 	public void addEmployee (Employee e) {
