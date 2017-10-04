@@ -53,37 +53,42 @@ public interface ValidationService {
 	public String getShiftErrorMessage(String date,String beginTime,String endTime,String shiftTitle, String howMany);
 	
 	/**
-	 * Adds employee to the employeeRepository.
-	 * @param Employee
+	 * Checks if the shifts begins before it ends
+	 * @param beginTime,endTime
+	 * @return returns true if the shift begins 
 	 */
 	public boolean timeCorrect(String beginTime, String endTime);
 	
 	/**
-	 * Checks if the shifts begins before it ends
-	 * @param e
+	 * Checks if the shift has a valid start time
+	 * @param beginTime
+	 * @return returns true if a begin time of a shift is not empty
 	 */
 	public boolean beginTimeNotEmpty(String beginTime);
 	
 	/**
-	 * Checks if the shift has a valid start time
-	 * @param e
+	 * Checks if the shift has a valid end time
+	 * @param endTime
+	 * @param returns true if the endTime of a shift is not empty
 	 */
 	public boolean endTimeNotEmpty(String endTime);
 	
 	/**
-	 * Checks if the shift has a valid end time
-	 * @param e
+	 * Checks if the shift has a title
+	 * @param shiftTitle
+	 * @return returns true if the title of the shift is not empty
 	 */
 	public boolean shiftTitleNotEmpty(String shiftTitle);
-	/**
-	 * Checks if the shift has a title
-	 * @param e
-	 */
 	
-	public boolean howManyNotEmpty(String howMany);
 	/**
 	 * Checks if the shift has a number of employees
-	 * @param e
+	 * @param howMany
+	 * @return returns true if the shift has a number of employees
+	 */	
+	public boolean howManyNotEmpty(String howMany);
+	/**
+	 * Adds an employee to the repository
+	 * @param Employee
 	 */
 	public void addEmployee(Employee e);
 	
