@@ -20,21 +20,30 @@
 	<h1></h1>
 	<h2>${errorMessage}</h2>
 	 <form action = "/employeeInfo" method = "POST" >
-         Nafn: <input type = "text" name = "name" value = "${param.name}">
-         <br />
-         Fæðingar ár: <input type="date" name = "date" value = "${param.date}">
-         <br />
-         Email: <input type = "text" name = "email" value ="${param.email}" />
-         <br />
-         Starfstitill: <select id="employeeType" name="employeeType">
+	 <div class="form-group">
+	 	 <label for = "nameInput">Nafn:</label>
+         <input type = "text" id = "nameInput" name = "name" value = "${param.name}">
+         </div>
+         <div class="form-group">
+         <label for = "birthdateInput">Fæðingar ár:</label>
+          <input type= "date" id = "birthdateInput" name = "date" value = "${param.date}">
+         </div>
+         <div class="form-group">
+         <label for = "emailInput">Email: </label>
+         <input type = "text" id = "emailInput" name = "email" value ="${param.email}" />
+         </div>
+         <div class="form-group">
+         <label for = "employeeType">Starfstitill: </label>
+         <select id="employeeType" name="employeeType">
   		 <option value="Gæsla" ${paramValues.employeeType.stream().anyMatch(v->v == 'Gæsla').get() ? 'selected' : ''} >Gæsla</option>
   		 <option value="Sjúkgragæsla" ${paramValues.employeeType.stream().anyMatch(v->v == 'Sjúkgragæsla').get() ? 'selected' : ''} >Sjúkragæsla</option>
   		 <option value="Barþjónn" ${paramValues.employeeType.stream().anyMatch(v->v == 'Barþjónn').get() ? 'selected' : ''} >Barþjónn</option>
   		 <option value="Miðasala" ${paramValues.employeeType.stream().anyMatch(v->v == 'Miðasala').get() ? 'selected' : ''} >Miðasala</option>
 		</select>
-		<br/>
-		
-		Bolastærð: <select id="size" name="size">
+		</div>
+		<div class="form-group">
+		<label for = "size">Bolastærð:</label>		
+		 <select id="size" name="size">
   		 <option value="XS" ${paramValues.size.stream().anyMatch(v->v == 'XS').get() ? 'selected' : ''}>Extra Small</option>
   		 <option value="S" ${paramValues.size.stream().anyMatch(v->v == 'S').get() ? 'selected' : ''}>Small</option>
   		 <option value="M" ${paramValues.size.stream().anyMatch(v->v == 'M').get() ? 'selected' : ''}>Medium</option>
@@ -43,9 +52,12 @@
   		 <option value="XXL" ${paramValues.size.stream().anyMatch(v->v == 'XXL').get() ? 'selected' : ''}>Extra Extra Large</option>
   		 <option value="XXXL" ${paramValues.size.stream().anyMatch(v->v == 'XXXL').get() ? 'selected' : ''}>Extra Extra Extra Large</option>
 		</select>
-		<br/>
-         <input type = "submit" value = "Submit" />
+		</div>
+		
+         <input type = "submit" class="btn btn-primary" value = "Submit" />
+         
       </form>
+      
      
 </body>
 </html>
