@@ -36,11 +36,11 @@ public class EmployeeController {
 	
     /**
      * Asks for input values.
-     * @return /registration view.
+     * @return /employeeRegistration view.
      */
     @RequestMapping("/")
     public String requestInputValues() {
-    	return "/registration";
+    	return "/employeeRegistration";
     }
    
     /**
@@ -70,7 +70,7 @@ public class EmployeeController {
     	}  else {
     		String errorMessage = validationService.getEmployeeErrorMessage(name, email, date);
     		model.addAttribute("errorMessage", errorMessage); 
-    		return "/registration";
+    		return "/employeeRegistration";
     	}
     }
     
