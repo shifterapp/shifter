@@ -1,13 +1,9 @@
 package byrjun.model;
 
-import java.sql.Time;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Locale;
 
 import javax.persistence.Column;
@@ -30,6 +26,7 @@ import javax.persistence.Table;
 public class Shift {
 	
     @Id
+    @Column(name="shift_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	private String title;
@@ -38,6 +35,7 @@ public class Shift {
 	private LocalTime beginTime;
 	private LocalTime endTime;
 	private String howMany;
+
 	/**
 	 * The constructor
      * @param  title of the shift
@@ -62,7 +60,7 @@ public class Shift {
 		this.endTime = LocalTime.parse(endTime,timeFormatter);
 		this.howMany = howMany;
 	}
-	
+	 
 	//Getters og setters for Shift.
 
 	public String getTitle() {
@@ -112,4 +110,5 @@ public class Shift {
 	public void setHowMany(String howMany) {
 		this.howMany = howMany;
 	}
+
 }

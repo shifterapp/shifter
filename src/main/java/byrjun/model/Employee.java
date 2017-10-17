@@ -24,8 +24,8 @@ import javax.persistence.Table;
 @Table (name = "Employees")
 public class Employee {
 	
-	//@column kannski frekar?
     @Id
+    @Column(name="emp_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	private String name;
