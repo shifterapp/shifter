@@ -30,7 +30,10 @@ public interface ShiftRepository extends JpaRepository<Shift, Long> {
 	
 	List<Shift> findByTitle(String title);
 	
-	@Override
-	Shift findOne(Long id);
+//	Shift findOne(Shift s);
+	
+	Shift findById(Long id);
+	
+//	List<Shift> findByShift_id(Long shiftId);
 
 }

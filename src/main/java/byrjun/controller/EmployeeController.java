@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import byrjun.model.Employee;
-import byrjun.services.ValidationService;
+import byrjun.services.EmployeeService;
 
 /**
  * Controller that controls what happens when user or the interface sends commands which concerns
@@ -30,7 +30,7 @@ public class EmployeeController {
 	
 	//Connection to a service class for the shifter app. 
 	@Autowired
-	ValidationService validationService;
+	EmployeeService employeeService;
 	
     /**
      * Asks for input values.
@@ -60,13 +60,13 @@ public class EmployeeController {
     		@RequestParam(value="size", required=false) String size, 
     		ModelMap model) throws ParseException{
     
-    	if(validationService.nameOnCorrectForm(name) && validationService.emailOnCorrectForm(email) && validationService.dateNotEmpty(date)) {
+    	if(employeeService.nameOnCorrectForm(name) && employeeService.emailOnCorrectForm(email) && employeeService.dateNotEmpty(date)) {
     		Employee e = new Employee(name ,date, email, employeeType, size);
     		model.addAttribute("employee", e);
-    		validationService.addEmployee(e);
+    		employeeService.addEmployee(e);
     		return "/confirmation";
     	}  else {
-    		String errorMessage = validationService.getEmployeeErrorMessage(name, email, date);
+    		String errorMessage = employeeService.getEmployeeErrorMessage(name, email, date);
     		model.addAttribute("errorMessage", errorMessage); 
     		return "/employeeRegistration";
     	}
@@ -80,7 +80,7 @@ public class EmployeeController {
     @RequestMapping(value = "/employeeList", method = RequestMethod.GET)
     public String employeeList(Model model) {
     	ArrayList<Employee> list;
-    	list = (ArrayList<Employee>) validationService.allEmployees();
+    	list = (ArrayList<Employee>) employeeService.allEmployees();
     	model.addAttribute("employees", list);
     	return "/allEmployees";
     }

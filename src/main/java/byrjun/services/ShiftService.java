@@ -15,21 +15,7 @@ import byrjun.model.Shift;
  * Háskóli Íslands
  */
 
-public interface ValidationService {
-	
-	/**
-	 * Checks if the name is on the correct form.
-	 * @param name
-	 * @return returns true if the name is on the correct form.
-	 */
-	public boolean nameOnCorrectForm(String name);
-	
-	/**
-	 * Checks if email is on the correct form.
-	 * @param email
-	 * @return returns true if the email is on correct form.
-	 */
-	public boolean emailOnCorrectForm(String email);
+public interface ShiftService {
 	
 	/**
 	 * Checks if the user does add date of birth
@@ -38,12 +24,6 @@ public interface ValidationService {
 	 */
 	public boolean dateNotEmpty(String date);
 	
-	/**
-	 * Returns error message depended on witch input values are on the
-	 * incorrect form.
-	 * @return Error message string.
-	 */
-	public String getEmployeeErrorMessage(String name,String email,String date);
 	
 	/**
 	 * Returns error message depended on witch input values are on the
@@ -86,17 +66,6 @@ public interface ValidationService {
 	 * @return returns true if the shift has a number of employees
 	 */	
 	public boolean howManyNotEmpty(String howMany);
-	/**
-	 * Adds an employee to the repository
-	 * @param Employee
-	 */
-	public void addEmployee(Employee e);
-	
-	/**
-	 * Returns all employees in the employeeRepository.
-	 * @returns list of employees in the employeeRepository.
-	 */
-	public List<Employee> allEmployees();
 	
 	/**
 	 * Adds shift to the shiftRepository.
@@ -109,5 +78,13 @@ public interface ValidationService {
 	 * @returns list of employees in the shiftRepository.
 	 */
 	public List<Shift> allShifts();
+	
+	/**
+	 * Returns shift with the id shiftId
+	 * @param shiftId the id of the shift.
+	 * @returns the shift with the id shiftId.
+	 */
+	public Shift getShiftById(Long shiftId);
+	
 
 }
