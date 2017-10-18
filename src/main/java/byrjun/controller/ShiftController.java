@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import byrjun.model.Shift;
-import byrjun.services.ValidationService;
+import byrjun.services.ShiftService;
 
 /**
  * Controller that controls what happens when user or the interface sends commands which concerns
@@ -30,7 +30,7 @@ public class ShiftController {
 	
 	//Connection to a service class for the shifter app. 
 	@Autowired
-	ValidationService validationService;
+	ShiftService shiftService;
 	
     /**
      * Asks for input values.
@@ -62,14 +62,14 @@ public class ShiftController {
     		@RequestParam(value="howMany", required=false) String howMany,
     		ModelMap model) throws ParseException{
     
-    if(validationService.dateNotEmpty(shiftDate)  && validationService.beginTimeNotEmpty(beginTime) && validationService.endTimeNotEmpty(endTime) && validationService.timeCorrect(beginTime,endTime) && validationService.shiftTitleNotEmpty(title) && validationService.howManyNotEmpty(howMany)) {
+    if(shiftService.dateNotEmpty(shiftDate)  && shiftService.beginTimeNotEmpty(beginTime) && shiftService.endTimeNotEmpty(endTime) && shiftService.timeCorrect(beginTime,endTime) && shiftService.shiftTitleNotEmpty(title) && shiftService.howManyNotEmpty(howMany)) {
     		Shift s = new Shift(title, shiftType, shiftDate, beginTime, endTime, howMany);
     		model.addAttribute("shift", s);
-    		validationService.addShift(s);
+    		shiftService.addShift(s);
     		return "/shiftConfirmation";
     }
     else {
-    	String errorMessage = validationService.getShiftErrorMessage(shiftDate,beginTime,endTime,title,howMany);
+    	String errorMessage = shiftService.getShiftErrorMessage(shiftDate,beginTime,endTime,title,howMany);
 		model.addAttribute("errorMessage", errorMessage); 
 		return "/shiftRegistration";
     }
@@ -83,7 +83,7 @@ public class ShiftController {
     @RequestMapping(value = "/shiftList", method = RequestMethod.GET)
     public String employeeList(Model model) {
     	ArrayList<Shift> list;
-    	list = (ArrayList<Shift>) validationService.allShifts();
+    	list = (ArrayList<Shift>) shiftService.allShifts();
     	model.addAttribute("shifts", list);
     	return "/allShifts";
     }

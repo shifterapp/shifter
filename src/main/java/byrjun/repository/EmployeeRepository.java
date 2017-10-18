@@ -13,6 +13,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 
 import byrjun.model.Employee;
+import byrjun.model.Shift;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	
@@ -34,8 +35,13 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	 * @return list of employees with that name. 
 	 */
 	List<Employee> findByName(String nafn);
-	
-	@Override
-	Employee findOne(Long id);
+
+	/**
+	 * Returns employee with that id
+	 * @param id of employee
+	 * @return employee with that id
+	 */
+	Employee findById(Long id);
+
 
 }

@@ -42,7 +42,7 @@
             </table>
         </c:when>
         <c:otherwise>
-            <h3>No employees</h3>
+            <h3>No shifts</h3>
         </c:otherwise>
     </c:choose>       
 </body>
