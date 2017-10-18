@@ -28,12 +28,17 @@ public interface ShiftRepository extends JpaRepository<Shift, Long> {
 	 */
 	Shift save (Shift shift);
 	
+	/**
+	 * Returns list of shifts with that title.
+	 * @param title of shift
+	 * @return list of shifts with that title.
+	 */
 	List<Shift> findByTitle(String title);
 	
-//	Shift findOne(Shift s);
-	
+	/**
+	 * Returns shift with that id
+	 * @param id of shift
+	 * @return shift with that id
+	 */
 	Shift findById(Long id);
-	
-//	List<Shift> findByShift_id(Long shiftId);
-
 }
