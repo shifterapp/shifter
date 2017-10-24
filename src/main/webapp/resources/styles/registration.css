@@ -1,0 +1,77 @@
+body {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url("../img/festival.jpg") no-repeat center center fixed;;
+	background-size: cover;
+}
+
+.registration_header {
+	font-size: 32px;
+	font-weight: 300;
+	text-align: center;
+	padding: 10px 0;
+	margin-bottom: 10px;
+	color: #0098AE;
+}
+
+.registration_wrapper {
+	width: 400px;
+	background: rgba(0, 0, 0, 0.6);
+	margin: 60px auto;
+	padding: 20px 0 40px 0;
+	position: relative;
+}
+
+.registration_input_wrapper {
+	margin-left: 70px;
+	margin-bottom: 15px;
+}
+
+.registration_icon {
+	display: inline-block;
+	width: 30px;
+	margin-left: 15px;
+	color: #0098AE;
+}
+
+.registration_input {
+	width: 200px;
+	height: 40px;
+	background-color: #fff;
+	border: none;
+	margin-left: -5px;
+	padding-left: 10px;
+}
+
+.registration_select {
+	width: 200px;
+	height: 39px;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0px;
+	background-image:
+		url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='#444' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
+	background-position: 100% 50%;
+	background-repeat: no-repeat;
+	background-color: #fff;
+	margin-left: -5px;
+	padding-left: 10px;
+}
+
+.registration_button {
+	border: none;
+	display: block;
+	background: #FF6700;
+	height: 40px;
+	width: 100px;
+	color: #ffffff;
+	text-align: center;
+	-webkit-border-radius: 1px;
+	margin-left: 155px;
+}
+
+.registration_errormessage {
+	color: #D8000C;
+	background-color: #FFBABA;
+	width: 300px;
+	margin: 20px 50px;
+	padding: 10px;
+}
