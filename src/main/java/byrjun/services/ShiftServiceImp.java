@@ -121,4 +121,9 @@ public class ShiftServiceImp implements ShiftService {
 	public Shift getShiftById(Long shiftId) {
 		return shiftRep.findById(shiftId);
 	}
+	
+	@Override
+	public boolean checkIfShiftExists(Long shiftId) {
+		return shiftRep.exists(shiftId);
+	}
 }

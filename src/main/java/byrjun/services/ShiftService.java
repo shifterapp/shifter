@@ -86,5 +86,12 @@ public interface ShiftService {
 	 */
 	public Shift getShiftById(Long shiftId);
 	
+	/**
+	 * Returns true if shift with given id exists.
+	 * @param id of shift
+	 * @return boolean value which states if shift with that id exists or not.
+	 */
+	public boolean checkIfShiftExists(Long shiftId);
+	
 
 }

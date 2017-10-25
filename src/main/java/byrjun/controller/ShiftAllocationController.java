@@ -56,7 +56,7 @@ public class ShiftAllocationController {
     	int empIdInt = Integer.parseInt(empId);
     	int shiftIdInt = Integer.parseInt(shiftId);
     	
-    	if(shiftAllocationService.checkIfEmployeeExcists(empIdInt) && shiftAllocationService.checkIfShiftExcists(shiftIdInt)) {
+    	if(employeeService.checkIfEmpExists(Long.valueOf(empIdInt)) && shiftService.checkIfShiftExists(Long.valueOf(shiftIdInt))) {
     		ShiftAllocation sa = new ShiftAllocation(empIdInt ,shiftIdInt);
     		model.addAttribute("shiftAllocation", sa);
     		Employee e = employeeService.getEmpById(Long.valueOf(empIdInt));
@@ -70,7 +70,9 @@ public class ShiftAllocationController {
     	return "/shiftAllocationConfirmation";
     	}
     	else{
-    		return "/shiftAllocationConfirmation";
+    		String errorMessage = shiftAllocationService.getShiftAllocationErrorMessage(Long.valueOf(empIdInt), Long.valueOf(shiftIdInt));
+    		model.addAttribute("errorMessage", errorMessage); 
+    		return "/shiftAllocationPage";
     	}
     }
     

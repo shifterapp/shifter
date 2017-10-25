@@ -62,5 +62,12 @@ public interface EmployeeService {
 	 */
 	public Employee getEmpById(Long empId);
 	
+	/**
+	 * Returns true if employee with given id exists.
+	 * @param id of employee
+	 * @return boolean value which states if employee with that id exists or not.
+	 */
+	public boolean checkIfEmpExists(Long empId);
+	
 
 }

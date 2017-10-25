@@ -13,6 +13,10 @@ public class ShiftAllocationServiceImp implements ShiftAllocationService {
 	// Connecton to the list of shiftAllocations.
 		@Autowired
 		ShiftAllocationRepository shiftAllocationRep;
+		@Autowired
+		EmployeeService employeeService;
+		@Autowired
+		ShiftService shiftService;
 
 	@Override
 	public boolean checkIfShiftIsFull(int id) {
@@ -20,23 +24,28 @@ public class ShiftAllocationServiceImp implements ShiftAllocationService {
 		return false;
 	}
 
-
-
-	@Override
-	public boolean checkIfEmployeeExcists(int id) {
-		// TODO implementa þetta fall!
-		return true;
-	}
-
-	@Override
-	public boolean checkIfShiftExcists(int id) {
-		// TODO implementa þetta fall!
-		return true;
-	}
-
 	@Override
 	public void addShiftAllocation(ShiftAllocation sa) {
 		shiftAllocationRep.save(sa);
 	}
+	
+	@Override
+	public String getShiftAllocationErrorMessage(Long empId, Long shiftId) {
+		String errorMessage = "";
+		if(!employeeService.checkIfEmpExists(empId)) {
+			errorMessage += "Starfsmaður með einkennið " + empId + " finnst ekki. <br/>";
+		}
+		if(!shiftService.checkIfShiftExists(shiftId)) {
+			errorMessage += "Vakt með einkennið " + shiftId + " finnst ekki. <br/>";
+		}
+		return errorMessage;
+	}
+
+	@Override
+	public boolean checkIfShiftAllocationExists(int empId, int shiftId) {
+		// TODO implementa þetta fall!
+		return false;
+	}
+	
 
 }

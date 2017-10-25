@@ -42,6 +42,13 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	 * @return employee with that id
 	 */
 	Employee findById(Long id);
+	
+	/**
+	 * Returns true if employee with given id exists.
+	 * @param id of employee
+	 * @return boolean value which states if employee with that id exists or not.
+	 */
+	boolean exists(Long id);
 
 
 }
