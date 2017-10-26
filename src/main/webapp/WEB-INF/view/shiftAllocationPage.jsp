@@ -18,6 +18,7 @@
 </head>
 <body>
 	<h1></h1>
+	<p>${errorMessage}</p>
 	 <form action = "/shiftAllocationAction" method = "POST" >
 	  	 Employee Id: <input type = "text" name = "empId" value = "${param.empId}">
          <br />

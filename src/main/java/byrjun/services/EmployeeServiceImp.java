@@ -90,4 +90,9 @@ public class EmployeeServiceImp implements EmployeeService {
 	public Employee getEmpById(Long empId) {
 		return employeeRep.findById(empId);
 	}
+	
+	@Override
+	public boolean checkIfEmpExists(Long empId) {
+		return employeeRep.exists(empId);
+	}
 }

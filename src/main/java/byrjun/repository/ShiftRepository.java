@@ -41,4 +41,11 @@ public interface ShiftRepository extends JpaRepository<Shift, Long> {
 	 * @return shift with that id
 	 */
 	Shift findById(Long id);
+	
+	/**
+	 * Returns true if shift with given id exists.
+	 * @param id of shift
+	 * @return boolean value which states if shift with that id exists or not.
+	 */
+	boolean exists(Long id);
 }
