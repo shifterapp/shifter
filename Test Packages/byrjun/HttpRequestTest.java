@@ -23,13 +23,26 @@ public class HttpRequestTest {
 	
 	/**
      * Aðferð til að athuga hvort virkar að senda HttpRequest á heimaslóðina og
-     * fá til baka síðu sem inniheldur Klukkan 
+     * fá til baka síðu sem inniheldur Starfsmannaskráning 
     
      * @throws java.lang.Exception
      */
 	@Test
-	public void heimaSkilarKlukkan() throws Exception{
+	public void skilarStrafsmannaskraning() throws Exception{
 		assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/",
 				String.class)).contains("Starfsmannaskráning");
 	}
+	
+	/**
+     * Aðferð til að athuga hvort virkar að senda HttpRequest á slóðina localhost + port + /shiftList og
+     * fá til baka síðu sem inniheldur Type 
+    
+     * @throws java.lang.Exception
+     */
+	@Test
+	public void skilarType() throws Exception{
+		assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/shiftList",
+				String.class)).contains("Type");
+	}
+	
 }
