@@ -2,10 +2,14 @@ package byrjun.controller;
 
 import java.text.ParseException;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,36 +47,33 @@ public class ShiftAllocationController {
      * Asks for input values.
      * @return /shiftRgistration view.
      */
-    @RequestMapping("/shiftAllocationPage")
-    public String requestInputValues() {
-    	return "/shiftAllocationPage";
+    @RequestMapping("/shiftAllocation")
+    public String requestInputValues(Model model) {
+    ShiftAllocation sa = new ShiftAllocation();
+	model.addAttribute("shiftAllocation", sa);
+    	return "/shiftAllocation";
     }
     
-    @RequestMapping(value="/shiftAllocationAction", method=RequestMethod.POST)
+    @RequestMapping(value="/shiftAllocationInfo", method=RequestMethod.POST)
     public String addEmpToShift(
-    		@RequestParam(value="empId", required=false) String empId,
-    		@RequestParam(value="shiftId", required=false) String shiftId,
-    		ModelMap model) throws ParseException{
-    	int empIdInt = Integer.parseInt(empId);
-    	int shiftIdInt = Integer.parseInt(shiftId);
-    	
-    	if(employeeService.checkIfEmpExists(Long.valueOf(empIdInt)) && shiftService.checkIfShiftExists(Long.valueOf(shiftIdInt))) {
-    		ShiftAllocation sa = new ShiftAllocation(empIdInt ,shiftIdInt);
+    		@Valid @ModelAttribute(name = "shiftAllocation") ShiftAllocation sa, BindingResult bindingResult, ModelMap model) throws ParseException{
+     	System.out.println("is Null????" + sa.getEmpId());
+    	System.out.println("has errors????" + bindingResult.toString());
+    	if(!bindingResult.hasErrors() && employeeService.checkIfEmpExists(Long.valueOf(sa.getEmpId())) && shiftService.checkIfShiftExists(Long.valueOf(sa.getShiftId()))) {
     		model.addAttribute("shiftAllocation", sa);
-    		Employee e = employeeService.getEmpById(Long.valueOf(empIdInt));
+    		Employee e = employeeService.getEmpById(Long.valueOf(sa.getEmpId()));
     		model.addAttribute("employee", e);
-    		Shift s = shiftService.getShiftById(Long.valueOf(shiftIdInt));
+    		Shift s = shiftService.getShiftById(Long.valueOf(sa.getShiftId()));
     		model.addAttribute("shift", s);
     		shiftAllocationService.addShiftAllocation(sa);
-    		model.addAttribute("empIdInt", empIdInt);
-    		model.addAttribute("shiftIdInt", shiftIdInt);
     	
     	return "/shiftAllocationConfirmation";
     	}
     	else{
-    		String errorMessage = shiftAllocationService.getShiftAllocationErrorMessage(Long.valueOf(empIdInt), Long.valueOf(shiftIdInt));
+//    		String errorMessage = shiftAllocationService.getShiftAllocationErrorMessage(Long.valueOf(sa.getEmpId()), Long.valueOf(sa.getShiftId()));
+    		String errorMessage = "errorMessage";
     		model.addAttribute("errorMessage", errorMessage); 
-    		return "/shiftAllocationPage";
+    		return "/shiftAllocation";
     	}
     }
     

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+<object th:include="fragments/bootstrapHead :: bootstrapHead"
+	th:remove="tag" />
+<link rel="stylesheet" href="/resources/statics/css/list.css" />
+</head>
+<body>
+	<div class="employee_list">
+		<div th:replace="fragments/navBar :: header"></div>
+		<h1>Starfsmannalisti</h1>
+
+
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Type</th>
+					<th>Size</th>
+					<th>Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="employee: ${employees}">
+					<td th:text="${employee.name}" />
+					<td th:text="${employee.email}" />
+					<td th:text="${employee.type}" />
+					<td th:text="${employee.size}" />
+					<td th:text="${employee.date}" />
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>

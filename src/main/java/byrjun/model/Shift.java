@@ -1,5 +1,6 @@
 package byrjun.model;
 
+import java.sql.Time;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -12,6 +13,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 /**
  * The class holds information about a shift in the system.
@@ -29,11 +37,23 @@ public class Shift {
     @Column(name="shift_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
+    @NotEmpty
 	private String title;
+    @NotNull
+    @NotEmpty
 	private String type;
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate date;
+    @NotNull
+    @DateTimeFormat(iso = ISO.TIME)
 	private LocalTime beginTime;
+    @NotNull
+    @DateTimeFormat(iso = ISO.TIME)
 	private LocalTime endTime;
+    @NotNull
+    @NotEmpty
 	private String howMany;
 
 	/**
@@ -56,8 +76,8 @@ public class Shift {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
 		this.date = LocalDate.parse(shiftDate, formatter);
 		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
-		this.beginTime = LocalTime.parse(beginTime,timeFormatter);
-		this.endTime = LocalTime.parse(endTime,timeFormatter);
+		this.beginTime = LocalTime.parse(beginTime, timeFormatter);
+		this.endTime = LocalTime.parse(endTime, timeFormatter);
 		this.howMany = howMany;
 	}
 	 

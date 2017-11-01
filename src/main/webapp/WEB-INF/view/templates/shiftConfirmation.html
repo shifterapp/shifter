@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+<object th:include="fragments/bootstrapHead :: bootstrapHead" th:remove="tag" />
+
+<link rel="stylesheet" href="/resources/styles/confirmation.css" />
+
+</head>
+<body>
+	
+	<h1>Skráning vaktarinnar:<span th:text="${shift.title}"/> tókst! </h1>
+	<h2>Skráðar upplýsingar</h2>
+	<h3>Titill: <span th:text="${shift.title}"/></h3>
+	<h3>Dagsetning: <span th:text="${shift.date}"/></h3>
+	<h3>Upphafstími: <span th:text="${shift.beginTime}"/></h3>
+	<h3>Lokatími:<span th:text="${shift.endTime}"/></h3>
+	<h3>Fjöldi starfsmanna: <span th:text="${shift.howMany}"/></h3>
+	<h3>Tegund vaktar: <span th:text="${shift.type}"/></h3>
+
+</body>
+</html>
