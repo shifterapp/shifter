@@ -35,7 +35,7 @@ public class ApplicationTest {
          
         /**
          * Aðferð til að athuga hvort virkar að senda HttpRequest á /employeeList
-         * og fá til baka allEmployees.jsp síðuna sem inniheldur strenginn Employee
+         * og fá til baka allEmployees.html síðuna sem inniheldur strenginn Name
          */
 	@Test 
         public void employeeListSkilarName() throws Exception {
@@ -45,14 +45,14 @@ public class ApplicationTest {
     }
 	
 		/**
-	     * Aðferð til að athuga hvort virkar að senda HttpRequest á /employeeList
-	     * og fá til baka allEmployees.jsp síðuna sem inniheldur strenginn Employee
+	     * Aðferð til að athuga hvort virkar að senda HttpRequest á /shiftList
+	     * og fá til baka sllShifts.html síðuna sem inniheldur strenginn Title
 	     */
 	@Test 
 	    public void shiftListSkilarTitle() throws Exception {
 	    this.mockMvc.perform(get("/shiftList"))                
 	            .andDo(print()).andExpect(status().isOk())
-	            .andExpect(content().string(containsString("Vakt1")));
-}
+	            .andExpect(content().string(containsString("Title")));
+	}
 
 }
