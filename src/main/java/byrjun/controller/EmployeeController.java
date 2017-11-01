@@ -2,6 +2,7 @@ package byrjun.controller;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import javax.validation.Valid;
 
@@ -92,8 +93,8 @@ public class EmployeeController {
 	 */
 	@RequestMapping(value = "/employeeList", method = RequestMethod.GET)
 	public String employeeList(Model model) {
-		ArrayList<Employee> employees;
-		employees = (ArrayList<Employee>) employeeService.allEmployees();
+		LinkedList<Employee> employees;
+		employees = (LinkedList<Employee>) employeeService.allEmployees();
 		model.addAttribute("employees", employees);
 		return "/allEmployees";
 	}

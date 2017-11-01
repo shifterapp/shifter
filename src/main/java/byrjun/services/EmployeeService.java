@@ -1,5 +1,6 @@
 package byrjun.services;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import byrjun.model.Employee;
@@ -53,7 +54,7 @@ public interface EmployeeService {
 	 * Returns all employees in the employeeRepository.
 	 * @returns list of employees in the employeeRepository.
 	 */
-	public List<Employee> allEmployees();
+	public LinkedList<Employee> allEmployees();
 	
 	/**
 	 * Returns employee with the id empId

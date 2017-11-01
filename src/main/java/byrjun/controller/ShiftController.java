@@ -2,6 +2,7 @@ package byrjun.controller;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import javax.validation.Valid;
 
@@ -89,8 +90,8 @@ System.out.println("VILLUR VILLI VILL" + bindingResult.toString());
 	 */
 	@RequestMapping(value = "/shiftList", method = RequestMethod.GET)
 	public String employeeList(Model model) {
-		ArrayList<Shift> list;
-		list = (ArrayList<Shift>) shiftService.allShifts();
+		LinkedList<Shift> list;
+		list = (LinkedList<Shift>) shiftService.allShifts();
 		model.addAttribute("shifts", list);
 		return "/allShifts";
 	}

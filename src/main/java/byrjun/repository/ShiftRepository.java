@@ -1,5 +1,6 @@
 package byrjun.repository;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -20,7 +21,7 @@ public interface ShiftRepository extends JpaRepository<Shift, Long> {
 	 * Returns all shifts in the app.
 	 * @return list of all employees.
 	 */
-	List<Shift> findAll();
+	LinkedList<Shift> findAll();
 	
 	/**
 	 * Adds a shift to the database.

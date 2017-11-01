@@ -2,6 +2,7 @@ package byrjun.services;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -113,8 +114,8 @@ public class ShiftServiceImp implements ShiftService {
 	}
 
 	@Override
-	public List<Shift> allShifts() {
-		return shiftRep.findAll();
+	public LinkedList<Shift> allShifts() {
+		return (LinkedList<Shift>) shiftRep.findAll();
 	}
 	
 	@Override 
