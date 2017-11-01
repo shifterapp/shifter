@@ -1,5 +1,6 @@
 package byrjun.repository;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -21,7 +22,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	 * Returns all employees in the app.
 	 * @return list of all employees.
 	 */
-	List<Employee> findAll();
+	LinkedList<Employee> findAll();
 	
 	/**
 	 * Adds an eployee to the database.

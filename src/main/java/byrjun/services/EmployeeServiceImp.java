@@ -1,5 +1,6 @@
 package byrjun.services;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -82,7 +83,7 @@ public class EmployeeServiceImp implements EmployeeService {
 	}
 
 	@Override
-	public List<Employee> allEmployees() {
+	public LinkedList<Employee> allEmployees() {
 		return employeeRep.findAll();
 	}
 	

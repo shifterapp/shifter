@@ -1,6 +1,7 @@
 package byrjun.services;
 
 import java.time.LocalTime;
+import java.util.LinkedList;
 import java.util.List;
 
 import byrjun.model.Employee;
@@ -77,7 +78,7 @@ public interface ShiftService {
 	 * Returns all shifts in the shiftRepository.
 	 * @returns list of employees in the shiftRepository.
 	 */
-	public List<Shift> allShifts();
+	public LinkedList<Shift> allShifts();
 	
 	/**
 	 * Returns shift with the id shiftId
