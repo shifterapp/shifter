@@ -63,21 +63,24 @@ public class EmployeeController {
 	 *         but the registration page with error message otherwise.
 	 */
 	@RequestMapping(value = "/employeeInfo", method = RequestMethod.POST)
-	public String employeeInfo(@Valid @ModelAttribute(name = "employee") Employee e, BindingResult bindingResult, ModelMap model) throws ParseException {
-		if ( !bindingResult.hasErrors() && employeeService.nameOnCorrectForm(e.getName()) && employeeService.emailOnCorrectForm(e.getEmail())) {
+	public String employeeInfo(@Valid @ModelAttribute(name = "employee") Employee e, BindingResult bindingResult,
+			ModelMap model) throws ParseException {
+		if (!bindingResult.hasErrors() && employeeService.nameOnCorrectForm(e.getName())
+				&& employeeService.emailOnCorrectForm(e.getEmail())) {
 			model.addAttribute("employee", e);
 			employeeService.addEmployee(e);
 			return "/employeeConfirmation";
 		} else {
 			String dateString;
-//			if (!e.getDate().equals(null))
-//				dateString = e.getDate().toString();
-//			else
-//				dateString = "";
-//			String errorMessage = employeeService.getEmployeeErrorMessage(e.getName(), e.getEmail(), dateString);
+			// if (!e.getDate().equals(null))
+			// dateString = e.getDate().toString();
+			// else
+			// dateString = "";
+			// String errorMessage = employeeService.getEmployeeErrorMessage(e.getName(),
+			// e.getEmail(), dateString);
 			String errorMessage = "errorMessage";
 			System.out.println("find e" + e);
-//			System.out.println("find is e.getDate empty" + e.getDate().equals(null));
+			// System.out.println("find is e.getDate empty" + e.getDate().equals(null));
 			model.addAttribute("errorMessage", errorMessage);
 			return "/employeeRegistration";
 		}

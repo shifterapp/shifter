@@ -25,6 +25,8 @@ public class EmployeeServiceImp implements EmployeeService {
 			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 	
+	private int fjoldiNafna = 2;
+	
 	// Connecton to the list of employees.
 	@Autowired
 	EmployeeRepository employeeRep;
@@ -33,7 +35,7 @@ public class EmployeeServiceImp implements EmployeeService {
 	@Override
 	public boolean nameOnCorrectForm(String name) {
 		String[] splittedName = name.split("\\s+");
-		if(splittedName.length<2) {
+		if(splittedName.length<fjoldiNafna) {
 			return false;
 		}
 		else {

@@ -1,0 +1,68 @@
+.navigationBar_container {
+	
+}
+
+.navigationBar_ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #0098AE;
+}
+
+.navigationBar_link {
+	display:block;
+	float: left;
+}
+
+.navigationBar_link a {
+	display: block;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	color: #353535;
+}
+
+.navigationBar_link a:hover {
+	background-color: #00708C;
+	text-decoration: none;
+	color: #0098AE;
+}
+
+.active a {
+	background-color: #00708C;
+	text-decoration: none;
+	color: #0098AE;
+}
+
+.fa {
+	padding-right: 5px;
+}
+
+.navigationBar_navIcon {
+	float: left;
+	display: none;
+}
+
+.navigationBar_navIcon a {
+	font-size: 32px;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	color: #353535;
+}
+
+@media
+screen
+and
+(max-width:
+850px)
+{
+.navigationBar_navIcon {
+	display: block;
+}
+
+.navigationBar_link {
+	display: none;
+}
+}
