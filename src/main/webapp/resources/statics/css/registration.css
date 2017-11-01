@@ -33,12 +33,13 @@
 }
 
 .registration_header {
-	font-size: 32px;
+	font-size: 28px;
 	font-weight: 300;
 	text-align: center;
 	padding: 10px 0;
 	margin-bottom: 10px;
 	color: #0098AE;
+	width: 380px;
 }
 
 .registration_wrapper {

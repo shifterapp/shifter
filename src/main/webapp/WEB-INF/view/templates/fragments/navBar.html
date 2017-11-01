@@ -1,5 +1,38 @@
+<div th:fragment="header(activeTab)">
+	<nav class="navigationBar">
+		<div class="navigationBar_container">
+			<div class="navigationBar_header">
+				<div class="navigationBar_collapse">
+					<ul class="navigationBar_ul">
+						<li
+							th:class="${activeTab== 'employeeRegistration'}? 'navigationBar_link active' : 'navigationBar_link inactive'"><a
+							href="/"> <span class="fa fa-user"></span>Starfsmannaskráning
+						</a></li>
+						<li
+							th:class="${activeTab== 'shiftRegistration'}? 'navigationBar_link active' : 'navigationBar_link inactive'">
+							<a href="./shiftRegistration"> <span class="fa fa-briefcase"></span>Skráning
+								vaktar
+						</a>
+						</li>
+						<li
+							th:class="${activeTab== 'shiftAllocation'}? 'navigationBar_link active' : 'navigationBar_link inactive'"><a
+							href="./shiftAllocation"> <span class="fa fa-pencil"></span>Starfsmannaúthlutun
+						</a></li>
+						<li
+							th:class="${activeTab== 'allEmployees'}? 'navigationBar_link active' : 'navigationBar_link inactive'"><a
+							href="/employeeList"> <span class="fa fa-users"></span>Starfsmannalisti
+						</a></li>
+						<li
+							th:class="${activeTab== 'allShifts'}? 'navigationBar_link active' :'navigationBar_link  inactive'"><a
+							href="/shiftList"> <span class="fa fa-briefcase"></span>Vaktalisti
+						</a></li>
+						<li class="navigationBar_navIcon"><a href="/"> <span
+								class="fa fa-navicon"></span>
+						</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+</div> 
 
- 
-    <div th:fragment="header">
-        Ég er nav bar
-    </div>

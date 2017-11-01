@@ -67,14 +67,16 @@ public class ShiftController {
 	 *         but the registration page with error message otherwise.
 	 */
 	@RequestMapping(value = "/shiftInfo", method = RequestMethod.POST)
-	public String shiftInfo(@Valid @ModelAttribute(name = "shift") Shift s, BindingResult bindingResult, ModelMap model) throws ParseException {
-System.out.println("VILLUR VILLI VILL" + bindingResult.toString());
+	public String shiftInfo(@Valid @ModelAttribute(name = "shift") Shift s, BindingResult bindingResult, ModelMap model)
+			throws ParseException {
+		System.out.println("VILLUR VILLI VILL" + bindingResult.toString());
 		if (!bindingResult.hasErrors()) {
 			model.addAttribute("shift", s);
 			shiftService.addShift(s);
 			return "/shiftConfirmation";
 		} else {
-//			String errorMessage = shiftService.getShiftErrorMessage(shiftDate, beginTime, endTime, title, howMany);
+			// String errorMessage = shiftService.getShiftErrorMessage(shiftDate, beginTime,
+			// endTime, title, howMany);
 			String errorMessage = "errorMessage";
 			model.addAttribute("errorMessage", errorMessage);
 			return "/shiftRegistration";
