@@ -11,6 +11,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.print.attribute.standard.MediaSize.ISO;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * The class holds information about an employee in the system.
@@ -28,12 +33,18 @@ public class Employee {
     @Column(name="emp_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
+    @NotEmpty
 	private String name;
+    @NotNull
+    @NotEmpty
 	private String email;
 	private String type;
 	@Column(name = "tshirt")
 	private String size;
 	@Column(name = "birthdate")
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate date;
 	
 	/**
