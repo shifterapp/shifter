@@ -2,119 +2,103 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 
-<object th:include="fragments/bootstrapHead :: bootstrapHead" th:remove="tag" />
+<object th:include="fragments/bootstrapHead :: bootstrapHead"
+	th:remove="tag" />
 <link rel="stylesheet" href="/resources/statics/css/registration.css" />
 
 </head>
-<body >
-<div class="shift_registration">
-	<div th:replace="fragments/navBar :: header(shiftRegistration)"></div>
-	<div class="registration_wrapper">
-	<h1 class="registration_header">Starfsmannaskráning</h1>
-		<div
-			th:class="${#strings.isEmpty(errorMessage)} ? '' : 'registration_errormessage'">
-			<span th:text="${errorMessage}" />
+<body>
+	<div class="shift_registration">
+		<div th:replace="fragments/navBar :: header(shiftRegistration)"></div>
+		<div class="registration_wrapper">
+			<h1 class="registration_header">Starfsmannaskráning</h1>
+			<div
+				th:class="${#strings.isEmpty(errorMessage)} ? '' : 'registration_errormessage'">
+				<span th:text="${errorMessage}" />
+			</div>
+
+			<form action="#" th:action="@{/shiftInfo}" th:object="${shift}"
+				method="POST">
+				<div class="registration_input_wrapper">
+					<div class="registration_fieldErrormessage"
+						th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title
+						Error</div>
+					<label class="registration_icon" for="title"> <i
+						class="fa fa-user"></i></label> <input class="registration_input"
+						th:classappend="${#fields.hasErrors('title')} ? registration_errorInput : ''"
+						type="text" placeholder="Titill vaktar" th:field="*{title}" />
+				</div>
+
+				<div class="registration_input_wrapper">
+					<div class="registration_fieldErrormessage"
+						th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Date
+						Error</div>
+					<label class="registration_icon" for="birthdateInput"><i
+						class="fa fa-calendar "></i></label> <input type="date"
+						class="registration_input"
+						th:classappend="${#fields.hasErrors('date')} ? registration_errorInput : ''"
+						placeholder="Fæðingardagur" onfocus="(this.type='date')"
+						onblur="if(this.value==''){this.type='text'}" name="date"
+						th:field="*{date}" />
+
+				</div>
+
+
+				<div class="registration_input_wrapper">
+					<div class="registration_fieldErrormessage"
+						th:if="${#fields.hasErrors('beginTime')}" th:errors="*{beginTime}">BeginTime
+						Error</div>
+					<label class="registration_icon" for="beginTime"><i
+						class="fa fa-clock-o "></i></label> <input type="time"
+						class="registration_input"
+						th:classappend="${#fields.hasErrors('beginTime')} ? registration_errorInput : ''"
+						placeholder="Upphafstími" onfocus="(this.type='time')"
+						onblur="if(this.value==''){this.type='text'}" name="beginTime"
+						th:field="*{beginTime}" />
+				</div>
+
+				<div class="registration_input_wrapper">
+					<div class="registration_fieldErrormessage"
+						th:if="${#fields.hasErrors('endTime')}" th:errors="*{endTime}">EndTime
+						Error</div>
+					<label class="registration_icon" for="endTime"><i
+						class="fa fa-clock-o"></i></label> <input type="time"
+						class="registration_input"
+						th:classappend="${#fields.hasErrors('endTime')} ? registration_errorInput : ''"
+						placeholder="Lokatími" onfocus="(this.type='time')"
+						onblur="if(this.value==''){this.type='text'}" name="endTime"
+						th:field="*{endTime}" />
+
+				</div>
+
+				<div class="registration_input_wrapper">
+					<div class="registration_fieldErrormessage"
+						th:if="${#fields.hasErrors('howMany')}" th:errors="*{howMany}">How
+						Many Error</div>
+					<label class="registration_icon" for="howMany"> <i
+						class="fa fa-users"></i></label> <input class="registration_input"
+						th:classappend="${#fields.hasErrors('howMany')} ? registration_errorInput : ''"
+						type="text" placeholder="Fjöldatakmörkun" th:field="*{howMany}" />
+				</div>
+
+				<div class="registration_input_wrapper">
+					<label class="registration_icon" for="employeeType"><i
+						class="fa fa-briefcase "></i></label> <select class="registration_select"
+						th:field="*{type}">
+						<option th:value="Starfshlutverk" th:disabled="disabled"
+							th:selected="selected">Starfstitill</option>
+						<option th:value="Gæsla">Gæsla</option>
+						<option th:value="Sjúkgragæsla">Sjúkragæsla</option>
+						<option th:value="Barþjónn">Barþjónn</option>
+						<option th:value="Miðasala">Miðasala</option>
+					</select>
+				</div>
+
+				<input type="submit" class="registration_button" value="Submit" />
+
+			</form>
+
 		</div>
-
-		<form action="#" th:action="@{/shiftInfo}" th:object="${shift}"
-			method="POST">
-			<div class="registration_input_wrapper">
-				<label class="registration_icon" for="title"> <i class="fa fa-user"></i></label> <input class="registration_input"
-					type="text" placeholder="Titill vaktar" th:field="*{title}" />
-				<div th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title
-					Error</div>
-			</div>
-
-			<div class="registration_input_wrapper">
-				<label class="registration_icon" for="birthdateInput"><i
-					class="fa fa-calendar "></i></label> <input type="date"
-					class="registration_input" placeholder="Fæðingardagur"
-					onfocus="(this.type='date')"
-					onblur="if(this.value==''){this.type='text'}" name="date"
-					th:field="*{date}" />
-					<div th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Date
-					Error</div>
-			</div>
-			
- 
-			<div class="registration_input_wrapper">
-				<label class="registration_icon" for="beginTime"><i
-					class="fa fa-clock-o "></i></label> <input type="time"
-					class="registration_input" placeholder="Upphafstími"
-					onfocus="(this.type='time')"
-					onblur="if(this.value==''){this.type='text'}" name="beginTime"
-					th:field="*{beginTime}" />
-					<div th:if="${#fields.hasErrors('beginTime')}" th:errors="*{beginTime}">BeginTime
-					Error</div>
-			</div>
-			
-			<div class="registration_input_wrapper">
-				<label class="registration_icon" for="beginTime"><i
-					class="fa fa-clock-o"></i></label> <input type="time"
-					class="registration_input" placeholder="Lokatími"
-					onfocus="(this.type='time')"
-					onblur="if(this.value==''){this.type='text'}" name="endTime"
-					th:field="*{endTime}" />
-					<div th:if="${#fields.hasErrors('endTime')}" th:errors="*{endTime}">EndTime
-					Error</div>
-			</div>
-			
-			<div class="registration_input_wrapper">
-				<label class="registration_icon" for="howMany"> <i
-					class="fa fa-users"></i></label> <input class="registration_input"
-					type="text" placeholder="Fjöldatakmörkun" th:field="*{howMany}" />
-				<div th:if="${#fields.hasErrors('howMany')}" th:errors="*{howMany}">How Many
-					Error</div>
-			</div>
-			
-			<div class="registration_input_wrapper">
-				<label class="registration_icon" for="employeeType"><i
-					class="fa fa-briefcase "></i></label> <select class="registration_select"
-					th:field="*{type}">
-					<option th:value="Starfshlutverk" th:disabled="disabled"
-						th:selected="selected">Starfstitill</option>
-					<option th:value="Gæsla">Gæsla</option>
-					<option th:value="Sjúkgragæsla">Sjúkragæsla</option>
-					<option th:value="Barþjónn">Barþjónn</option>
-					<option th:value="Miðasala">Miðasala</option>
-				</select>
-			</div>
-			
-<!--
-			<div class="registration_input_wrapper">
-				<label class="registration_icon" for="employeeType"><i
-					class="icon-briefcase "></i></label> <select class="registration_select"
-					th:field="*{type}">
-					<option th:value="Starfstitill" th:disabled="disabled"
-						th:selected="selected">Starfstitill</option>
-					<option th:value="Gæsla">Gæsla</option>
-					<option th:value="Sjúkgragæsla">Sjúkragæsla</option>
-					<option th:value="Barþjónn">Barþjónn</option>
-					<option th:value="Miðasala">Miðasala</option>
-				</select>
-			</div>
-
-			<div class="registration_input_wrapper">
-				<label class="registration_icon" for="size"><i
-					class="icon-pencil"></i></label> <select class="registration_select"
-					th:field="*{size}">
-					<option th:value="Stuttermabolastærð" th:disabled="disabled"
-						selected="true">Stuttermabolastærð</option>
-					<option th:value="XS">Extra Small</option>
-					<option th:value="S">Small</option>
-					<option th:value="M">Medium</option>
-					<option th:value="L">Large</option>
-					<option th:value="XL">Extra Large</option>
-					<option th:value="XXL">Extra Extra Large</option>
-					<option th:value="XXXL">Extra Extra Extra Large</option>
-				</select>
-			</div> -->
-
-			<input type="submit" class="registration_button" value="Submit" />
-
-		</form>
-
 	</div>
-</div>
 </body>
 </html>

@@ -33,17 +33,17 @@ public class Employee {
     @Column(name="emp_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
-    @NotEmpty
+    @NotNull(message = "Vinsamlegast fyllið út nafn.")
+    @NotEmpty(message = "Vinsamlegast fyllið út nafn.")
 	private String name;
-    @NotNull
-    @NotEmpty
+    @NotNull(message = "Vinsamlegast fyllið út netfang.")
+    @NotEmpty(message = "Vinsamlegast fyllið út netfang.")
 	private String email;
 	private String type;
 	@Column(name = "tshirt")
 	private String size;
 	@Column(name = "birthdate")
-	@NotNull
+	@NotNull(message = "Vinsamlegast fyllið út fæðingadag.")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate date;
 	

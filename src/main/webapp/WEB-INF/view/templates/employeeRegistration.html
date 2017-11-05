@@ -19,31 +19,32 @@
 		<form action="#" th:action="@{/employeeInfo}" th:object="${employee}"
 			method="POST">
 			<div class="registration_input_wrapper">
+			<div class="registration_fieldErrormessage" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name
+					Error</div>
 				<label class="registration_icon" for="nameInput"> <i
 					class="fa fa-user"></i></label> <input class="registration_input"
-					type="text" placeholder="Nafn" th:field="*{name}" />
-				<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name
-					Error</div>
+					th:classappend="${#fields.hasErrors('name')} ? registration_errorInput : ''" type="text" placeholder="Nafn" th:field="*{name}" />
 			</div>
 
 			<div class="registration_input_wrapper">
+			<div class="registration_fieldErrormessage" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email
+					Error</div>
 				<label class="registration_icon" for="emailInput"><i
 					class="fa fa-envelope "></i></label> <input type="text"
-					class="registration_input" placeholder="Netfang" name="email"
+					class="registration_input" th:classappend="${#fields.hasErrors('email')} ? registration_errorInput : ''" placeholder="Netfang" name="email"
 					th:field="*{email}" />
-					<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email
-					Error</div>
+					
 			</div>
 
 			<div class="registration_input_wrapper">
+			<div class="registration_fieldErrormessage" th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Date
+					Error</div>
 				<label class="registration_icon" for="birthdateInput"><i
 					class="fa fa-calendar "></i></label> <input type="date"
-					class="registration_input" placeholder="Fæðingardagur"
+					class="registration_input" th:classappend="${#fields.hasErrors('date')} ? registration_errorInput : ''" placeholder="Fæðingardagur"
 					onfocus="(this.type='date')"
 					onblur="if(this.value==''){this.type='text'}" name="date"
 					th:field="*{date}" />
-					<div th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Date
-					Error</div>
 			</div>
 
 			<div class="registration_input_wrapper">
