@@ -37,23 +37,23 @@ public class Shift {
     @Column(name="shift_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
-    @NotEmpty
+    @NotNull(message = "Vinsamlegast fyllið út titil vaktar.")
+    @NotEmpty(message = "Vinsamlegast fyllið út titil vaktar.")
 	private String title;
-    @NotNull
-    @NotEmpty
+    @NotNull(message = "Vinsamlegast fyllið út týpu vaktar.")
+    @NotEmpty(message = "Vinsamlegast fyllið út týpu vaktar.")
 	private String type;
-    @NotNull
+    @NotNull(message = "Vinsamlegast fyllið út dagsetningu.")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate date;
-    @NotNull
+    @NotNull(message = "Vinsamlegast fyllið út upphafstíma.")
     @DateTimeFormat(iso = ISO.TIME)
 	private LocalTime beginTime;
-    @NotNull
+    @NotNull(message = "Vinsamlegast fyllið út lokatíma.")
     @DateTimeFormat(iso = ISO.TIME)
 	private LocalTime endTime;
-    @NotNull
-    @NotEmpty
+    @NotNull(message = "Vinsamlegast tilgreinið fjöldatakmörkun.")
+    @NotEmpty(message = "Vinsamlegast tilgreinið fjöldatakmörkun.")
 	private String howMany;
 
 	/**

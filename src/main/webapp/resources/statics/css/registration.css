@@ -45,7 +45,7 @@
 .registration_wrapper {
 	width: 400px;
 	background: rgba(0, 0, 0, 0.6);
-	margin: 60px auto;
+	margin: 100px auto;
 	padding: 20px 0 40px 0;
 	position: relative;
 }
@@ -69,6 +69,11 @@
 	border: none;
 	margin-left: -5px;
 	padding-left: 10px;
+}
+
+.registration_errorInput {
+	border: 2px solid #D8000C;
+	background-color: #FFD2D2;
 }
 
 .registration_select {
@@ -97,10 +102,20 @@
 	margin-left: 155px;
 }
 
-.registration_errormessage exists {
+.registration_errormessage {
 	color: #D8000C;
 	background-color: #FFBABA;
 	width: 300px;
 	margin: 20px 50px;
+	padding: 10px;
+	border-radius: 2px;
+}
+
+.registration_fieldErrormessage {
+	color: #D8000C;
+	background-color: #FFBABA;
+	width: 245px;
+	margin-bottom: 15px; padding : 10px;
+	border-radius: 2px;
 	padding: 10px;
 }

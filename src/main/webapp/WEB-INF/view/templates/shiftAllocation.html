@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="shiftAllocation_registration">
-	<div th:replace="fragments/navBar :: header(shiftAllocation)"></div>
+		<div th:replace="fragments/navBar :: header(shiftAllocation)"></div>
 		<div class="registration_wrapper">
 			<h1 class="registration_header">Úthlutun starfsmanns á vakt</h1>
 			<div
@@ -20,19 +20,21 @@
 			<form action="#" th:action="@{/shiftAllocationInfo}"
 				th:object="${shiftAllocation}" method="POST">
 				<div class="registration_input_wrapper">
+				<div class="registration_fieldErrormessage" th:if="${#fields.hasErrors('empId')}" th:errors="*{empId}">Employee
+						Id Error</div>
 					<label class="registration_icon" for="employeeId"> <i
 						class="fa fa-user"></i></label> <input class="registration_input"
+						th:classappend="${#fields.hasErrors('empId')} ? registration_errorInput : ''"
 						type="text" placeholder="Starfsmannaauðkenni" th:field="*{empId}" />
-					<div th:if="${#fields.hasErrors('empId')}" th:errors="*{empId}">Employee
-						Id Error</div>
 				</div>
 
 				<div class="registration_input_wrapper">
+				<div class="registration_fieldErrormessage" th:if="${#fields.hasErrors('shiftId')}" th:errors="*{shiftId}">Shift
+						Id Error</div>
 					<label class="registration_icon" for="shiftId"> <i
 						class="fa fa-briefcase"></i></label> <input class="registration_input"
+						th:classappend="${#fields.hasErrors('shiftId')} ? registration_errorInput : ''"
 						type="text" placeholder="Vaktaauðkenni" th:field="*{shiftId}" />
-					<div th:if="${#fields.hasErrors('shiftId')}" th:errors="*{shiftId}">Shift
-						Id Error</div>
 				</div>
 
 				<input type="submit" class="registration_button" value="Submit" />

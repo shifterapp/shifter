@@ -23,9 +23,9 @@ public class ShiftAllocation {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
+	@NotNull(message = "Vinsamlegast gefið upp auðkenni starfsmanns.")
 	private Integer empId;
-	@NotNull
+	@NotNull(message = "Vinsamlegast gefið upp auðkenni vaktar.")
 	private Integer shiftId;
 
 	public ShiftAllocation() {
