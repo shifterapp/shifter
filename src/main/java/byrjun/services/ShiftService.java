@@ -81,6 +81,13 @@ public interface ShiftService {
 	public LinkedList<Shift> allShifts();
 	
 	/**
+	 * Returns list of employees that has searchString somewhere in the information about them
+	 * @param searchString the string that the user is searching by
+	 * @return list of employees corresponded to that searchString
+	 */
+	public LinkedList<Shift> searchForShift(String title, String type);
+	
+	/**
 	 * Returns shift with the id shiftId
 	 * @param shiftId the id of the shift.
 	 * @returns the shift with the id shiftId.

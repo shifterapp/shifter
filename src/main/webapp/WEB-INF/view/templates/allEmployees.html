@@ -10,26 +10,41 @@
 <body>
 	<div class="employee_list">
 		<div th:replace="fragments/navBar :: header(allEmployees)"></div>
-		<h1>Starfsmannalisti</h1>
+		<h1 class="list_title">Starfsmannalisti</h1>
+
+		<form action="#" th:action="@{/employeeSearch}"
+			 method="POST">
+			<div class="list_search_wrapper">
+				<label for="searchInput"> <i
+					class="fa fa-search"></i></label> <input class="list_input"
+					type="text" placeholder="Leit" name = "searchString"/> <input type="submit"
+					class="list_button" value="Leita" />
+			</div>
+		</form>
 
 
-		<table>
-			<thead>
+		<table class="table">
+			<thead class="list_thead">
 				<tr>
-					<th>Name</th>
-					<th>Email</th>
-					<th>Type</th>
-					<th>Size</th>
-					<th>Date</th>
+					<th class="list_th" ><i
+					class="fa fa-user"></i> Name</th>
+					<th class="list_th" ><i
+					class="fa fa-envelope"></i>Email</th>
+					<th class="list_th"><i
+					class="fa fa-briefcase"></i>Type</th>
+					<th class="list_th"><i
+					class="fa fa-pencil"></i>Size</th>
+					<th class="list_th"><i
+					class="fa fa-calendar"></i>Date</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="employee: ${employees}">
-					<td th:text="${employee.name}" />
-					<td th:text="${employee.email}" />
-					<td th:text="${employee.type}" />
-					<td th:text="${employee.size}" />
-					<td th:text="${employee.date}" />
+					<td class="list_td" th:text="${employee.name}" />
+					<td class="list_td" th:text="${employee.email}" />
+					<td class="list_td" th:text="${employee.type}" />
+					<td class="list_td" th:text="${employee.size}" />
+					<td class="list_td" th:text="${employee.date}" />
 				</tr>
 			</tbody>
 		</table>

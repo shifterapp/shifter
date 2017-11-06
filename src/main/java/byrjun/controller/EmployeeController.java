@@ -101,5 +101,14 @@ public class EmployeeController {
 		model.addAttribute("employees", employees);
 		return "/allEmployees";
 	}
+	
+	@RequestMapping(value = "/employeeSearch", method = RequestMethod.POST)
+	public String employeeSearch( @RequestParam(value="searchString", required=false) String searchString, 
+			ModelMap model) throws ParseException {
+		LinkedList<Employee> employees;
+		employees = employeeService.searchForEmployee(searchString,searchString,searchString);
+		model.addAttribute("employees", employees);
+		return "/allEmployees";
+	}
 
 }

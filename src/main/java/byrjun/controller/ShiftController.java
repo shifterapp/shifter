@@ -97,5 +97,14 @@ public class ShiftController {
 		model.addAttribute("shifts", list);
 		return "/allShifts";
 	}
+	
+	@RequestMapping(value = "/shiftSearch", method = RequestMethod.POST)
+	public String shiftSearch( @RequestParam(value="searchString", required=false) String searchString, 
+			ModelMap model) throws ParseException {
+		LinkedList<Shift> shifts;
+		shifts = shiftService.searchForShift(searchString,searchString);
+		model.addAttribute("shifts", shifts);
+		return "/allShifts";
+	}
 
 }

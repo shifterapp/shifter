@@ -23,12 +23,12 @@
                         <a href="#" th:href="@{/shiftAllocation}"> <span class="fa fa-pencil"></span> Vaktarúthlutun</a>
                     </li>
                     
-                    <li th:class="${activeTab== 'allShifts'}? 'active' : 'inactive'">
-                        <a href="#" th:href="@{/shiftList}"> <span class="fa fa-users"></span> Starfsmannalisti</a>
+                    <li th:class="${activeTab== 'allEmployees'}? 'active' : 'inactive'">
+                        <a href="#" th:href="@{/employeeList}"> <span class="fa fa-users"></span> Starfsmannalisti</a>
                     </li>
                     
-                    <li th:class="${activeTab== 'allEmployees'}? 'active' : 'inactive'">
-                        <a href="#" th:href="@{/employeeList}"> <span class="fa fa-briefcase"></span>Vaktarlisti</a>
+                    <li th:class="${activeTab== 'allShifts'}? 'active' : 'inactive'">
+                        <a href="#" th:href="@{/shiftList}"> <span class="fa fa-briefcase"></span>Vaktarlisti</a>
                     </li>
                 </ul>    
             </div>
