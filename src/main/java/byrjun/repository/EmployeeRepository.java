@@ -31,12 +31,19 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	Employee save (Employee employee);
 	
 	/**
+	 * Use findEmployee instead
+	 */
+	LinkedList<Employee> findByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrTypeContainingIgnoreCase(String name,  String email, String type);
+	
+	/**
 	 * Finds employee by name and returns that employees.
 	 * @param nafn
 	 * @return list of employees with that name. 
 	 */
-	List<Employee> findByName(String nafn);
-
+	default LinkedList<Employee> findEmployee(String name, String email, String type){
+	return findByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrTypeContainingIgnoreCase(name,  email,  type);
+	}
+	
 	/**
 	 * Returns employee with that id
 	 * @param id of employee

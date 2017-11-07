@@ -98,4 +98,10 @@ public class EmployeeServiceImp implements EmployeeService {
 	public boolean checkIfEmpExists(Long empId) {
 		return employeeRep.exists(empId);
 	}
+
+	@Override
+	public LinkedList<Employee> searchForEmployee(String name, String email, String type) {
+		LinkedList<Employee> employees = employeeRep.findEmployee(name, email, type);
+		return employees;
+	}
 }

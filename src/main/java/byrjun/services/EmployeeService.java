@@ -57,6 +57,13 @@ public interface EmployeeService {
 	public LinkedList<Employee> allEmployees();
 	
 	/**
+	 * Returns list of employees that has searchString somewhere in the information about them
+	 * @param searchString the string that the user is searching by
+	 * @return list of employees corresponded to that searchString
+	 */
+	public LinkedList<Employee> searchForEmployee(String name, String email, String type);
+	
+	/**
 	 * Returns employee with the id empId
 	 * @param empId the id of the employee.
 	 * @returns the employee with the id employeeId.

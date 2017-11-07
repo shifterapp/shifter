@@ -9,18 +9,34 @@
 <body>
 	<div class="employee_list">
 		<div th:replace="fragments/navBar :: header(allShifts)"></div>
-		<h1>Starfsmannalisti</h1>
+		<h1 class="list_title" >Vaktalisti</h1>
+		
+		<form action="#" th:action="@{/shiftSearch}"
+			 method="POST">
+			<div class="list_search_wrapper">
+				<label for="searchInput"> <i
+					class="fa fa-search"></i></label> <input class="list_input"
+					type="text" placeholder="Leit" name = "searchString"/> <input type="submit"
+					class="list_button" value="Leita" />
+			</div>
+		</form>
 
 
-		<table>
-			<thead>
+		<table class="table">
+			<thead class="list_thead">
 				<tr>
-					<th>Title</th>
-					<th>Type</th>
-					<th>Date</th>
-					<th>Begin Time</th>
-					<th>End Time</th>
-					<th>How Many</th>
+					<th class="list_th" ><i
+					class="fa fa-briefcase"></i>Title</th>
+					<th class="list_th" ><i
+					class="fa fa-briefcase"></i>Type</th>
+					<th class="list_th" ><i
+					class="fa fa-calendar"></i>Date</th>
+					<th class="list_th" ><i
+					class="fa fa-clock-o"></i> Begin Time</th>
+					<th class="list_th" ><i
+					class="fa fa-clock-o"></i> End Time</th>
+					<th class="list_th" ><i
+					class="fa fa-users"></i>How Many</th>
 				</tr>
 			</thead>
 			<tbody>

@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import byrjun.model.Employee;
 import byrjun.model.Shift;
 import byrjun.repository.ShiftRepository;
 
@@ -126,5 +127,11 @@ public class ShiftServiceImp implements ShiftService {
 	@Override
 	public boolean checkIfShiftExists(Long shiftId) {
 		return shiftRep.exists(shiftId);
+	}
+	
+	@Override
+	public LinkedList<Shift> searchForShift(String title, String type) {
+		LinkedList<Shift> shifts = shiftRep.findShift(title, type);
+		return shifts;
 	}
 }
