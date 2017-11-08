@@ -31,5 +31,12 @@ public class EmpEachShiftRepository {
 	public void add (EmpEachShift empEachShift) {
 		empEachShiftList.add(empEachShift);
 	}
+	
+	/**
+	 * Empties the repository
+	 */
+	public void empty() {
+		empEachShiftList.clear();
+	}
 
 }
