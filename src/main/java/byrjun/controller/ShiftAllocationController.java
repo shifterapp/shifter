@@ -86,6 +86,7 @@ public class ShiftAllocationController {
 	 */
 	@RequestMapping(value = "/shiftAllocationView", method = RequestMethod.GET)
 	public String shiftAllocationList(Model model) {
+		empEachShiftRep.empty();
 		int shiftNumber = shiftService.countShifts();
 		LinkedList<ShiftAllocation> shiftAllocationsByShiftId;
 		for (int i = 1; i <= shiftNumber; i++) {
