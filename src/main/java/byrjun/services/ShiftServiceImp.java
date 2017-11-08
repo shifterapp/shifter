@@ -134,4 +134,10 @@ public class ShiftServiceImp implements ShiftService {
 		LinkedList<Shift> shifts = shiftRep.findShift(title, type);
 		return shifts;
 	}
+
+
+	@Override
+	public int countShifts() {
+		return (int) shiftRep.count();
+	}
 }

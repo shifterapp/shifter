@@ -2,14 +2,43 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 
-<object th:include="fragments/bootstrapHead :: bootstrapHead" th:remove="tag" />
+<object th:include="fragments/bootstrapHead :: bootstrapHead"
+	th:remove="tag" />
 <link rel="stylesheet" href="/resources/statics/css/list.css" />
 
 </head>
 <body>
-<div class="shiftAllocation_list">
-	<div th:replace="fragments/navBar :: header"></div>
-	
-</div>
+	<div class="shiftAllocation_list">
+		<div th:replace="fragments/navBar :: header(allShiftAllocations)"></div>
+		<h1 class="list_title">Úthlutun starfsmanna á vaktir</h1>
+		<h2 class="list_subTitle">Frekari upplýsingar um vaktir má sjá <a href="#" th:href="@{/shiftList}">hér</a></h2>
+
+<div th:each="empEachShift: ${empEachShiftList}">
+<h3 class="list_shiftInfo" th:text ="${empEachShift.shift.title + ' þann ' + empEachShift.shift.date}"></h3>
+		<table class="table" >
+			<thead class="list_thead">
+				<tr>
+					<th class="list_th"><i class="fa fa-user"></i> Name</th>
+					<th class="list_th"><i class="fa fa-envelope"></i>Email</th>
+					<th class="list_th"><i class="fa fa-briefcase"></i>Type</th>
+					<th class="list_th"><i class="fa fa-pencil"></i>Size</th>
+					<th class="list_th"><i class="fa fa-calendar"></i>Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="employee: ${empEachShift.employees}">
+					<td class="list_td" th:text="${employee.name}" />
+					<td class="list_td" th:text="${employee.email}" />
+					<td class="list_td" th:text="${employee.type}" />
+					<td class="list_td" th:text="${employee.size}" />
+					<td class="list_td" th:text="${employee.date}" />
+				</tr>
+			</tbody>
+		</table>
+		</div>
+
+
+
+	</div>
 </body>
 </html>

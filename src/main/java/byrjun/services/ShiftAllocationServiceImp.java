@@ -1,9 +1,12 @@
 package byrjun.services;
 
 
+import java.util.LinkedList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import byrjun.model.Shift;
 import byrjun.model.ShiftAllocation;
 import byrjun.repository.ShiftAllocationRepository;
 
@@ -45,6 +48,16 @@ public class ShiftAllocationServiceImp implements ShiftAllocationService {
 	public boolean checkIfShiftAllocationExists(int empId, int shiftId) {
 		// TODO implementa þetta fall!
 		return false;
+	}
+
+	@Override
+	public LinkedList<ShiftAllocation> allShiftAllocations() {
+		return shiftAllocationRep.findAll();
+	}
+
+	@Override
+	public LinkedList<ShiftAllocation> getShiftAllocationByShiftId(Integer shiftId) {
+		return shiftAllocationRep.findByShiftId(shiftId);
 	}
 	
 
