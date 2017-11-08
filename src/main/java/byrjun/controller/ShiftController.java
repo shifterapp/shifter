@@ -75,8 +75,6 @@ public class ShiftController {
 			shiftService.addShift(s);
 			return "/shiftConfirmation";
 		} else {
-			// String errorMessage = shiftService.getShiftErrorMessage(shiftDate, beginTime,
-			// endTime, title, howMany);
 			String errorMessage = "errorMessage";
 			model.addAttribute("errorMessage", errorMessage);
 			return "/shiftRegistration";
@@ -85,9 +83,7 @@ public class ShiftController {
 
 	/**
 	 * Displays list of shifts
-	 * 
-	 * @param model
-	 *            model for "communication" to the view
+	 * @param model model for "communication" to the view
 	 * @return page with a list of employees
 	 */
 	@RequestMapping(value = "/shiftList", method = RequestMethod.GET)
@@ -98,6 +94,13 @@ public class ShiftController {
 		return "/allShifts";
 	}
 	
+	/**
+	 * Searches for shifts with the searchString in its title or type
+	 * @param searchString
+	 * @param model
+	 * @return the shifts where the type or title includes the searchstring
+	 * @throws ParseException
+	 */
 	@RequestMapping(value = "/shiftSearch", method = RequestMethod.POST)
 	public String shiftSearch( @RequestParam(value="searchString", required=false) String searchString, 
 			ModelMap model) throws ParseException {

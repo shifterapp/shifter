@@ -65,4 +65,6 @@ public interface ShiftRepository extends JpaRepository<Shift, Long> {
 	 * @return boolean value which states if shift with that id exists or not.
 	 */
 	boolean exists(Long id);
+	
+	long count();
 }

@@ -76,7 +76,7 @@ public interface ShiftService {
 	
 	/**
 	 * Returns all shifts in the shiftRepository.
-	 * @returns list of employees in the shiftRepository.
+	 * @returns list of shifts in the shiftRepository.
 	 */
 	public LinkedList<Shift> allShifts();
 	
@@ -100,6 +100,12 @@ public interface ShiftService {
 	 * @return boolean value which states if shift with that id exists or not.
 	 */
 	public boolean checkIfShiftExists(Long shiftId);
+	
+	/**
+	 * Counts the shifts that exists
+	 * @return the number of shifts
+	 */
+	public int countShifts();
 	
 
 }

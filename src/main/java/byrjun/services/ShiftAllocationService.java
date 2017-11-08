@@ -1,5 +1,8 @@
 package byrjun.services;
 
+import java.util.LinkedList;
+
+import byrjun.model.Shift;
 import byrjun.model.ShiftAllocation;
 
 public interface ShiftAllocationService {
@@ -30,6 +33,19 @@ public interface ShiftAllocationService {
 	 * @return Error message string.
 	 */
 	public String getShiftAllocationErrorMessage(Long empId, Long shiftId);
+	
+	/**
+	 * Returns all shiftAllocations in the shiftAllocationRepository.
+	 * @returns list of shiftAllocations in the shiftAllocationRepository.
+	 */
+	public LinkedList<ShiftAllocation> allShiftAllocations();
+	
+	/**
+	 * Returns shiftAllocation with that shift id
+	 * @param shiftId
+	 * @return
+	 */
+	public LinkedList<ShiftAllocation> getShiftAllocationByShiftId(Integer shiftId);
 
 
 }

@@ -72,16 +72,7 @@ public class EmployeeController {
 			employeeService.addEmployee(e);
 			return "/employeeConfirmation";
 		} else {
-			String dateString;
-			// if (!e.getDate().equals(null))
-			// dateString = e.getDate().toString();
-			// else
-			// dateString = "";
-			// String errorMessage = employeeService.getEmployeeErrorMessage(e.getName(),
-			// e.getEmail(), dateString);
 			String errorMessage = "errorMessage";
-			System.out.println("find e" + e);
-			// System.out.println("find is e.getDate empty" + e.getDate().equals(null));
 			model.addAttribute("errorMessage", errorMessage);
 			return "/employeeRegistration";
 		}
