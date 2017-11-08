@@ -11,7 +11,7 @@
 	<div class="shift_registration">
 		<div th:replace="fragments/navBar :: header(shiftRegistration)"></div>
 		<div class="registration_wrapper">
-			<h1 class="registration_header">Starfsmannaskráning</h1>
+			<h1 class="registration_header">Skráning vaktar</h1>
 			<div
 				th:class="${#strings.isEmpty(errorMessage)} ? '' : 'registration_errormessage'">
 				<span th:text="${errorMessage}" />
