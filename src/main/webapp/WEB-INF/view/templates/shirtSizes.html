@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+<object th:include="fragments/bootstrapHead :: bootstrapHead"
+	th:remove="tag" />
+<link rel="stylesheet" href="/resources/statics/css/list.css" />
+
+</head>
+<body>
+<div th:replace="fragments/navBar :: header(shirtSizes)"></div>
+<h1 class="list_title">Bolastærðir</h1>
+<table class="table" style="width: 30%;">
+			<thead class="list_thead">
+				<tr>
+					<th class="list_th" ><i
+					class="fa fa-shirtsinbulk"></i> Stærð</th>
+					<th class="list_th" ><i
+					class="fa fa-black-tie"></i>Fjöldi</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="shirtSizes: ${shirtSizes}">
+					<td class="list_td" th:text="${shirtSizes.sizeType}" />
+					<td class="list_td" th:text="${shirtSizes.count}" />
+				</tr>
+			</tbody>
+		</table>
+</body>
+</html>
