@@ -21,6 +21,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+import byrjun.constraints.ShiftDateConstraint;
+
 /**
  * The class holds information about a shift in the system.
  * @author Teymi 7: Arnar Már, Jón Ágúst, Markús Freyr og Sigrún Dís
@@ -45,6 +47,7 @@ public class Shift {
 	private String type;
     @NotNull(message = "Vinsamlegast fyllið út dagsetningu.")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @ShiftDateConstraint(message = "Dagsetning má ekki vera liðin.")
 	private LocalDate date;
     @NotNull(message = "Vinsamlegast fyllið út upphafstíma.")
     @DateTimeFormat(iso = ISO.TIME)
