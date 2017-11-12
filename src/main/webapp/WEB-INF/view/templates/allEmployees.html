@@ -12,13 +12,19 @@
 		<div th:replace="fragments/navBar :: header(allEmployees)"></div>
 		<h1 class="list_title">Starfsmannalisti</h1>
 
-		<form action="#" th:action="@{/employeeSearch}"
-			 method="POST">
+		<form action="#" th:action="@{/employeeSearch}" method="POST">
 			<div class="list_search_wrapper">
-				<label for="searchInput"> <i
-					class="fa fa-search"></i></label> <input class="list_input"
-					type="text" placeholder="Leit" name = "searchString"/> <input type="submit"
-					class="list_button" value="Leita" />
+				<label for="searchInput"> <i class="fa fa-search"></i></label> <input
+					class="list_input" type="text" placeholder="Leit"
+					name="searchString" /> <input type="submit" class="list_button"
+					value="Leita" />
+			</div>
+		</form>
+
+		<form action="#" th:action="@{/employeeShirts}" method="GET">
+			<div class="list_search_wrapper">
+				<input type="submit" style= "width: 100%" class="list_button"
+					value="Sækja pöntunarlista fyrir boli" />
 			</div>
 		</form>
 
@@ -26,16 +32,11 @@
 		<table class="table">
 			<thead class="list_thead">
 				<tr>
-					<th class="list_th" ><i
-					class="fa fa-user"></i> Name</th>
-					<th class="list_th" ><i
-					class="fa fa-envelope"></i>Email</th>
-					<th class="list_th"><i
-					class="fa fa-briefcase"></i>Type</th>
-					<th class="list_th"><i
-					class="fa fa-pencil"></i>Size</th>
-					<th class="list_th"><i
-					class="fa fa-calendar"></i>Date</th>
+					<th class="list_th"><i class="fa fa-user"></i> Nafn</th>
+					<th class="list_th"><i class="fa fa-envelope"></i>Netfang</th>
+					<th class="list_th"><i class="fa fa-briefcase"></i>Starfstitill</th>
+					<th class="list_th"><i class="fa fa-pencil"></i>Bolastærð</th>
+					<th class="list_th"><i class="fa fa-calendar"></i>Fæðgingardagur</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -49,6 +50,7 @@
 			</tbody>
 		</table>
 	</div>
+
 
 
 </body>

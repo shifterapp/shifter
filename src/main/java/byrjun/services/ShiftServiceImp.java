@@ -51,11 +51,6 @@ public class ShiftServiceImp implements ShiftService {
 	if(!endTimeNotEmpty(endTime)){
 		errorMessage += "Vinsamlegast fylltu inn endatíma vaktarinnar. <br/>";
 	}
-	if(beginTimeNotEmpty(beginTime) && endTimeNotEmpty(endTime)){
-		if(!timeCorrect(beginTime,endTime)){
-			errorMessage += "Athugaðu að vakt getur ekki endað áður en hún hefst. <br/>";
-		}
-	}
 	if(!shiftTitleNotEmpty(shiftTitle)){
 		errorMessage += "Vinsamlegast settu titil á vaktina. <br/>";
 		
@@ -66,16 +61,7 @@ public class ShiftServiceImp implements ShiftService {
 	return errorMessage;
 	}
 	
-	@Override
-	public boolean timeCorrect(String beginTime, String endTime){
-		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
-		LocalTime beginTimeObject = LocalTime.parse(beginTime,timeFormatter);
-		LocalTime endTimeObject = LocalTime.parse(endTime,timeFormatter);
-		if(beginTimeObject.isBefore(endTimeObject)){
-			return true;
-		}
-			return false;
-	}
+	
 	
 	@Override
 	public boolean beginTimeNotEmpty(String beginTime){

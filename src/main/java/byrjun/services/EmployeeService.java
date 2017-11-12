@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import byrjun.model.Employee;
+import byrjun.model.ShirtSizes;
 
 /**
  * 
@@ -76,6 +77,13 @@ public interface EmployeeService {
 	 * @return boolean value which states if employee with that id exists or not.
 	 */
 	public boolean checkIfEmpExists(Long empId);
+	
+	/**
+	 * Returns
+	 * @return
+	 */
+	public LinkedList<ShirtSizes> sizeCounts();
+		
 	
 
 }

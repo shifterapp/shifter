@@ -67,6 +67,17 @@ body {
 	border-radius: 1px;
 	padding-bottom: 1px;
 }
+.list_orderButton {
+	position: relative;
+	border: none;
+	background: #FF6700;
+	height: 40px;
+	color: #ffffff;
+	text-align: center;
+	border-radius: 1px;
+	padding-bottom: 1px;
+	margin:auto;
+}
 
 .table {
 	width: 80%;

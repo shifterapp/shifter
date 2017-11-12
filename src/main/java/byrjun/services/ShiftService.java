@@ -33,12 +33,6 @@ public interface ShiftService {
 	 */
 	public String getShiftErrorMessage(String date,String beginTime,String endTime,String shiftTitle, String howMany);
 	
-	/**
-	 * Checks if the shifts begins before it ends
-	 * @param beginTime,endTime
-	 * @return returns true if the shift begins 
-	 */
-	public boolean timeCorrect(String beginTime, String endTime);
 	
 	/**
 	 * Checks if the shift has a valid start time
