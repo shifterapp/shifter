@@ -62,6 +62,13 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	 * @return boolean value which states if employee with that id exists or not.
 	 */
 	boolean exists(Long id);
+	
+	/**
+	 * Returns the number of employees of a certain size
+	 * @param size of t-shirt for employees
+	 * @return the number of employees of that size
+	 */
+	int countBySize(String size);
 
 
 }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import byrjun.model.Employee;
+import byrjun.model.ShirtSizes;
 import byrjun.services.EmployeeService;
 
 /**
@@ -100,6 +101,14 @@ public class EmployeeController {
 		employees = employeeService.searchForEmployee(searchString,searchString,searchString);
 		model.addAttribute("employees", employees);
 		return "/allEmployees";
+	}
+	
+	@RequestMapping(value = "/employeeShirts", method = RequestMethod.GET)
+	public String employeeShirts(Model model){
+		LinkedList<ShirtSizes> shirtSizes;
+		shirtSizes = employeeService.sizeCounts();
+		model.addAttribute("shirtSizes", shirtSizes);		
+		return "/shirtSizes";
 	}
 
 }
