@@ -52,6 +52,11 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	Employee findById(Long id);
 	
 	/**
+	 * Orders by name in ascending order
+	 */
+	LinkedList<Employee> findAllByOrderByNameAsc();
+	
+	/**
 	 * Returns true if employee with given id exists.
 	 * @param id of employee
 	 * @return boolean value which states if employee with that id exists or not.
