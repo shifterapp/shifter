@@ -113,6 +113,8 @@ public class ShiftController {
 		LinkedList<Shift> list;
 		list = (LinkedList<Shift>) shiftService.allShiftsAscTitle();
 		model.addAttribute("shifts", list);
+		String activeSort = "title";
+		model.addAttribute("activeSort", activeSort);
 		return "/allShifts";
 	}
 	@RequestMapping(value = "/shiftSort",params = "Tegund", method = RequestMethod.GET)
@@ -120,6 +122,8 @@ public class ShiftController {
 		LinkedList<Shift> list;
 		list = (LinkedList<Shift>) shiftService.allShiftsAscType();
 		model.addAttribute("shifts", list);
+		String activeSort = "type";
+		model.addAttribute("activeSort", activeSort);
 		return "/allShifts";
 	}
 	@RequestMapping(value = "/shiftSort",params = "Dagsetningu", method = RequestMethod.GET)
@@ -127,6 +131,8 @@ public class ShiftController {
 		LinkedList<Shift> list;
 		list = (LinkedList<Shift>) shiftService.allShiftsAscDate();
 		model.addAttribute("shifts", list);
+		String activeSort = "date";
+		model.addAttribute("activeSort", activeSort);
 		return "/allShifts";
 	}
 	@RequestMapping(value = "/shiftSort",params = "Upphafstíma", method = RequestMethod.GET)
@@ -134,6 +140,8 @@ public class ShiftController {
 		LinkedList<Shift> list;
 		list = (LinkedList<Shift>) shiftService.allShiftsAscBegintime();
 		model.addAttribute("shifts", list);
+		String activeSort = "beginTime";
+		model.addAttribute("activeSort", activeSort);
 		return "/allShifts";
 	}
 	
