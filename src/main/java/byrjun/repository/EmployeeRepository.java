@@ -44,12 +44,33 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	return findByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrTypeContainingIgnoreCase(name,  email,  type);
 	}
 	
+	
 	/**
 	 * Returns employee with that id
 	 * @param id of employee
 	 * @return employee with that id
 	 */
 	Employee findById(Long id);
+	
+	/**
+	 * Orders by name in ascending order
+	 */
+	LinkedList<Employee> findAllByOrderByNameAsc();
+	
+	/**
+	 * Orders by type in ascending order
+	 */
+	LinkedList<Employee> findAllByOrderByTypeAsc();
+	
+	/**
+	 * Orders by t-shirt in ascending order
+	 */
+	LinkedList<Employee> findAllByOrderBySizeAsc();
+	
+	/**
+	 * Orders by date in ascending order
+	 */
+	LinkedList<Employee> findAllByOrderByDateAsc();
 	
 	/**
 	 * Returns true if employee with given id exists.

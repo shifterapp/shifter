@@ -20,6 +20,16 @@
 					class="list_button" value="Leita" />
 			</div>
 		</form>
+		
+		<form action="#" th:action="@{/shiftSort}" method="GET">
+			<h3 class="list_title">Raða eftir:</h3>
+			<div class="list_search_wrapper">
+				<input type="submit" class="list_button" value="Titli" name="Titli" style= "width: 23%"/>
+				<input type="submit" class="list_button" value="Tegund" name="Tegund" style= "width: 23%"/>	 
+				<input type="submit" class="list_button" value="Dagsetningu" name="Dagsetningu" style= "width: 23%"/>	
+				<input type="submit" class="list_button" value="Upphafstíma" name="Upphafstíma" style= "width: 23%"/>	
+			</div>			 
+		</form>
 
 
 		<table class="table">

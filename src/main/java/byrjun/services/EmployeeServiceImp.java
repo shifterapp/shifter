@@ -88,7 +88,29 @@ public class EmployeeServiceImp implements EmployeeService {
 	@Override
 	public LinkedList<Employee> allEmployees() {
 		return employeeRep.findAll();
+		
 	}
+	
+	@Override
+	public LinkedList<Employee> allEmployeesAscName() {
+		return employeeRep.findAllByOrderByNameAsc();
+	}
+	
+	@Override
+	public LinkedList<Employee> allEmployeesAscType() {
+		return employeeRep.findAllByOrderByTypeAsc();
+	}
+	
+	@Override
+	public LinkedList<Employee> allEmployeesAscSize() {
+		return employeeRep.findAllByOrderBySizeAsc();
+	}
+	
+	@Override
+	public LinkedList<Employee> allEmployeesAscDate() {
+		return employeeRep.findAllByOrderByDateAsc();
+	}
+	
 	
 	@Override 
 	public Employee getEmpById(Long empId) {
