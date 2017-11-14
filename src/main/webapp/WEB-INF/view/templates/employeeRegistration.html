@@ -13,7 +13,6 @@
 	<h1 class="registration_header">Starfsmannaskráning</h1>
 		<div
 			th:class="${#strings.isEmpty(errorMessage)} ? '' : 'registration_errormessage'">
-			<span th:text="${errorMessage}" />
 		</div>
 		<form action="#" th:action="@{/employeeInfo}" th:object="${employee}"
 			method="POST">

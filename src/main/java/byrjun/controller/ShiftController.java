@@ -75,8 +75,6 @@ public class ShiftController {
 			shiftService.addShift(s);
 			return "/shiftConfirmation";
 		} else {
-			String errorMessage = "errorMessage";
-			model.addAttribute("errorMessage", errorMessage);
 			return "/shiftRegistration";
 		}
 	}

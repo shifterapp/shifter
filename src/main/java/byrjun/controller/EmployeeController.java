@@ -73,8 +73,6 @@ public class EmployeeController {
 			employeeService.addEmployee(e);
 			return "/employeeConfirmation";
 		} else {
-			String errorMessage = "errorMessage";
-			model.addAttribute("errorMessage", errorMessage);
 			return "/employeeRegistration";
 		}
 	}
