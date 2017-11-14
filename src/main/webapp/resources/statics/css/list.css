@@ -10,6 +10,7 @@ body {
 	margin: 10px;
 	color: #0098AE;
 }
+
 .list_subTitle {
 	font-size: 28px;
 	font-weight: 300;
@@ -19,11 +20,27 @@ body {
 	margin-bottom: 10px;
 	color: #0098AE;
 }
-.list_subTitle>a{
+
+.list_subTitle>a {
 	text-decoration: none;
 	color: #FF6700;
 }
-.list_shiftInfo{
+.list_text {
+	font-size: 20px;
+	font-weight: 300;
+	text-align: center;
+	padding: 10px 0;
+	margin-top: 0;
+	margin-bottom: 10px;
+	color: #0098AE;
+}
+
+.list_text>a {
+	text-decoration: none;
+	color: #FF6700;
+}
+
+.list_shiftInfo {
 	font-size: 24px;
 	font-weight: 300;
 	background-color: #FF6700;
@@ -34,9 +51,20 @@ body {
 }
 
 .list_search_wrapper {
-	width: 330px; margin : 10px auto;
-	position: relative;
+	width: 330px;
 	margin: 10px auto;
+	position: relative;
+}
+
+.list_shiftSortButtons_wrapper {
+	width: 390px;
+	margin: 10px auto;
+	position: relative;
+}
+.list_empSortButtons_wrapper {
+	width: 315px;
+	margin: 10px auto;
+	position: relative;
 }
 
 .list_input {
@@ -67,6 +95,43 @@ body {
 	border-radius: 1px;
 	padding-bottom: 1px;
 }
+
+.list_sizeButton_wrapper {
+	width: 200px;
+	margin: 10px auto;
+	position: relative;
+}
+
+.list_size_button {
+	position: relative;
+	border: none;
+	background: #FF6700;
+	height: 40px;
+	color: #ffffff;
+	text-align: center;
+}
+
+.list_sort_button {
+	position: relative;
+	border: none;
+	background: Transparent;
+	height: 40px;
+	widht: 100px;
+	color: #9E9E9E;
+	font-size: 22px;
+	font-weight: 300;
+	text-align: center;
+	margin: auto;
+}
+
+.list_sort_button:hover {
+	color: #FF6700;
+}
+
+.activeSort {
+	color: #FF6700;
+}
+
 .list_orderButton {
 	position: relative;
 	border: none;
@@ -76,7 +141,7 @@ body {
 	text-align: center;
 	border-radius: 1px;
 	padding-bottom: 1px;
-	margin:auto;
+	margin: auto;
 }
 
 .table {

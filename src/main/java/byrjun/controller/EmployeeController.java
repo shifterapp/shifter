@@ -116,7 +116,8 @@ public class EmployeeController {
 		LinkedList<Employee> employees;
 		employees = (LinkedList<Employee>) employeeService.allEmployeesAscName();
 		model.addAttribute("employees", employees);
-		System.out.println("1");
+		String activeSort = "name";
+		model.addAttribute("activeSort", activeSort);
 		return "/allEmployees";
 	}
 	@RequestMapping(value = "/employeeSort", params = "Starfstitli", method = RequestMethod.GET)
@@ -125,7 +126,8 @@ public class EmployeeController {
 		LinkedList<Employee> employees;
 		employees = (LinkedList<Employee>) employeeService.allEmployeesAscType();
 		model.addAttribute("employees", employees);
-		System.out.println("2");
+		String activeSort = "title";
+		model.addAttribute("activeSort", activeSort);
 		return "/allEmployees";
 	}
 	@RequestMapping(value = "/employeeSort", params = "Bolastærð", method = RequestMethod.GET)
@@ -134,7 +136,8 @@ public class EmployeeController {
 		LinkedList<Employee> employees;
 		employees = (LinkedList<Employee>) employeeService.allEmployeesAscSize();
 		model.addAttribute("employees", employees);
-		System.out.println("3");
+		String activeSort = "size";
+		model.addAttribute("activeSort", activeSort);
 		return "/allEmployees";
 	}
 	@RequestMapping(value = "/employeeSort", params = "Aldri", method = RequestMethod.GET)
@@ -143,7 +146,8 @@ public class EmployeeController {
 		LinkedList<Employee> employees;
 		employees = (LinkedList<Employee>) employeeService.allEmployeesAscDate();
 		model.addAttribute("employees", employees);
-		System.out.println("3");
+		String activeSort = "age";
+		model.addAttribute("activeSort", activeSort);
 		return "/allEmployees";
 	}
 
