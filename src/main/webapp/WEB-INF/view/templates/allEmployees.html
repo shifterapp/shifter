@@ -20,12 +20,22 @@
 					value="Leita" />
 			</div>
 		</form>
-
+		
 		<form action="#" th:action="@{/employeeShirts}" method="GET">
 			<div class="list_search_wrapper">
 				<input type="submit" style= "width: 100%" class="list_button"
 					value="Sækja pöntunarlista fyrir boli" />
 			</div>
+		</form>
+		
+		<form action="#" th:action="@{/employeeSort}" method="GET">
+			<h3 class="list_title">Raða eftir:</h3>
+			<div class="list_search_wrapper">
+				<input type="submit" class="list_button" value="Nafni" name="Nafni" style= "width: 23%"/>
+				<input type="submit" class="list_button" value="Starfstitli" name="Starfstitli" style= "width: 23%"/>	 
+				<input type="submit" class="list_button" value="Bolastærð" name="Bolastærð" style= "width: 23%"/>	
+				<input type="submit" class="list_button" value="Aldri" name="Aldri" style= "width: 23%"/>	
+			</div>			 
 		</form>
 
 

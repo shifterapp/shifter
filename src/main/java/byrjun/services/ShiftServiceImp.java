@@ -105,6 +105,27 @@ public class ShiftServiceImp implements ShiftService {
 		return (LinkedList<Shift>) shiftRep.findAll();
 	}
 	
+	@Override
+	public LinkedList<Shift> allShiftsAscTitle() {
+		return (LinkedList<Shift>) shiftRep.findAllByOrderByTitleAsc();	
+		}
+	
+	@Override
+	public LinkedList<Shift> allShiftsAscType() {
+		return (LinkedList<Shift>) shiftRep.findAllByOrderByTypeAsc();
+	}
+
+	@Override
+	public LinkedList<Shift> allShiftsAscBegintime(){
+		return (LinkedList<Shift>) shiftRep.findAllByOrderByBeginTimeAsc();
+		
+	}
+
+	@Override
+	public LinkedList<Shift> allShiftsAscDate() {
+		return (LinkedList<Shift>) shiftRep.findAllByOrderByDateAsc();
+	}
+	
 	@Override 
 	public Shift getShiftById(Long shiftId) {
 		return shiftRep.findById(shiftId);

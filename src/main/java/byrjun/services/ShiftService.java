@@ -75,6 +75,31 @@ public interface ShiftService {
 	public LinkedList<Shift> allShifts();
 	
 	/**
+	 * Returns all shifts in the shiftRepository in ascending order by title.
+	 * @returns list of shifts in the shiftRepository in ascending order by title.
+	 */
+	public LinkedList<Shift> allShiftsAscTitle();
+	
+	/**
+	 * Returns all shifts in the shiftRepository in ascending order by type.
+	 * @returns list of shifts in the shiftRepository in ascending order by type.
+	 */
+	public LinkedList<Shift> allShiftsAscType();
+	
+	/**
+	 * Returns all shifts in the shiftRepository in ascending order by begin time.
+	 * @returns list of shifts in the shiftRepository in ascending order by begin time.
+	 */
+	public LinkedList<Shift> allShiftsAscBegintime();
+	
+	/**
+	 * Returns all shifts in the shiftRepository in ascending order by date.
+	 * @returns list of shifts in the shiftRepository in ascending order by date.
+	 */
+	public LinkedList<Shift> allShiftsAscDate();
+	
+	
+	/**
 	 * Returns list of employees that has searchString somewhere in the information about them
 	 * @param searchString the string that the user is searching by
 	 * @return list of employees corresponded to that searchString

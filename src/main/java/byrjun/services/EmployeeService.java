@@ -58,6 +58,30 @@ public interface EmployeeService {
 	public LinkedList<Employee> allEmployees();
 	
 	/**
+	 * Returns all employees in the employeeRepository in ascending order by name.
+	 * @returns list of employees in the employeeRepository in ascending order by name .
+	 */
+	public LinkedList<Employee> allEmployeesAscName();
+	
+	/**
+	 * Returns all employees in the employeeRepository in ascending order by type.
+	 * @returns list of employees in the employeeRepository in ascending order by type.
+	 */
+	public LinkedList<Employee> allEmployeesAscType();
+	
+	/**
+	 * Returns all employees in the employeeRepository in ascending order by t-shirt.
+	 * @returns list of employees in the employeeRepository in ascending order by t-shirt.
+	 */
+	public LinkedList<Employee> allEmployeesAscSize();
+	
+	/**
+	 * Returns all employees in the employeeRepository in ascending order by date.
+	 * @returns list of employees in the employeeRepository in ascending order by date.
+	 */
+	public LinkedList<Employee> allEmployeesAscDate();
+	
+	/**
 	 * Returns list of employees that has searchString somewhere in the information about them
 	 * @param searchString the string that the user is searching by
 	 * @return list of employees corresponded to that searchString

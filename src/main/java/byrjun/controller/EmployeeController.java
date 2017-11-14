@@ -98,6 +98,7 @@ public class EmployeeController {
 	public String employeeSearch( @RequestParam(value="searchString", required=false) String searchString, 
 			ModelMap model) throws ParseException {
 		LinkedList<Employee> employees;
+		System.out.println(searchString);
 		employees = employeeService.searchForEmployee(searchString,searchString,searchString);
 		model.addAttribute("employees", employees);
 		return "/allEmployees";
@@ -109,6 +110,43 @@ public class EmployeeController {
 		shirtSizes = employeeService.sizeCounts();
 		model.addAttribute("shirtSizes", shirtSizes);		
 		return "/shirtSizes";
+	}
+	
+	@RequestMapping(value = "/employeeSort", params = "Nafni", method = RequestMethod.GET)
+	public String employeeSortName(Model model) 
+			throws ParseException {
+		LinkedList<Employee> employees;
+		employees = (LinkedList<Employee>) employeeService.allEmployeesAscName();
+		model.addAttribute("employees", employees);
+		System.out.println("1");
+		return "/allEmployees";
+	}
+	@RequestMapping(value = "/employeeSort", params = "Starfstitli", method = RequestMethod.GET)
+	public String employeeSortJob(Model model) 
+			throws ParseException {
+		LinkedList<Employee> employees;
+		employees = (LinkedList<Employee>) employeeService.allEmployeesAscType();
+		model.addAttribute("employees", employees);
+		System.out.println("2");
+		return "/allEmployees";
+	}
+	@RequestMapping(value = "/employeeSort", params = "Bolastærð", method = RequestMethod.GET)
+	public String employeeSortShirt(Model model) 
+			throws ParseException {
+		LinkedList<Employee> employees;
+		employees = (LinkedList<Employee>) employeeService.allEmployeesAscSize();
+		model.addAttribute("employees", employees);
+		System.out.println("3");
+		return "/allEmployees";
+	}
+	@RequestMapping(value = "/employeeSort", params = "Aldri", method = RequestMethod.GET)
+	public String employeeSortDate(Model model) 
+			throws ParseException {
+		LinkedList<Employee> employees;
+		employees = (LinkedList<Employee>) employeeService.allEmployeesAscDate();
+		model.addAttribute("employees", employees);
+		System.out.println("3");
+		return "/allEmployees";
 	}
 
 }
