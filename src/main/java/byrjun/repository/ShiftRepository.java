@@ -48,9 +48,9 @@ public interface ShiftRepository extends JpaRepository<Shift, Long> {
 	 * @param title
 	 * @return list of employees with that name. 
 	 */
-	default LinkedList<Shift> findShift(String title, String type){
-	return findByTitleContainingIgnoreCaseOrTypeContainingIgnoreCase(title, type);
-	}
+//	default LinkedList<Shift> findShift(String title, String type){
+//	return findByTitleContainingIgnoreCaseOrTypeContainingIgnoreCase(title, type);
+//	}
 	
 	/**
 	 * Returns shift with that id

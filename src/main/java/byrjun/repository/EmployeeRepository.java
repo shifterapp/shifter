@@ -40,9 +40,9 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	 * @param name
 	 * @return list of employees with that name. 
 	 */
-	default LinkedList<Employee> findEmployee(String name, String email, String type){
-	return findByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrTypeContainingIgnoreCase(name,  email,  type);
-	}
+//	default LinkedList<Employee> findEmployee(String name, String email, String type){
+//	return findByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrTypeContainingIgnoreCase(name,  email,  type);
+//	}
 	
 	
 	/**

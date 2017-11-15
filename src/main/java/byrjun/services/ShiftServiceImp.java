@@ -138,7 +138,7 @@ public class ShiftServiceImp implements ShiftService {
 	
 	@Override
 	public LinkedList<Shift> searchForShift(String title, String type) {
-		LinkedList<Shift> shifts = shiftRep.findShift(title, type);
+		LinkedList<Shift> shifts = shiftRep.findByTitleContainingIgnoreCaseOrTypeContainingIgnoreCase(title, type);
 		return shifts;
 	}
 
