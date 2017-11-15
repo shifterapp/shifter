@@ -85,6 +85,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	 * @return the number of employees of that size
 	 */
 	int countBySize(String size);
+	
+	Employee findByNameAndEmailAndType(String Name, String Email,String Type);
 
 
 }

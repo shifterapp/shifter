@@ -87,12 +87,13 @@ public class EmployeeServiceImp implements EmployeeService {
 	public boolean checkIfIdentical(Employee e) {
 		String name = e.getName();
 		String email = e.getEmail();
-		String type = e.getType();
-		LinkedList<Employee> employees = employeeRep
-				.findByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrTypeContainingIgnoreCase(name, email, type);
-		if (employees.isEmpty())
+		String type = e.getType();	
+		
+		Employee ee = employeeRep.findByNameAndEmailAndType(name, email, type);
+		if(ee == null){
 			return false;
-		Employee ee = employees.get(0);
+		}
+		
 		if (name.equals(ee.getName()) && email.equals(ee.getEmail()) && type.equals(e.getType())) {
 			return true;
 		}

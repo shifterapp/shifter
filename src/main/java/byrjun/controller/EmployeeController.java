@@ -29,7 +29,8 @@ import byrjun.services.EmployeeService;
  */
 
 @Controller
-@RequestMapping("/") // Request Mapping. The Path begins with / for every method calls.
+@RequestMapping("/") // Request Mapping. The Path begins with / for every method
+						// calls.
 public class EmployeeController {
 
 	// Connection to a service class for the shifter app.
@@ -61,8 +62,8 @@ public class EmployeeController {
 	 *            the employee's t shirt size
 	 * @param model
 	 *            model for "communication" to the view
-	 * @return returns confirmation page if the input values are on the correct form
-	 *         but the registration page with error message otherwise.
+	 * @return returns confirmation page if the input values are on the correct
+	 *         form but the registration page with error message otherwise.
 	 */
 	@RequestMapping(value = "/employeeInfo", method = RequestMethod.POST)
 	public String employeeInfo(@Valid @ModelAttribute(name = "employee") Employee e, BindingResult bindingResult,
@@ -70,7 +71,7 @@ public class EmployeeController {
 		if (!bindingResult.hasErrors() && employeeService.nameOnCorrectForm(e.getName())
 				&& employeeService.emailOnCorrectForm(e.getEmail())) {
 			model.addAttribute("employee", e);
-				employeeService.addEmployee(e);						
+			employeeService.addEmployee(e);
 			return "/employeeConfirmation";
 		} else {
 			return "/employeeRegistration";
@@ -91,28 +92,27 @@ public class EmployeeController {
 		model.addAttribute("employees", employees);
 		return "/allEmployees";
 	}
-	
+
 	@RequestMapping(value = "/employeeSearch", method = RequestMethod.POST)
-	public String employeeSearch( @RequestParam(value="searchString", required=false) String searchString, 
+	public String employeeSearch(@RequestParam(value = "searchString", required = false) String searchString,
 			ModelMap model) throws ParseException {
 		LinkedList<Employee> employees;
 		System.out.println(searchString);
-		employees = employeeService.searchForEmployee(searchString,searchString,searchString);
+		employees = employeeService.searchForEmployee(searchString, searchString, searchString);
 		model.addAttribute("employees", employees);
 		return "/allEmployees";
 	}
-	
+
 	@RequestMapping(value = "/employeeShirts", method = RequestMethod.GET)
-	public String employeeShirts(Model model){
+	public String employeeShirts(Model model) {
 		LinkedList<ShirtSizes> shirtSizes;
 		shirtSizes = employeeService.sizeCounts();
-		model.addAttribute("shirtSizes", shirtSizes);		
+		model.addAttribute("shirtSizes", shirtSizes);
 		return "/shirtSizes";
 	}
-	
+
 	@RequestMapping(value = "/employeeSort", params = "Nafni", method = RequestMethod.GET)
-	public String employeeSortName(Model model) 
-			throws ParseException {
+	public String employeeSortName(Model model) throws ParseException {
 		LinkedList<Employee> employees;
 		employees = (LinkedList<Employee>) employeeService.allEmployeesAscName();
 		model.addAttribute("employees", employees);
@@ -120,9 +120,9 @@ public class EmployeeController {
 		model.addAttribute("activeSort", activeSort);
 		return "/allEmployees";
 	}
+
 	@RequestMapping(value = "/employeeSort", params = "Starfstitli", method = RequestMethod.GET)
-	public String employeeSortJob(Model model) 
-			throws ParseException {
+	public String employeeSortJob(Model model) throws ParseException {
 		LinkedList<Employee> employees;
 		employees = (LinkedList<Employee>) employeeService.allEmployeesAscType();
 		model.addAttribute("employees", employees);
@@ -130,9 +130,9 @@ public class EmployeeController {
 		model.addAttribute("activeSort", activeSort);
 		return "/allEmployees";
 	}
+
 	@RequestMapping(value = "/employeeSort", params = "Bolastærð", method = RequestMethod.GET)
-	public String employeeSortShirt(Model model) 
-			throws ParseException {
+	public String employeeSortShirt(Model model) throws ParseException {
 		LinkedList<Employee> employees;
 		employees = (LinkedList<Employee>) employeeService.allEmployeesAscSize();
 		model.addAttribute("employees", employees);
@@ -140,9 +140,9 @@ public class EmployeeController {
 		model.addAttribute("activeSort", activeSort);
 		return "/allEmployees";
 	}
+
 	@RequestMapping(value = "/employeeSort", params = "Aldri", method = RequestMethod.GET)
-	public String employeeSortDate(Model model) 
-			throws ParseException {
+	public String employeeSortDate(Model model) throws ParseException {
 		LinkedList<Employee> employees;
 		employees = (LinkedList<Employee>) employeeService.allEmployeesAscDate();
 		model.addAttribute("employees", employees);
