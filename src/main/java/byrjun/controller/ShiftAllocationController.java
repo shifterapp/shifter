@@ -75,7 +75,7 @@ public class ShiftAllocationController {
 			shiftAllocationService.addShiftAllocation(sa);
 			return "/shiftAllocationConfirmation";
 		} else {
-			String errorMessage = "errorMessage";
+			String errorMessage = "Villa!";
 			model.addAttribute("errorMessage", errorMessage);
 			return "/shiftAllocation";
 		}
@@ -156,7 +156,7 @@ public class ShiftAllocationController {
 		shiftAllocationService.switchShifts(ss);
 		return "/shiftSwitchConfirmation";
 		} else {
-			String errorMessage = "errorMessage";
+			String errorMessage = "Villa!";
 			model.addAttribute("errorMessage", errorMessage);
 			return "/shiftSwitch";
 		}
