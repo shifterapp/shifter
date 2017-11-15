@@ -2,26 +2,51 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 
-<object th:include="fragments/bootstrapHead :: bootstrapHead" th:remove="tag" />
+<object th:include="fragments/bootstrapHead :: bootstrapHead"
+	th:remove="tag" />
 
-<link rel="stylesheet" href="/resources/styles/confirmation.css" />
+<link rel="stylesheet" href="/resources/statics/css/confirmation.css" />
 <div th:replace="fragments/navBar :: header(shiftAllocation)"></div>
 
 </head>
 <body>
-	<h1>Skráning starfsmanns á vakt tókst!</h1>
-	<h2>Upplýsingar um starfsmann:</h2>
-	<h3>Nafn: <span th:text="${employee.name}"/></h3>
-	<h3>Fæðingardagur:<span th:text="${employee.date}"/></h3>
-	<h3>Email: <span th:text="${employee.email}"/></h3>
-	<h3>Starfstitill: <span th:text="${employee.type}"/></h3>
-	<h2>Upplýsingar um vakt:</h2>
-	<h3>Titill: <span th:text="${shift.title}"/></h3>
-	<h3>Dagsetning: <span th:text="${shift.date}"/></h3>
-	<h3>Upphafstími: <span th:text="${shift.beginTime}"/></h3>
-	<h3>Lokatími:<span th:text="${shift.endTime}"/></h3>
-	<h3>Fjöldi starfsmanna: <span th:text="${shift.howMany}"/></h3>
-	<h3>Tegund vaktar: <span th:text="${shift.type}"/></h3>
-
+	<div class="shiftAllocation_confirmation">
+		<div class="confirmation_wrapper">
+			<h1 class="confirmation_title">Skráning starfsmanns á vakt
+				tókst!</h1>
+			<h2 class="confirmation_subTitle">Upplýsingar um starfsmann:</h2>
+			<h3 class="confirmation_text">
+				Nafn: <span th:text="${employee.name}" />
+			</h3>
+			<h3 class="confirmation_text">
+				Fæðingardagur:<span th:text="${employee.date}" />
+			</h3>
+			<h3 class="confirmation_text">
+				Email: <span th:text="${employee.email}" />
+			</h3>
+			<h3 class="confirmation_text">
+				Starfstitill: <span th:text="${employee.type}" />
+			</h3>
+			<h2 class="confirmation_subTitle">Upplýsingar um vakt:</h2>
+			<h3 class="confirmation_text">
+				Titill: <span th:text="${shift.title}" />
+			</h3>
+			<h3 class="confirmation_text">
+				Dagsetning: <span th:text="${shift.date}" />
+			</h3>
+			<h3 class="confirmation_text">
+				Upphafstími: <span th:text="${shift.beginTime}" />
+			</h3>
+			<h3 class="confirmation_text">
+				Lokatími:<span th:text="${shift.endTime}" />
+			</h3>
+			<h3 class="confirmation_text">
+				Fjöldi starfsmanna: <span th:text="${shift.howMany}" />
+			</h3>
+			<h3 class="confirmation_text">
+				Tegund vaktar: <span th:text="${shift.type}" />
+			</h3 >
+		</div>
+	</div>
 </body>
 </html>

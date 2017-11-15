@@ -1,0 +1,72 @@
+.employee_confirmation {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url("../images/festival.jpg") no-repeat center center fixed;;
+	background-size: cover;
+	height: 100%;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+}
+.shift_confirmation {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url("../images/festival2.jpg") no-repeat center center fixed;;
+	background-size: cover;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+}
+
+.shiftAllocation_confirmation {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url("../images/bar.jpg") no-repeat center center fixed;;
+	background-size: cover;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+}
+
+.confirmation_title {
+	font-size: 28px;
+	font-weight: 300;
+	text-align: center;
+	padding: 10px 0;
+	margin-bottom: 10px;
+	color: #0098AE;
+	width: 380px;
+}
+
+.confirmation_wrapper {
+	width: 400px;
+	background: rgba(0, 0, 0, 0.6);
+	margin: 100px auto;
+	padding: 20px 0 40px 0;
+	position: relative;
+}
+
+.confirmation_subTitle {
+	font-size: 20px;
+	font-weight: 300;
+	text-align: center;
+	padding: 10px 0;
+	margin-bottom: 10px;
+	color: #0098AE;
+	width: 380px;
+}
+
+.confirmation_text {
+	font-size: 18px;
+	font-weight: 300;
+	text-align: center;
+	padding: 10px 0;
+	margin-bottom: 10px;
+	color: #FF6700;
+	width: 380px;
+}
+
+
