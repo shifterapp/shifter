@@ -103,10 +103,17 @@ public interface EmployeeService {
 	public boolean checkIfEmpExists(Long empId);
 	
 	/**
-	 * Returns
-	 * @return
+	 * Returns the number of t-shirts in each size to be ordered
+	 * @return list of number of shirts for each size
 	 */
 	public LinkedList<ShirtSizes> sizeCounts();
+
+	/**
+	 * Checks if an employee has already been registered
+	 * @param employee
+	 * @return a boolean value, true if the employee exists or value if it doesn't
+	 */
+	public boolean checkIfIdentical(Employee e);
 		
 	
 
