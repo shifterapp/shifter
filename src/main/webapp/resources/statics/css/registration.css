@@ -39,7 +39,6 @@
 	padding: 10px 0;
 	margin-bottom: 10px;
 	color: #0098AE;
-	width: 380px;
 }
 
 .registration_wrapper {
@@ -50,8 +49,32 @@
 	position: relative;
 }
 
+.registration_switch_wrapper {
+	width: 800px;
+	height: 300px;
+	background: rgba(0, 0, 0, 0.6);
+	margin: 100px auto;
+	padding: 20px 0 40px 0;
+	position: relative;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+.registration_id_wrapper {
+	width: 400px;
+	float: left;
+}
+
+.registration_inner_wrapper {
+	width: 800px;
+}
+
 .registration_input_wrapper {
 	margin-left: 70px;
+	margin-bottom: 15px;
+}
+
+.switchInputWrapper {
+	margin-left: 40px;
 	margin-bottom: 15px;
 }
 
@@ -62,6 +85,10 @@
 	color: #0098AE;
 }
 
+.switchIcon {
+	margin-left: 5px;
+}
+
 .registration_input {
 	width: 200px;
 	height: 40px;
@@ -69,6 +96,10 @@
 	border: none;
 	margin-left: -5px;
 	padding-left: 10px;
+}
+
+.switchInput {
+	width: 250px;
 }
 
 .registration_errorInput {
@@ -102,6 +133,19 @@
 	margin-left: 155px;
 }
 
+.registration_switch_button {
+	border: none;
+	display: block;
+	background: #FF6700;
+	height: 40px;
+	width: 100px;
+	color: #ffffff;
+	text-align: center;
+	-webkit-border-radius: 1px;
+	margin-left: 350px;
+	margin-top: 15px;
+}
+
 .registration_errormessage {
 	color: #D8000C;
 	background-color: #FFBABA;
@@ -115,7 +159,8 @@
 	color: #D8000C;
 	background-color: #FFBABA;
 	width: 245px;
-	margin-bottom: 15px; padding : 10px;
+	margin-bottom: 15px;
+	padding: 10px;
 	border-radius: 2px;
 	padding: 10px;
 }
