@@ -22,6 +22,7 @@ import byrjun.repository.EmpEachShiftRepository;
 import byrjun.model.EmpEachShift;
 import byrjun.model.Employee;
 import byrjun.model.Shift;
+import byrjun.services.EmpEachShiftService;
 import byrjun.services.EmployeeService;
 import byrjun.services.ShiftAllocationService;
 import byrjun.services.ShiftService;
@@ -46,7 +47,7 @@ public class ShiftAllocationController {
 	@Autowired
 	ShiftService shiftService;
 	@Autowired
-	EmpEachShiftRepository empEachShiftRep;
+	EmpEachShiftService empEachShiftService;
 
 	/**
 	 * Asks for input values.
@@ -90,7 +91,7 @@ public class ShiftAllocationController {
 	 */
 	@RequestMapping(value = "/shiftAllocationView", method = RequestMethod.GET)
 	public String shiftAllocationList(Model model) {
-		empEachShiftRep.empty();
+		empEachShiftService.empty();
 		int shiftNumber = shiftService.countShifts();
 		LinkedList<ShiftAllocation> shiftAllocationsByShiftId;
 		for (int i = 1; i <= shiftNumber; i++) {
@@ -105,9 +106,9 @@ public class ShiftAllocationController {
 			Shift shift = shiftService.getShiftById((long) i);
 			//Create object that holds information about that shift and the employees that are registered on it
 			EmpEachShift empEachShift = new EmpEachShift(shift, employees);
-			empEachShiftRep.add(empEachShift);
+			empEachShiftService.add(empEachShift);
 		}
-		List<EmpEachShift> empEachShiftList = empEachShiftRep.getAll();
+		List<EmpEachShift> empEachShiftList = empEachShiftService.getAll();
 		model.addAttribute("empEachShiftList", empEachShiftList);
 		return "/allShiftAllocations";
 	}
