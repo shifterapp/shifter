@@ -70,7 +70,7 @@ public class EmployeeController {
 		if (!bindingResult.hasErrors() && employeeService.nameOnCorrectForm(e.getName())
 				&& employeeService.emailOnCorrectForm(e.getEmail())) {
 			model.addAttribute("employee", e);
-			employeeService.addEmployee(e);
+				employeeService.addEmployee(e);						
 			return "/employeeConfirmation";
 		} else {
 			return "/employeeRegistration";
