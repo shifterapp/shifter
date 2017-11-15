@@ -22,12 +22,12 @@
 		</form>
 		
 		<form action="#" th:action="@{/shiftSort}" method="GET">
-			<h3 class="list_title">Raða eftir:</h3>
-			<div class="list_search_wrapper">
-				<input type="submit" class="list_button" value="Titli" name="Titli" style= "width: 23%"/>
-				<input type="submit" class="list_button" value="Tegund" name="Tegund" style= "width: 23%"/>	 
-				<input type="submit" class="list_button" value="Dagsetningu" name="Dagsetningu" style= "width: 23%"/>	
-				<input type="submit" class="list_button" value="Upphafstíma" name="Upphafstíma" style= "width: 23%"/>	
+			<h3 class="list_subTitle">Raða eftir:</h3>
+			<div class="list_shiftSortButtons_wrapper">
+				<input type="submit" class="list_sort_button" th:classappend="${ activeSort== 'title'}? 'activeSort' : ''" value="Titli" name="Titli" />
+				<input type="submit" class="list_sort_button" th:classappend="${activeSort== 'type'}? 'activeSort' : ''" value="Tegund" name="Tegund" />	 
+				<input type="submit" class="list_sort_button" th:classappend="${ activeSort== 'date'}? 'activeSort' : ''" value="Dagsetningu" name="Dagsetningu" />	
+				<input type="submit" class="list_sort_button" th:classappend="${activeSort== 'beginTime'}? 'activeSort' : ''" value="Upphafstíma" name="Upphafstíma" />	
 			</div>			 
 		</form>
 
