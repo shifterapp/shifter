@@ -49,6 +49,12 @@
 							class="fa fa-list-alt"></span>Vaktarúthlutunarlisti
 					</a>
 					</li>
+					<li
+						th:class="${activeTab== 'shiftSwitch'}? 'active' : 'inactive'">
+						<a href="#" th:href="@{/shiftSwitch}"> <span
+							class="fa fa-exchange"></span> Vaktaskipti
+					</a>
+					</li>
 				</ul>
 			</div>
 		</div>

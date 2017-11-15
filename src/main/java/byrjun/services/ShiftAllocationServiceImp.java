@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import byrjun.model.Shift;
 import byrjun.model.ShiftAllocation;
+import byrjun.model.ShiftSwitch;
 import byrjun.repository.ShiftAllocationRepository;
 
 @Service
@@ -63,5 +64,25 @@ public class ShiftAllocationServiceImp implements ShiftAllocationService {
 		return shiftAllocationRep.findByShiftId(shiftId);
 	}
 	
+	@Override
+	public void switchShifts(ShiftSwitch switchShifts){
+		
+		ShiftAllocation change1 = new ShiftAllocation();
+		ShiftAllocation change2 = new ShiftAllocation();
+		
+		change1.setEmpId(switchShifts.getEmpId1());
+		
+		change1.setShiftId(switchShifts.getShiftId2());
+		
+		change2.setEmpId(switchShifts.getEmpId2());
+		
+		change2.setShiftId(switchShifts.getShiftId1());
+		
+		shiftAllocationRep.save(change1);
+		shiftAllocationRep.save(change2);
+		shiftAllocationRep.deleteByEmpIdAndShiftId(switchShifts.getEmpId1(), switchShifts.getShiftId1());
+		shiftAllocationRep.deleteByEmpIdAndShiftId(switchShifts.getEmpId2(), switchShifts.getShiftId2());
+		
+	}
 
 }

@@ -1,7 +1,7 @@
 package byrjun.services;
 
 import java.util.LinkedList;
-
+import byrjun.model.ShiftSwitch;
 import byrjun.model.Shift;
 import byrjun.model.ShiftAllocation;
 
@@ -46,6 +46,8 @@ public interface ShiftAllocationService {
 	 * @return
 	 */
 	public LinkedList<ShiftAllocation> getShiftAllocationByShiftId(Integer shiftId);
+	
+	public void switchShifts(ShiftSwitch switchShifts);
 
 
 }

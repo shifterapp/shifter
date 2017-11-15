@@ -1,5 +1,6 @@
 package byrjun.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +23,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class ShiftAllocation {
 
 	@Id
+	@Column(name = "shift_allo_id", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	@NotNull(message = "Vinsamlegast gefið upp auðkenni starfsmanns.")
 	private Integer empId;
 	@NotNull(message = "Vinsamlegast gefið upp auðkenni vaktar.")
