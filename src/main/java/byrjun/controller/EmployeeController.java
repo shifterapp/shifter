@@ -116,7 +116,6 @@ public class EmployeeController {
 		LinkedList<Employee> employees;
 		employees = (LinkedList<Employee>) employeeService.allEmployeesAscName();
 		model.addAttribute("employees", employees);
-		System.out.println("1");
 		return "/allEmployees";
 	}
 	@RequestMapping(value = "/employeeSort", params = "Starfstitli", method = RequestMethod.GET)
@@ -125,7 +124,6 @@ public class EmployeeController {
 		LinkedList<Employee> employees;
 		employees = (LinkedList<Employee>) employeeService.allEmployeesAscType();
 		model.addAttribute("employees", employees);
-		System.out.println("2");
 		return "/allEmployees";
 	}
 	@RequestMapping(value = "/employeeSort", params = "Bolastærð", method = RequestMethod.GET)
@@ -134,7 +132,6 @@ public class EmployeeController {
 		LinkedList<Employee> employees;
 		employees = (LinkedList<Employee>) employeeService.allEmployeesAscSize();
 		model.addAttribute("employees", employees);
-		System.out.println("3");
 		return "/allEmployees";
 	}
 	@RequestMapping(value = "/employeeSort", params = "Aldri", method = RequestMethod.GET)
@@ -143,7 +140,6 @@ public class EmployeeController {
 		LinkedList<Employee> employees;
 		employees = (LinkedList<Employee>) employeeService.allEmployeesAscDate();
 		model.addAttribute("employees", employees);
-		System.out.println("3");
 		return "/allEmployees";
 	}
 

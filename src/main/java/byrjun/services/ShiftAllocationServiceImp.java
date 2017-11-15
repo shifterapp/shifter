@@ -23,8 +23,9 @@ public class ShiftAllocationServiceImp implements ShiftAllocationService {
 
 	@Override
 	public boolean checkIfShiftIsFull(int id) {
-		// TODO implementa þetta fall!
-		return false;
+		if(shiftAllocationRep.countByShiftId(id) <= Integer.parseInt(shiftService.getShiftById((long) id).getHowMany())-1)	
+			return true;
+			return false;
 	}
 
 	@Override
@@ -47,7 +48,9 @@ public class ShiftAllocationServiceImp implements ShiftAllocationService {
 	@Override
 	public boolean checkIfShiftAllocationExists(int empId, int shiftId) {
 		// TODO implementa þetta fall!
-		return false;
+		if(shiftAllocationRep.findByShiftIdAndEmpId(shiftId, empId).isEmpty())
+			return true;
+			return false;
 	}
 
 	@Override
