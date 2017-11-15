@@ -14,7 +14,6 @@
 			<h1 class="registration_header">Skráning vaktar</h1>
 			<div
 				th:class="${#strings.isEmpty(errorMessage)} ? '' : 'registration_errormessage'">
-				<span th:text="${errorMessage}" />
 			</div>
 
 			<form action="#" th:action="@{/shiftInfo}" th:object="${shift}"
@@ -94,7 +93,7 @@
 					</select>
 				</div>
 
-				<input type="submit" class="registration_button" value="Submit" />
+				<input type="submit" class="registration_button" value="Staðfesta" />
 
 			</form>
 

@@ -51,11 +51,6 @@ public class ShiftServiceImp implements ShiftService {
 	if(!endTimeNotEmpty(endTime)){
 		errorMessage += "Vinsamlegast fylltu inn endatíma vaktarinnar. <br/>";
 	}
-	if(beginTimeNotEmpty(beginTime) && endTimeNotEmpty(endTime)){
-		if(!timeCorrect(beginTime,endTime)){
-			errorMessage += "Athugaðu að vakt getur ekki endað áður en hún hefst. <br/>";
-		}
-	}
 	if(!shiftTitleNotEmpty(shiftTitle)){
 		errorMessage += "Vinsamlegast settu titil á vaktina. <br/>";
 		
@@ -66,16 +61,7 @@ public class ShiftServiceImp implements ShiftService {
 	return errorMessage;
 	}
 	
-	@Override
-	public boolean timeCorrect(String beginTime, String endTime){
-		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
-		LocalTime beginTimeObject = LocalTime.parse(beginTime,timeFormatter);
-		LocalTime endTimeObject = LocalTime.parse(endTime,timeFormatter);
-		if(beginTimeObject.isBefore(endTimeObject)){
-			return true;
-		}
-			return false;
-	}
+	
 	
 	@Override
 	public boolean beginTimeNotEmpty(String beginTime){
@@ -119,6 +105,27 @@ public class ShiftServiceImp implements ShiftService {
 		return (LinkedList<Shift>) shiftRep.findAll();
 	}
 	
+	@Override
+	public LinkedList<Shift> allShiftsAscTitle() {
+		return (LinkedList<Shift>) shiftRep.findAllByOrderByTitleAsc();	
+		}
+	
+	@Override
+	public LinkedList<Shift> allShiftsAscType() {
+		return (LinkedList<Shift>) shiftRep.findAllByOrderByTypeAsc();
+	}
+
+	@Override
+	public LinkedList<Shift> allShiftsAscBegintime(){
+		return (LinkedList<Shift>) shiftRep.findAllByOrderByBeginTimeAsc();
+		
+	}
+
+	@Override
+	public LinkedList<Shift> allShiftsAscDate() {
+		return (LinkedList<Shift>) shiftRep.findAllByOrderByDateAsc();
+	}
+	
 	@Override 
 	public Shift getShiftById(Long shiftId) {
 		return shiftRep.findById(shiftId);
@@ -131,7 +138,7 @@ public class ShiftServiceImp implements ShiftService {
 	
 	@Override
 	public LinkedList<Shift> searchForShift(String title, String type) {
-		LinkedList<Shift> shifts = shiftRep.findShift(title, type);
+		LinkedList<Shift> shifts = shiftRep.findByTitleContainingIgnoreCaseOrTypeContainingIgnoreCase(title, type);
 		return shifts;
 	}
 

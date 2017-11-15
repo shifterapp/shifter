@@ -13,9 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.print.attribute.standard.MediaSize.ISO;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import byrjun.constraints.DateOfBirthConstraint;
 
 /**
  * The class holds information about an employee in the system.
@@ -42,9 +45,10 @@ public class Employee {
 	private String type;
 	@Column(name = "tshirt")
 	private String size;
-	@Column(name = "birthdate")
 	@NotNull(message = "Vinsamlegast fyllið út fæðingadag.")
+	@Column(name = "birthdate")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateOfBirthConstraint(message = "Starfsmaður verður nú að vera fæddur.")
 	private LocalDate date;
 	
 	/**
@@ -70,6 +74,10 @@ public class Employee {
 	}
 	
 	//Getters og setters for Employee.
+	
+	public Long getId(){
+		return id;
+	}
 
 	public String getName() {
 		return name;

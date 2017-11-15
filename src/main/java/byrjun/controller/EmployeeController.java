@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import byrjun.model.Employee;
+import byrjun.model.ShirtSizes;
 import byrjun.services.EmployeeService;
 
 /**
@@ -72,8 +73,6 @@ public class EmployeeController {
 			employeeService.addEmployee(e);
 			return "/employeeConfirmation";
 		} else {
-			String errorMessage = "errorMessage";
-			model.addAttribute("errorMessage", errorMessage);
 			return "/employeeRegistration";
 		}
 	}
@@ -97,8 +96,58 @@ public class EmployeeController {
 	public String employeeSearch( @RequestParam(value="searchString", required=false) String searchString, 
 			ModelMap model) throws ParseException {
 		LinkedList<Employee> employees;
+		System.out.println(searchString);
 		employees = employeeService.searchForEmployee(searchString,searchString,searchString);
 		model.addAttribute("employees", employees);
+		return "/allEmployees";
+	}
+	
+	@RequestMapping(value = "/employeeShirts", method = RequestMethod.GET)
+	public String employeeShirts(Model model){
+		LinkedList<ShirtSizes> shirtSizes;
+		shirtSizes = employeeService.sizeCounts();
+		model.addAttribute("shirtSizes", shirtSizes);		
+		return "/shirtSizes";
+	}
+	
+	@RequestMapping(value = "/employeeSort", params = "Nafni", method = RequestMethod.GET)
+	public String employeeSortName(Model model) 
+			throws ParseException {
+		LinkedList<Employee> employees;
+		employees = (LinkedList<Employee>) employeeService.allEmployeesAscName();
+		model.addAttribute("employees", employees);
+		String activeSort = "name";
+		model.addAttribute("activeSort", activeSort);
+		return "/allEmployees";
+	}
+	@RequestMapping(value = "/employeeSort", params = "Starfstitli", method = RequestMethod.GET)
+	public String employeeSortJob(Model model) 
+			throws ParseException {
+		LinkedList<Employee> employees;
+		employees = (LinkedList<Employee>) employeeService.allEmployeesAscType();
+		model.addAttribute("employees", employees);
+		String activeSort = "title";
+		model.addAttribute("activeSort", activeSort);
+		return "/allEmployees";
+	}
+	@RequestMapping(value = "/employeeSort", params = "Bolastærð", method = RequestMethod.GET)
+	public String employeeSortShirt(Model model) 
+			throws ParseException {
+		LinkedList<Employee> employees;
+		employees = (LinkedList<Employee>) employeeService.allEmployeesAscSize();
+		model.addAttribute("employees", employees);
+		String activeSort = "size";
+		model.addAttribute("activeSort", activeSort);
+		return "/allEmployees";
+	}
+	@RequestMapping(value = "/employeeSort", params = "Aldri", method = RequestMethod.GET)
+	public String employeeSortDate(Model model) 
+			throws ParseException {
+		LinkedList<Employee> employees;
+		employees = (LinkedList<Employee>) employeeService.allEmployeesAscDate();
+		model.addAttribute("employees", employees);
+		String activeSort = "age";
+		model.addAttribute("activeSort", activeSort);
 		return "/allEmployees";
 	}
 

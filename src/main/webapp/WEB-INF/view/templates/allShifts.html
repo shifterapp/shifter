@@ -20,27 +20,40 @@
 					class="list_button" value="Leita" />
 			</div>
 		</form>
+		
+		<form action="#" th:action="@{/shiftSort}" method="GET">
+			<h3 class="list_subTitle">Raða eftir:</h3>
+			<div class="list_shiftSortButtons_wrapper">
+				<input type="submit" class="list_sort_button" th:classappend="${ activeSort== 'title'}? 'activeSort' : ''" value="Titli" name="Titli" />
+				<input type="submit" class="list_sort_button" th:classappend="${activeSort== 'type'}? 'activeSort' : ''" value="Tegund" name="Tegund" />	 
+				<input type="submit" class="list_sort_button" th:classappend="${ activeSort== 'date'}? 'activeSort' : ''" value="Dagsetningu" name="Dagsetningu" />	
+				<input type="submit" class="list_sort_button" th:classappend="${activeSort== 'beginTime'}? 'activeSort' : ''" value="Upphafstíma" name="Upphafstíma" />	
+			</div>			 
+		</form>
 
 
 		<table class="table">
 			<thead class="list_thead">
 				<tr>
 					<th class="list_th" ><i
-					class="fa fa-briefcase"></i>Title</th>
+					class="	fa fa-id-card"></i>Auðkenni</th>
 					<th class="list_th" ><i
-					class="fa fa-briefcase"></i>Type</th>
+					class="	fa fa-id-badge"></i>Titill vaktar</th>
 					<th class="list_th" ><i
-					class="fa fa-calendar"></i>Date</th>
+					class="fa fa-briefcase"></i>Tegund vaktar</th>
 					<th class="list_th" ><i
-					class="fa fa-clock-o"></i> Begin Time</th>
+					class="fa fa-calendar"></i>Dagsetning</th>
 					<th class="list_th" ><i
-					class="fa fa-clock-o"></i> End Time</th>
+					class="fa fa-clock-o"></i>Upphafstími</th>
 					<th class="list_th" ><i
-					class="fa fa-users"></i>How Many</th>
+					class="fa fa-clock-o"></i>Enda tími</th>
+					<th class="list_th" ><i
+					class="fa fa-users"></i>Fjöldi starfsmanna</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="shift: ${shifts}">
+					<td th:text="${shift.id}" />
 					<td th:text="${shift.title}" />
 					<td th:text="${shift.type}" />
 					<td th:text="${shift.date}" />

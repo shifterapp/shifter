@@ -75,8 +75,6 @@ public class ShiftController {
 			shiftService.addShift(s);
 			return "/shiftConfirmation";
 		} else {
-			String errorMessage = "errorMessage";
-			model.addAttribute("errorMessage", errorMessage);
 			return "/shiftRegistration";
 		}
 	}
@@ -109,5 +107,43 @@ public class ShiftController {
 		model.addAttribute("shifts", shifts);
 		return "/allShifts";
 	}
+	
+	@RequestMapping(value = "/shiftSort",params = "Titli", method = RequestMethod.GET)
+	public String shiftSortTitle(Model model) {
+		LinkedList<Shift> list;
+		list = (LinkedList<Shift>) shiftService.allShiftsAscTitle();
+		model.addAttribute("shifts", list);
+		String activeSort = "title";
+		model.addAttribute("activeSort", activeSort);
+		return "/allShifts";
+	}
+	@RequestMapping(value = "/shiftSort",params = "Tegund", method = RequestMethod.GET)
+	public String shiftSortType(Model model) {
+		LinkedList<Shift> list;
+		list = (LinkedList<Shift>) shiftService.allShiftsAscType();
+		model.addAttribute("shifts", list);
+		String activeSort = "type";
+		model.addAttribute("activeSort", activeSort);
+		return "/allShifts";
+	}
+	@RequestMapping(value = "/shiftSort",params = "Dagsetningu", method = RequestMethod.GET)
+	public String shiftSortDate(Model model) {
+		LinkedList<Shift> list;
+		list = (LinkedList<Shift>) shiftService.allShiftsAscDate();
+		model.addAttribute("shifts", list);
+		String activeSort = "date";
+		model.addAttribute("activeSort", activeSort);
+		return "/allShifts";
+	}
+	@RequestMapping(value = "/shiftSort",params = "Upphafstíma", method = RequestMethod.GET)
+	public String shiftSortBegniTime(Model model) {
+		LinkedList<Shift> list;
+		list = (LinkedList<Shift>) shiftService.allShiftsAscBegintime();
+		model.addAttribute("shifts", list);
+		String activeSort = "beginTime";
+		model.addAttribute("activeSort", activeSort);
+		return "/allShifts";
+	}
+	
 
 }

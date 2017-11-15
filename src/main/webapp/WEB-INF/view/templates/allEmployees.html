@@ -12,34 +12,42 @@
 		<div th:replace="fragments/navBar :: header(allEmployees)"></div>
 		<h1 class="list_title">Starfsmannalisti</h1>
 
-		<form action="#" th:action="@{/employeeSearch}"
-			 method="POST">
+		<form action="#" th:action="@{/employeeSearch}" method="POST">
 			<div class="list_search_wrapper">
-				<label for="searchInput"> <i
-					class="fa fa-search"></i></label> <input class="list_input"
-					type="text" placeholder="Leit" name = "searchString"/> <input type="submit"
-					class="list_button" value="Leita" />
+				<label for="searchInput"> <i class="fa fa-search"></i></label> <input
+					class="list_input" type="text" placeholder="Leit"
+					name="searchString" /> <input type="submit" class="list_button"
+					value="Leita" />
 			</div>
 		</form>
+		
+		<form action="#" th:action="@{/employeeSort}" method="GET">
+			<h3 class="list_subTitle">Raða eftir:</h3>
+			<div class="list_empSortButtons_wrapper">
+				<input type="submit" class="list_sort_button" th:classappend="${ activeSort== 'name'}? 'activeSort' : ''" value="Nafni" name="Nafni" />
+				<input type="submit" class="list_sort_button" th:classappend="${ activeSort== 'title'}? 'activeSort' : ''" value="Starfstitli" name="Starfstitli" />	 
+				<input type="submit" class="list_sort_button" th:classappend="${ activeSort== 'size'}? 'activeSort' : ''" value="Bolastærð" name="Bolastærð" />	
+				<input type="submit" class="list_sort_button"  th:classappend="${ activeSort== 'age'}? 'activeSort' : ''" value="Aldri" name="Aldri" />	
+			</div>			 
+		</form>
+		
+		<div class="list_text">Smelltu <a href="#" th:href="@{/employeeShirts}">hér</a> til að sækja pöntunarlista fyrir boli.</div>
 
 
 		<table class="table">
 			<thead class="list_thead">
 				<tr>
-					<th class="list_th" ><i
-					class="fa fa-user"></i> Name</th>
-					<th class="list_th" ><i
-					class="fa fa-envelope"></i>Email</th>
-					<th class="list_th"><i
-					class="fa fa-briefcase"></i>Type</th>
-					<th class="list_th"><i
-					class="fa fa-pencil"></i>Size</th>
-					<th class="list_th"><i
-					class="fa fa-calendar"></i>Date</th>
+					<th class="list_th"><i class="fa fa-id-badge"></i>Auðkenni</th>
+					<th class="list_th"><i class="fa fa-user"></i> Nafn</th>
+					<th class="list_th"><i class="fa fa-envelope"></i>Netfang</th>
+					<th class="list_th"><i class="fa fa-briefcase"></i>Starfstitill</th>
+					<th class="list_th"><i class="fa fa-pencil"></i>Bolastærð</th>
+					<th class="list_th"><i class="fa fa-calendar"></i>Fæðgingardagur</th> 
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="employee: ${employees}">
+					<td class="list_td" th:text="${employee.id}" />
 					<td class="list_td" th:text="${employee.name}" />
 					<td class="list_td" th:text="${employee.email}" />
 					<td class="list_td" th:text="${employee.type}" />
@@ -49,6 +57,7 @@
 			</tbody>
 		</table>
 	</div>
+
 
 
 </body>

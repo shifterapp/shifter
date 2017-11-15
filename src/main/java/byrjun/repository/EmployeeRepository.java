@@ -37,12 +37,13 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	
 	/**
 	 * Finds employee by name and returns that employees.
-	 * @param nafn
+	 * @param name
 	 * @return list of employees with that name. 
 	 */
-	default LinkedList<Employee> findEmployee(String name, String email, String type){
-	return findByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrTypeContainingIgnoreCase(name,  email,  type);
-	}
+//	default LinkedList<Employee> findEmployee(String name, String email, String type){
+//	return findByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrTypeContainingIgnoreCase(name,  email,  type);
+//	}
+	
 	
 	/**
 	 * Returns employee with that id
@@ -52,11 +53,38 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	Employee findById(Long id);
 	
 	/**
+	 * Orders by name in ascending order
+	 */
+	LinkedList<Employee> findAllByOrderByNameAsc();
+	
+	/**
+	 * Orders by type in ascending order
+	 */
+	LinkedList<Employee> findAllByOrderByTypeAsc();
+	
+	/**
+	 * Orders by t-shirt in ascending order
+	 */
+	LinkedList<Employee> findAllByOrderBySizeAsc();
+	
+	/**
+	 * Orders by date in ascending order
+	 */
+	LinkedList<Employee> findAllByOrderByDateAsc();
+	
+	/**
 	 * Returns true if employee with given id exists.
 	 * @param id of employee
 	 * @return boolean value which states if employee with that id exists or not.
 	 */
 	boolean exists(Long id);
+	
+	/**
+	 * Returns the number of employees of a certain size
+	 * @param size of t-shirt for employees
+	 * @return the number of employees of that size
+	 */
+	int countBySize(String size);
 
 
 }

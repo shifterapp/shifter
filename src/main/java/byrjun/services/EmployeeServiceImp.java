@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import byrjun.model.Employee;
+import byrjun.model.ShirtSizes;
 import byrjun.repository.EmployeeRepository;
 
 /**
@@ -87,7 +88,29 @@ public class EmployeeServiceImp implements EmployeeService {
 	@Override
 	public LinkedList<Employee> allEmployees() {
 		return employeeRep.findAll();
+		
 	}
+	
+	@Override
+	public LinkedList<Employee> allEmployeesAscName() {
+		return employeeRep.findAllByOrderByNameAsc();
+	}
+	
+	@Override
+	public LinkedList<Employee> allEmployeesAscType() {
+		return employeeRep.findAllByOrderByTypeAsc();
+	}
+	
+	@Override
+	public LinkedList<Employee> allEmployeesAscSize() {
+		return employeeRep.findAllByOrderBySizeAsc();
+	}
+	
+	@Override
+	public LinkedList<Employee> allEmployeesAscDate() {
+		return employeeRep.findAllByOrderByDateAsc();
+	}
+	
 	
 	@Override 
 	public Employee getEmpById(Long empId) {
@@ -101,7 +124,34 @@ public class EmployeeServiceImp implements EmployeeService {
 
 	@Override
 	public LinkedList<Employee> searchForEmployee(String name, String email, String type) {
-		LinkedList<Employee> employees = employeeRep.findEmployee(name, email, type);
+		LinkedList<Employee> employees = employeeRep.findByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrTypeContainingIgnoreCase(name, email, type);
 		return employees;
+	}
+	@Override
+	public LinkedList<ShirtSizes> sizeCounts(){
+		LinkedList<ShirtSizes> shirtSizes = new LinkedList<ShirtSizes>();
+		int[] sizeCounts =  new int[7];
+		String[] sizes = {"XS","S","M","L","XL","XXL","XXXL"};
+		for(int i = 0; i < sizeCounts.length;i++){
+			sizeCounts[i] = employeeRep.countBySize(sizes[i]);
+		}
+		ShirtSizes XSSizes = new ShirtSizes("XS",sizeCounts[0]);
+		ShirtSizes SSizes = new ShirtSizes("S",sizeCounts[1]);
+		ShirtSizes MSizes = new ShirtSizes("M",sizeCounts[2]);
+		ShirtSizes LSizes = new ShirtSizes("L",sizeCounts[3]);
+		ShirtSizes XLSizes = new ShirtSizes("XL",sizeCounts[4]);
+		ShirtSizes XXLSizes = new ShirtSizes("XXL",sizeCounts[5]);
+		ShirtSizes XXXLSizes = new ShirtSizes("XXXL",sizeCounts[6]);
+		
+		shirtSizes.add(XSSizes);
+		shirtSizes.add(SSizes);
+		shirtSizes.add(MSizes);
+		shirtSizes.add(LSizes);
+		shirtSizes.add(XLSizes);
+		shirtSizes.add(XXLSizes);
+		shirtSizes.add(XXXLSizes);
+
+		
+		return shirtSizes;
 	}
 }

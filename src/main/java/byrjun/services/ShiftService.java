@@ -33,12 +33,6 @@ public interface ShiftService {
 	 */
 	public String getShiftErrorMessage(String date,String beginTime,String endTime,String shiftTitle, String howMany);
 	
-	/**
-	 * Checks if the shifts begins before it ends
-	 * @param beginTime,endTime
-	 * @return returns true if the shift begins 
-	 */
-	public boolean timeCorrect(String beginTime, String endTime);
 	
 	/**
 	 * Checks if the shift has a valid start time
@@ -79,6 +73,31 @@ public interface ShiftService {
 	 * @returns list of shifts in the shiftRepository.
 	 */
 	public LinkedList<Shift> allShifts();
+	
+	/**
+	 * Returns all shifts in the shiftRepository in ascending order by title.
+	 * @returns list of shifts in the shiftRepository in ascending order by title.
+	 */
+	public LinkedList<Shift> allShiftsAscTitle();
+	
+	/**
+	 * Returns all shifts in the shiftRepository in ascending order by type.
+	 * @returns list of shifts in the shiftRepository in ascending order by type.
+	 */
+	public LinkedList<Shift> allShiftsAscType();
+	
+	/**
+	 * Returns all shifts in the shiftRepository in ascending order by begin time.
+	 * @returns list of shifts in the shiftRepository in ascending order by begin time.
+	 */
+	public LinkedList<Shift> allShiftsAscBegintime();
+	
+	/**
+	 * Returns all shifts in the shiftRepository in ascending order by date.
+	 * @returns list of shifts in the shiftRepository in ascending order by date.
+	 */
+	public LinkedList<Shift> allShiftsAscDate();
+	
 	
 	/**
 	 * Returns list of employees that has searchString somewhere in the information about them
