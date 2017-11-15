@@ -62,7 +62,9 @@ public class ShiftAllocationController {
 	public String addEmpToShift(@Valid @ModelAttribute(name = "shiftAllocation") ShiftAllocation sa,
 			BindingResult bindingResult, ModelMap model) throws ParseException {
 		if (!bindingResult.hasErrors() && employeeService.checkIfEmpExists(Long.valueOf(sa.getEmpId()))
-				&& shiftService.checkIfShiftExists(Long.valueOf(sa.getShiftId()))) {
+				&& shiftService.checkIfShiftExists(Long.valueOf(sa.getShiftId())) 
+				&& shiftAllocationService.checkIfShiftIsFull(Integer.valueOf(sa.getShiftId())) 
+				&& shiftAllocationService.checkIfShiftAllocationExists(Integer.valueOf(sa.getEmpId()), Integer.valueOf(sa.getShiftId()))) {
 			model.addAttribute("shiftAllocation", sa);
 			Employee e = employeeService.getEmpById(Long.valueOf(sa.getEmpId()));
 			model.addAttribute("employee", e);
