@@ -54,7 +54,7 @@ public class ShiftAllocationController {
 	 * @return /shiftRegistration view.
 	 */
 	@RequestMapping("/shiftAllocation")
-	public String requestInpputValues(Model model) {
+	public String requestInputValues(Model model) {
 		ShiftAllocation sa = new ShiftAllocation();
 		model.addAttribute("shiftAllocation", sa);
 		return "/shiftAllocation";
@@ -127,29 +127,40 @@ public class ShiftAllocationController {
 
 	@RequestMapping(value = "/shiftSwitchInfo", method = RequestMethod.POST)
 	public String empSwitchShift(
-			@RequestParam(value = "empId1",required = false) String empId1,
-			@RequestParam(value = "empId2",required = false) String empId2,
-			@RequestParam(value = "shiftId1",required = false) String shiftId1,
-			@RequestParam(value = "shiftId2",required = false) String shiftId2,
-			 ModelMap model) throws ParseException {
-			Integer empIdInt1 = Integer.parseInt(empId1);
-			Integer empIdInt2 = Integer.parseInt(empId2);
-			Integer shiftIdInt1 = Integer.parseInt(shiftId1);
-			Integer shiftIdInt2 = Integer.parseInt(shiftId2);
-			ShiftSwitch ss = new ShiftSwitch(empIdInt1, shiftIdInt1, empIdInt2, shiftIdInt2);
-			Employee e = employeeService.getEmpById(Long.valueOf(ss.getEmpId1()));
-			model.addAttribute("employee", e);
-			Shift s = shiftService.getShiftById(Long.valueOf(ss.getShiftId1()));
-			model.addAttribute("shift", s);
-			Employee em = employeeService.getEmpById(Long.valueOf(ss.getEmpId2()));
-			model.addAttribute("employee", em);
-			Shift sh = shiftService.getShiftById(Long.valueOf(ss.getShiftId2()));
-			model.addAttribute("shift", sh);
-			shiftAllocationService.switchShifts(ss);
-			return "/shiftSwitchConfirmation";
-		} 
+		@RequestParam(value = "empId1",required = false) String empId1,
+		@RequestParam(value = "empId2",required = false) String empId2,
+		@RequestParam(value = "shiftId1",required = false) String shiftId1,
+		@RequestParam(value = "shiftId2",required = false) String shiftId2,
+		 ModelMap model) throws ParseException {
+	
+		Integer empIdInt1 = Integer.parseInt(empId1);
+		Integer empIdInt2 = Integer.parseInt(empId2);
+		Integer shiftIdInt1 = Integer.parseInt(shiftId1);
+		Integer shiftIdInt2 = Integer.parseInt(shiftId2);
+		ShiftSwitch ss = new ShiftSwitch(empIdInt1, shiftIdInt1, empIdInt2, shiftIdInt2);
 		
-		
-	}
-
-
+		if(shiftService.checkIfShiftExists(Long.valueOf(ss.getShiftId1())) &&
+			shiftService.checkIfShiftExists(Long.valueOf(ss.getShiftId2())) &&
+			employeeService.checkIfEmpExists(Long.valueOf(ss.getEmpId1())) &&
+			employeeService.checkIfEmpExists(Long.valueOf(ss.getEmpId2())) &&
+			shiftAllocationService.checkIfShiftIsFull(Integer.valueOf(ss.getShiftId1())) &&
+			shiftAllocationService.checkIfShiftIsFull(Integer.valueOf(ss.getShiftId2()))){
+			
+		Employee e = employeeService.getEmpById(Long.valueOf(ss.getEmpId1()));
+		model.addAttribute("employee", e);
+		Shift s = shiftService.getShiftById(Long.valueOf(ss.getShiftId1()));
+		model.addAttribute("shift", s);
+		Employee em = employeeService.getEmpById(Long.valueOf(ss.getEmpId2()));
+		model.addAttribute("employee", em);
+		Shift sh = shiftService.getShiftById(Long.valueOf(ss.getShiftId2()));
+		model.addAttribute("shift", sh);
+		shiftAllocationService.switchShifts(ss);
+		return "/shiftSwitchConfirmation";
+		} else {
+			String errorMessage = "errorMessage";
+			model.addAttribute("errorMessage", errorMessage);
+			return "/shiftSwitch";
+		}
+	} 
+				
+}
