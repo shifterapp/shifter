@@ -74,6 +74,10 @@ public class Employee {
 	}
 	
 	//Getters og setters for Employee.
+	
+	public Long getId(){
+		return id;
+	}
 
 	public String getName() {
 		return name;

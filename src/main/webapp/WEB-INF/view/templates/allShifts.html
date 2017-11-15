@@ -36,6 +36,8 @@
 			<thead class="list_thead">
 				<tr>
 					<th class="list_th" ><i
+					class="	fa fa-id-card"></i>Auðkenni</th>
+					<th class="list_th" ><i
 					class="	fa fa-id-badge"></i>Titill vaktar</th>
 					<th class="list_th" ><i
 					class="fa fa-briefcase"></i>Tegund vaktar</th>
@@ -51,6 +53,7 @@
 			</thead>
 			<tbody>
 				<tr th:each="shift: ${shifts}">
+					<td th:text="${shift.id}" />
 					<td th:text="${shift.title}" />
 					<td th:text="${shift.type}" />
 					<td th:text="${shift.date}" />
