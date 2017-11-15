@@ -37,15 +37,17 @@
 		<table class="table">
 			<thead class="list_thead">
 				<tr>
+					<th class="list_th"><i class="fa fa-id-badge"></i>Auðkenni</th>
 					<th class="list_th"><i class="fa fa-user"></i> Nafn</th>
 					<th class="list_th"><i class="fa fa-envelope"></i>Netfang</th>
 					<th class="list_th"><i class="fa fa-briefcase"></i>Starfstitill</th>
 					<th class="list_th"><i class="fa fa-pencil"></i>Bolastærð</th>
-					<th class="list_th"><i class="fa fa-calendar"></i>Fæðgingardagur</th>
+					<th class="list_th"><i class="fa fa-calendar"></i>Fæðgingardagur</th> 
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="employee: ${employees}">
+					<td class="list_td" th:text="${employee.id}" />
 					<td class="list_td" th:text="${employee.name}" />
 					<td class="list_td" th:text="${employee.email}" />
 					<td class="list_td" th:text="${employee.type}" />
