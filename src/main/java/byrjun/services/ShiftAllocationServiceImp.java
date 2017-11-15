@@ -71,16 +71,12 @@ public class ShiftAllocationServiceImp implements ShiftAllocationService {
 		ShiftAllocation change2 = new ShiftAllocation();
 		
 		change1.setEmpId(switchShifts.getEmpId1());
-		System.out.println("Service getEmpId1: " + switchShifts.getEmpId1());
 		
 		change1.setShiftId(switchShifts.getShiftId2());
-		System.out.println("Service getShiftId2: " + switchShifts.getShiftId2());
 		
 		change2.setEmpId(switchShifts.getEmpId2());
-		System.out.println("Service getEmpId2: " + switchShifts.getEmpId2());
 		
 		change2.setShiftId(switchShifts.getShiftId1());
-		System.out.println("Service getShiftId1: " + switchShifts.getShiftId1());
 		
 		shiftAllocationRep.save(change1);
 		shiftAllocationRep.save(change2);

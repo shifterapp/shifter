@@ -69,7 +69,6 @@ public class ShiftAllocationController {
 				&& shiftAllocationService.checkIfShiftAllocationExists(Integer.valueOf(sa.getEmpId()), Integer.valueOf(sa.getShiftId()))) {
 			model.addAttribute("shiftAllocation", sa);
 			Employee e = employeeService.getEmpById(Long.valueOf(sa.getEmpId()));
-			System.out.println(Long.valueOf(sa.getEmpId()));
 			model.addAttribute("employee", e);
 			Shift s = shiftService.getShiftById(Long.valueOf(sa.getShiftId()));
 			model.addAttribute("shift", s);
