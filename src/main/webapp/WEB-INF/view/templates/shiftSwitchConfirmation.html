@@ -2,13 +2,56 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 
-<object th:include="fragments/bootstrapHead :: bootstrapHead" th:remove="tag" />
+<object th:include="fragments/bootstrapHead :: bootstrapHead"
+	th:remove="tag" />
 
-<link rel="stylesheet" href="/resources/styles/confirmation.css" />
-<div th:replace="fragments/navBar :: header(shiftAllocation)"></div>
+<link rel="stylesheet" href="/resources/statics/css/confirmation.css" />
+<div th:replace="fragments/navBar :: header(shiftSwitch)"></div>
 
 </head>
 <body>
-	<h1>Starfsmenn hafa skipt um vaktir!</h1>
+	<div class="shiftSwitch_confirmation">
+		<div class="confirmation_switch_wrapper">
+			<h1 class="confirmation_title">Starfsmenn hafa skipt um vaktir!</h1>
+			<div class="confirmation_info">
+				<h2 class="confirmation_subTitle">Fyrri starfsmaður</h2>
+				<h3 class="confirmation_text">
+					Nafn: <span th:text="${emp1.name}" />
+				</h3>
+				<h3 class="confirmation_text">
+					Starfsmannaauðkenni: <span th:text="${emp1.id}" />
+				</h3>
+				<h3 class="confirmation_text">
+					Email: <span th:text="${emp1.email}" />
+				</h3>
+				<h2 class="confirmation_subTitle">Vakt fyrri starfsmanns</h2>
+				<h3 class="confirmation_text">
+					Titill: <span th:text="${shift1.title}" />
+				</h3>
+				<h3 class="confirmation_text">
+					Vaktarauðkenni: <span th:text="${shift1.id}" />
+				</h3>
+			</div>
+			<div class="confirmation_info">
+				<h2 class="confirmation_subTitle">Seinni starfsmaður</h2>
+				<h3 class="confirmation_text">
+					Nafn: <span th:text="${emp2.name}" />
+				</h3>
+				<h3 class="confirmation_text">
+					Starfsmannaauðkenni: <span th:text="${emp2.id}" />
+				</h3>
+				<h3 class="confirmation_text">
+					Email: <span th:text="${emp2.email}" />
+				</h3>
+				<h2 class="confirmation_subTitle">Vakt seinni starfsmanns</h2>
+				<h3 class="confirmation_text">
+					Titill: <span th:text="${shift2.title}" />
+				</h3>
+				<h3 class="confirmation_text">
+					Vaktarauðkenni: <span th:text="${shift2.id}" />
+				</h3>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

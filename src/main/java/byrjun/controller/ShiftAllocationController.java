@@ -145,14 +145,14 @@ public class ShiftAllocationController {
 			shiftAllocationService.checkIfShiftIsFull(Integer.valueOf(ss.getShiftId1())) &&
 			shiftAllocationService.checkIfShiftIsFull(Integer.valueOf(ss.getShiftId2()))){
 			
-		Employee e = employeeService.getEmpById(Long.valueOf(ss.getEmpId1()));
-		model.addAttribute("employee", e);
-		Shift s = shiftService.getShiftById(Long.valueOf(ss.getShiftId1()));
-		model.addAttribute("shift", s);
-		Employee em = employeeService.getEmpById(Long.valueOf(ss.getEmpId2()));
-		model.addAttribute("employee", em);
-		Shift sh = shiftService.getShiftById(Long.valueOf(ss.getShiftId2()));
-		model.addAttribute("shift", sh);
+		Employee emp1 = employeeService.getEmpById(Long.valueOf(ss.getEmpId1()));
+		model.addAttribute("emp1", emp1);
+		Shift shift1 = shiftService.getShiftById(Long.valueOf(ss.getShiftId1()));
+		model.addAttribute("shift1", shift1);
+		Employee emp2 = employeeService.getEmpById(Long.valueOf(ss.getEmpId2()));
+		model.addAttribute("emp2", emp2);
+		Shift shift2 = shiftService.getShiftById(Long.valueOf(ss.getShiftId2()));
+		model.addAttribute("shift2", shift2);
 		shiftAllocationService.switchShifts(ss);
 		return "/shiftSwitchConfirmation";
 		} else {
