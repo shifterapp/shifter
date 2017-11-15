@@ -10,40 +10,47 @@
 <body>
 	<div class="shiftAllocation_registration">
 		<div th:replace="fragments/navBar :: header(shiftSwitch)"></div>
-		<div class="registration_wrapper">
+		<div class="registration_switch_wrapper">
 			<h1 class="registration_header">Vaktaskipti starfsmanna</h1>
 			<div
 				th:class="${#strings.isEmpty(errorMessage)} ? '' : 'registration_errormessage'">
 				<span th:text="${errorMessage}" />
 			</div>
-			
-			<form action="#" th:action="@{/shiftSwitchInfo}" th:object="${shiftSwitch}" method="POST">
-			
-				<div class="registration_input_wrapper">
-					<label class="registration_icon" for="employeeId"> <i
-						class="fa fa-id-card-o"></i></label> <input class="registration_input"
-						type="text" placeholder="Auðkenni fyrri starfsmanns" name="empId1" />
+			<form action="#" th:action="@{/shiftSwitchInfo}"
+				th:object="${shiftSwitch}" method="POST">
+				<div class="registration_inner_wrapper">
+				<div class="registration_id_wrapper">
+					<div class="registration_input_wrapper switchInputWrapper">
+						<label class="registration_icon" for="employeeId"> <i
+							class="fa fa-id-card-o"></i></label> <input class="registration_input switchInput"
+							type="text" placeholder="Auðkenni fyrri starfsmanns"
+							name="empId1" />
+					</div>
+
+					<div class="registration_input_wrapper switchInputWrapper">
+						<label class="registration_icon" for="shiftId"> <i
+							class="fa fa-briefcase"></i></label> <input class="registration_input switchInput"
+							type="text" placeholder="Vaktaauðkenni fyrri starfsmanns"
+							name="shiftId1" />
+					</div>
 				</div>
-				
-				<div class="registration_input_wrapper">
-					<label class="registration_icon" for="shiftId"> <i
-						class="fa fa-briefcase"></i></label> <input class="registration_input"
-						type="text" placeholder="Vaktaauðkenni fyrri starfsmanns" name="shiftId1" />
-				</div>		
-				
-				<div class="registration_input_wrapper">
-					<label class="registration_icon" for="employeeId"> <i
-						class="fa fa-id-card-o"></i></label> <input class="registration_input"
-						type="text" placeholder="Auðkenni seinni starfsmanns" name="empId2" />
+				<div class="registration_id_wrapper">
+					<div class="registration_input_wrapper switchInputWrapper">
+						<label class="registration_icon" for="employeeId"> <i
+							class="fa fa-id-card-o"></i></label> <input class="registration_input switchInput"
+							type="text" placeholder="Auðkenni seinni starfsmanns"
+							name="empId2" />
+					</div>
+
+					<div class="registration_input_wrapper switchInputWrapper">
+						<label class="registration_icon" for="shiftId"> <i
+							class="fa fa-briefcase"></i></label> <input class="registration_input switchInput"
+							type="text" placeholder="Vaktaauðkenni seinni starfsmanns"
+							name="shiftId2" />
+					</div>
+					</div>
 				</div>
-				
-				<div class="registration_input_wrapper">
-					<label class="registration_icon" for="shiftId"> <i
-						class="fa fa-briefcase"></i></label> <input class="registration_input"
-						type="text" placeholder="Vaktaauðkenni seinni starfsmanns" name="shiftId2" />
-				</div>
-				
-				<input type="submit" class="registration_button" value="Submit" />
+				<input type="submit" class="registration_switch_button" value="Skipta" />
 			</form>
 		</div>
 	</div>
