@@ -21,22 +21,17 @@
 			</div>
 		</form>
 		
-		<form action="#" th:action="@{/employeeShirts}" method="GET">
-			<div class="list_search_wrapper">
-				<input type="submit" style= "width: 100%" class="list_button"
-					value="Sækja pöntunarlista fyrir boli" />
-			</div>
-		</form>
-		
 		<form action="#" th:action="@{/employeeSort}" method="GET">
-			<h3 class="list_title">Raða eftir:</h3>
-			<div class="list_search_wrapper">
-				<input type="submit" class="list_button" value="Nafni" name="Nafni" style= "width: 23%"/>
-				<input type="submit" class="list_button" value="Starfstitli" name="Starfstitli" style= "width: 23%"/>	 
-				<input type="submit" class="list_button" value="Bolastærð" name="Bolastærð" style= "width: 23%"/>	
-				<input type="submit" class="list_button" value="Aldri" name="Aldri" style= "width: 23%"/>	
+			<h3 class="list_subTitle">Raða eftir:</h3>
+			<div class="list_empSortButtons_wrapper">
+				<input type="submit" class="list_sort_button" th:classappend="${ activeSort== 'name'}? 'activeSort' : ''" value="Nafni" name="Nafni" />
+				<input type="submit" class="list_sort_button" th:classappend="${ activeSort== 'title'}? 'activeSort' : ''" value="Starfstitli" name="Starfstitli" />	 
+				<input type="submit" class="list_sort_button" th:classappend="${ activeSort== 'size'}? 'activeSort' : ''" value="Bolastærð" name="Bolastærð" />	
+				<input type="submit" class="list_sort_button"  th:classappend="${ activeSort== 'age'}? 'activeSort' : ''" value="Aldri" name="Aldri" />	
 			</div>			 
 		</form>
+		
+		<div class="list_text">Smelltu <a href="#" th:href="@{/employeeShirts}">hér</a> til að sækja pöntunarlista fyrir boli.</div>
 
 
 		<table class="table">

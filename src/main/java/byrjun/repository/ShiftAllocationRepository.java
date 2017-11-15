@@ -29,5 +29,13 @@ public interface ShiftAllocationRepository extends JpaRepository<ShiftAllocation
 	 */
 	LinkedList<ShiftAllocation> findByShiftId(Integer shiftId);
 	
+	LinkedList<ShiftAllocation> findByShiftIdAndEmpId(Integer shiftId, Integer empId);
+	
+	int countByShiftId(int id);
+	
+	
+	
+	
+	
 
 }

@@ -124,7 +124,7 @@ public class EmployeeServiceImp implements EmployeeService {
 
 	@Override
 	public LinkedList<Employee> searchForEmployee(String name, String email, String type) {
-		LinkedList<Employee> employees = employeeRep.findEmployee(name, email, type);
+		LinkedList<Employee> employees = employeeRep.findByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrTypeContainingIgnoreCase(name, email, type);
 		return employees;
 	}
 	@Override
